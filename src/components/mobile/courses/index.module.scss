@@ -177,22 +177,23 @@
         .stageMeta {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
 
             .badge {
                 background-color: #15cca3;
                 color: #ffffff;
-                font-size: 12.5px;
+                font-size: 14px;
                 font-weight: 700;
-                padding: 4px 10px;
-                border-radius: 6px;
+                padding: 6px 12px;
+                border-radius: 8px;
                 white-space: nowrap;
             }
 
             .icon {
-                color: #959595;
+                color: #ffffff;
                 display: flex;
                 align-items: center;
+                justify-content: center;
             }
         }
     }

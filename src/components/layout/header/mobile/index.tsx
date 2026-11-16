@@ -11,6 +11,12 @@ interface MobileHeaderProps {
     header: HeaderData;
 }
 
+const mobileNavLinks = [
+    { id: "video", label: "Video", href: "#video" },
+    { id: "courses", label: "Khoá học", href: "#khoahoc" },
+    { id: "banner", label: "Banner", href: "#banner" },
+];
+
 export default function MobileHeader({ header }: MobileHeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -97,9 +103,9 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                             />
                         </div>
 
-                        {/* Danh sách Menu điều hướng */}
+                        {/* Danh sách Menu điều hướng riêng cho Mobile (Video, Khoá học, Banner) */}
                         <nav className={styles.navMenu}>
-                            {header.navLinks.map((link) => (
+                            {mobileNavLinks.map((link) => (
                                 <Link
                                     key={link.id}
                                     href={link.href}
@@ -107,7 +113,6 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                     onClick={(e) => handleNavClick(e, link.href)}
                                 >
                                     <span>{link.label}</span>
-                                    {link.hasDropdown && <ChevronDown size={16} />}
                                 </Link>
                             ))}
                         </nav>

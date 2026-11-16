@@ -121,6 +121,8 @@ export default function MobileCourses({ data }: MobileCoursesProps) {
 
     return (
         <section id="khoahoc" className={styles.mobileCoursesSection}>
+            <span id="courses" />
+            <span id="course" />
             <span id="khoa-hoc" />
             <span id="goc-hoc-vien" />
             <span id="blog" />

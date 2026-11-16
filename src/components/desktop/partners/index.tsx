@@ -16,7 +16,7 @@ export default function PartnersSection({ data }: PartnersSectionProps) {
     if (!data?.partners?.length) return null;
 
     return (
-        <section className={styles.partnersSection}>
+        <section id="doi-tac" className={styles.partnersSection}>
             <div className={styles.container}>
                 <SectionHeader subtitle={data.subtitle} title={data.title} />
 

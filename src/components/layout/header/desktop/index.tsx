@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Search, ChevronDown } from "lucide-react";
@@ -9,12 +11,28 @@ interface DesktopHeaderProps {
 }
 
 export default function DesktopHeader({ header }: DesktopHeaderProps) {
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href === "/" || href === "#trang-chu") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.history.pushState(null, "", "/");
+        } else if (href.startsWith("#")) {
+            e.preventDefault();
+            const targetId = href.replace("#", "");
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+                window.history.pushState(null, "", href);
+            }
+        }
+    };
+
     return (
         <header className={styles.header}>
             <div className={styles.container}>
                 {/* Khối Trái: Logo & Search */}
                 <div className={styles.leftGroup}>
-                    <Link href="/" className={styles.logo}>
+                    <Link href="/" className={styles.logo} onClick={(e) => handleNavClick(e, "/")}>
                         <Image
                             src="/logo.svg"
                             alt="ilearning School Logo"
@@ -41,7 +59,12 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                 <div className={styles.rightGroup}>
                     <nav className={styles.navMenu}>
                         {header.navLinks.map((link) => (
-                            <Link key={link.id} href={link.href} className={styles.navLink}>
+                            <Link
+                                key={link.id}
+                                href={link.href}
+                                className={styles.navLink}
+                                onClick={(e) => handleNavClick(e, link.href)}
+                            >
                                 <span>{link.label}</span>
                                 {link.hasDropdown && <ChevronDown size={16} />}
                             </Link>
@@ -50,11 +73,19 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
 
                     <div className={styles.divider} />
 
-                    <Link href={header.loginButton.href} className={styles.loginLink}>
+                    <Link
+                        href={header.loginButton.href}
+                        className={styles.loginLink}
+                        onClick={(e) => handleNavClick(e, header.loginButton.href)}
+                    >
                         {header.loginButton.label}
                     </Link>
 
-                    <Link href={header.signButton.href} className={styles.signBtn}>
+                    <Link
+                        href={header.signButton.href}
+                        className={styles.signBtn}
+                        onClick={(e) => handleNavClick(e, header.signButton.href)}
+                    >
                         {header.signButton.label}
                     </Link>
                 </div>

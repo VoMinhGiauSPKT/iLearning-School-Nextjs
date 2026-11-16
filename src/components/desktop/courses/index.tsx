@@ -20,7 +20,8 @@ export default function CoursesSection({ data }: CoursesSectionProps) {
     const allCourses = [data.featuredCourse, ...(data.courseList || [])].filter(Boolean);
 
     return (
-        <section className={styles.coursesSection}>
+        <section id="khoahoc" className={styles.coursesSection}>
+            <span id="khoa-hoc" />
             <div className={styles.container}>
                 {/* Tiêu đề render bằng Server Component */}
                 <SectionHeader subtitle={data.subtitle} title={data.title} />

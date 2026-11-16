@@ -17,7 +17,7 @@ export default function TestimonialsSection({ data }: TestimonialsSectionProps) 
     if (!data?.testimonials?.length) return null;
 
     return (
-        <section className={styles.testimonialsSection}>
+        <section id="goc-hoc-vien" className={styles.testimonialsSection}>
             <div className={styles.container}>
                 <SectionHeader subtitle={data.subtitle} title={data.title} />
 

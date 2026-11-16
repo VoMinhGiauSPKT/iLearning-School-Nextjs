@@ -120,7 +120,11 @@ export default function MobileCourses({ data }: MobileCoursesProps) {
     const allCourses = [data.featuredCourse, ...(data.courseList || [])].filter(Boolean);
 
     return (
-        <section className={styles.mobileCoursesSection}>
+        <section id="khoahoc" className={styles.mobileCoursesSection}>
+            <span id="khoa-hoc" />
+            <span id="goc-hoc-vien" />
+            <span id="blog" />
+            <span id="giang-vien" />
             {/* Tiêu đề phần khóa học */}
             <div className={styles.header}>
                 <p className={styles.subtitle}>{data.subtitle}</p>

@@ -26,7 +26,7 @@ export default function Slider({ data }: SliderProps) {
     const currentSlide = slides[currentIndex];
 
     return (
-        <section className={styles.sliderWrapper}>
+        <section id="trang-chu" className={styles.sliderWrapper}>
             <div
                 className={styles.sliderContainer}
                 style={{ backgroundImage: `url(${currentSlide.backgroundImage})` }}

@@ -22,11 +22,34 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
         setIsMenuOpen(false);
     };
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        closeMenu();
+        if (href === "/" || href === "#trang-chu") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.history.pushState(null, "", "/");
+        } else if (href.startsWith("#")) {
+            e.preventDefault();
+            const targetId = href.replace("#", "");
+            setTimeout(() => {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", href);
+                }
+            }, 120);
+        }
+    };
+
     return (
         <header className={styles.mobileHeader}>
             <div className={styles.container}>
                 {/* Logo thương hiệu */}
-                <Link href="/" className={styles.logo} onClick={closeMenu}>
+                <Link
+                    href="/"
+                    className={styles.logo}
+                    onClick={(e) => handleNavClick(e, "/")}
+                >
                     <Image
                         src="/logo.svg"
                         alt="Logo"
@@ -42,7 +65,11 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
 
                 {/* Nhóm nút bên phải: Nút Tư vấn + Nút Menu Hamburger xanh ngọc */}
                 <div className={styles.rightActions}>
-                    <Link href="#tu-van" className={styles.consultBtn}>
+                    <Link
+                        href="#tu-van"
+                        className={styles.consultBtn}
+                        onClick={(e) => handleNavClick(e, "#tu-van")}
+                    >
                         Liên hệ tư vấn
                     </Link>
 
@@ -76,7 +103,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                 key={link.id}
                                 href={link.href}
                                 className={styles.navLink}
-                                onClick={closeMenu}
+                                onClick={(e) => handleNavClick(e, link.href)}
                             >
                                 <span>{link.label}</span>
                                 {link.hasDropdown && <ChevronDown size={16} />}
@@ -89,14 +116,14 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                         <Link
                             href={header.loginButton.href}
                             className={styles.loginBtn}
-                            onClick={closeMenu}
+                            onClick={(e) => handleNavClick(e, header.loginButton.href)}
                         >
                             {header.loginButton.label}
                         </Link>
                         <Link
                             href={header.signButton.href}
                             className={styles.signBtn}
-                            onClick={closeMenu}
+                            onClick={(e) => handleNavClick(e, header.signButton.href)}
                         >
                             {header.signButton.label}
                         </Link>

@@ -9,7 +9,7 @@ export default function BannerSection({ banner }: BannerSectionProps) {
     if (!banner) return null;
 
     return (
-        <section className={styles.bannerSection}>
+        <section id="tu-van" className={styles.bannerSection}>
             <div className={styles.container}>
                 <div className={styles.bannerCard}>
                     <h2 className={styles.title}>{banner.title}</h2>

@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 86px;
+}
+
 html,
 body {
   background-color: #0b1219;
@@ -15,6 +20,12 @@ body {
   /* Ẩn thanh cuộn trên Firefox và IE/Edge cũ */
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+section[id],
+div[id],
+span[id] {
+  scroll-margin-top: 86px;
 }
 
 a {

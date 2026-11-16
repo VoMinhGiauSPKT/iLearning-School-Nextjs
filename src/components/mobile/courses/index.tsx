@@ -84,7 +84,7 @@ function MobileCourseItem({
                                         <div className={styles.stageMeta}>
                                             <span className={styles.badge}>{stage.duration}</span>
                                             <span className={styles.icon}>
-                                                {isStageOpen ? <Minus size={22} /> : <Plus size={22} />}
+                                                {isStageOpen ? <Minus size={26} /> : <Plus size={26} />}
                                             </span>
                                         </div>
                                     </button>

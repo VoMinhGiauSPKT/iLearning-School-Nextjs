@@ -21,7 +21,6 @@ export default function CoursesSection({ data }: CoursesSectionProps) {
 
     return (
         <section id="khoahoc" className={styles.coursesSection}>
-            <span id="khoa-hoc" />
             <div className={styles.container}>
                 {/* Tiêu đề render bằng Server Component */}
                 <SectionHeader subtitle={data.subtitle} title={data.title} />

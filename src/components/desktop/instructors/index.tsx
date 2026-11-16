@@ -17,8 +17,7 @@ export default function InstructorsSection({ data }: InstructorsSectionProps) {
     if (!data?.instructors?.length) return null;
 
     return (
-        <section id="giang-vien" className={styles.instructorsSection}>
-            <span id="blog" />
+        <section id="blog" className={styles.instructorsSection}>
             <div className={styles.container}>
                 <SectionHeader subtitle={data.subtitle} title={data.title} />
 

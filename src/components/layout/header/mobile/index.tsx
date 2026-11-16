@@ -11,12 +11,6 @@ interface MobileHeaderProps {
     header: HeaderData;
 }
 
-const mobileNavLinks = [
-    { id: "video", label: "Video", href: "#video" },
-    { id: "courses", label: "Khoá học", href: "#khoahoc" },
-    { id: "banner", label: "Banner", href: "#banner" },
-];
-
 export default function MobileHeader({ header }: MobileHeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -46,6 +40,12 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
             }, 120);
         }
     };
+
+    // Chỉ giữ đúng 3 mục tương ứng với giao diện mobile, chữ đồng bộ 100% với Desktop
+    const mobileAllowedLabels = ["Trang chủ", "Khoá học", "Giới thiệu"];
+    const mobileNavLinks = header.navLinks.filter((link) =>
+        mobileAllowedLabels.includes(link.label)
+    );
 
     return (
         <>
@@ -103,7 +103,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                             />
                         </div>
 
-                        {/* Danh sách Menu điều hướng riêng cho Mobile (Video, Khoá học, Banner) */}
+                        {/* Danh sách Menu điều hướng: đúng 3 mục đồng bộ chữ 100% với Desktop */}
                         <nav className={styles.navMenu}>
                             {mobileNavLinks.map((link) => (
                                 <Link
@@ -113,11 +113,12 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                     onClick={(e) => handleNavClick(e, link.href)}
                                 >
                                     <span>{link.label}</span>
+                                    {link.hasDropdown && <ChevronDown size={18} />}
                                 </Link>
                             ))}
                         </nav>
 
-                        {/* Nút Đăng nhập & Đăng ký */}
+                        {/* Nút Đăng nhập & Đăng ký đồng bộ với Desktop */}
                         <div className={styles.authGroup}>
                             <Link
                                 href={header.loginButton.href}

@@ -121,12 +121,6 @@ export default function MobileCourses({ data }: MobileCoursesProps) {
 
     return (
         <section id="khoahoc" className={styles.mobileCoursesSection}>
-            <span id="courses" />
-            <span id="course" />
-            <span id="khoa-hoc" />
-            <span id="goc-hoc-vien" />
-            <span id="blog" />
-            <span id="giang-vien" />
             {/* Tiêu đề phần khóa học */}
             <div className={styles.header}>
                 <p className={styles.subtitle}>{data.subtitle}</p>

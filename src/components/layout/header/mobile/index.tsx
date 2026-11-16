@@ -42,94 +42,97 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
     };
 
     return (
-        <header className={styles.mobileHeader}>
-            <div className={styles.container}>
-                {/* Logo thương hiệu */}
-                <Link
-                    href="/"
-                    className={styles.logo}
-                    onClick={(e) => handleNavClick(e, "/")}
-                >
-                    <Image
-                        src="/logo.svg"
-                        alt="Logo"
-                        width={36}
-                        height={32}
-                        priority
-                    />
-                    <div className={styles.brandText}>
-                        <span>{header.brand.title}</span>
-                        <span>{header.brand.subtitle}</span>
-                    </div>
-                </Link>
-
-                {/* Nhóm nút bên phải: Nút Tư vấn + Nút Menu Hamburger xanh ngọc */}
-                <div className={styles.rightActions}>
+        <>
+            <header className={styles.mobileHeader}>
+                <div className={styles.container}>
+                    {/* Logo thương hiệu */}
                     <Link
-                        href="#tu-van"
-                        className={styles.consultBtn}
-                        onClick={(e) => handleNavClick(e, "#tu-van")}
+                        href="/"
+                        className={styles.logo}
+                        onClick={(e) => handleNavClick(e, "/")}
                     >
-                        Liên hệ tư vấn
+                        <Image
+                            src="/logo.svg"
+                            alt="Logo"
+                            width={36}
+                            height={32}
+                            priority
+                        />
+                        <div className={styles.brandText}>
+                            <span>{header.brand.title}</span>
+                            <span>{header.brand.subtitle}</span>
+                        </div>
                     </Link>
 
-                    <button
-                        type="button"
-                        onClick={toggleMenu}
-                        className={styles.menuBtn}
-                        aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
-                    >
-                        {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-                    </button>
-                </div>
-            </div>
+                    {/* Nhóm nút bên phải: Nút Tư vấn + Nút Menu Hamburger xanh ngọc */}
+                    <div className={styles.rightActions}>
+                        <Link
+                            href="#tu-van"
+                            className={styles.consultBtn}
+                            onClick={(e) => handleNavClick(e, "#tu-van")}
+                        >
+                            Liên hệ tư vấn
+                        </Link>
 
-            {/* Menu Drawer trượt xuống khi bấm nút hamburger */}
-            {isMenuOpen && (
-                <div className={styles.menuDrawer}>
-                    {/* Ô tìm kiếm nhanh */}
-                    <div className={styles.searchBox}>
-                        <Search className={styles.searchIcon} size={18} />
-                        <input
-                            type="text"
-                            placeholder={header.searchPlaceholder}
-                        />
+                        <button
+                            type="button"
+                            onClick={toggleMenu}
+                            className={styles.menuBtn}
+                            aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
+                        >
+                            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                        </button>
                     </div>
+                </div>
 
-                    {/* Danh sách Menu điều hướng */}
-                    <nav className={styles.navMenu}>
-                        {header.navLinks.map((link) => (
+                {/* Menu Drawer trượt xuống khi bấm nút hamburger */}
+                {isMenuOpen && (
+                    <div className={styles.menuDrawer}>
+                        {/* Ô tìm kiếm nhanh */}
+                        <div className={styles.searchBox}>
+                            <Search className={styles.searchIcon} size={18} />
+                            <input
+                                type="text"
+                                placeholder={header.searchPlaceholder}
+                            />
+                        </div>
+
+                        {/* Danh sách Menu điều hướng */}
+                        <nav className={styles.navMenu}>
+                            {header.navLinks.map((link) => (
+                                <Link
+                                    key={link.id}
+                                    href={link.href}
+                                    className={styles.navLink}
+                                    onClick={(e) => handleNavClick(e, link.href)}
+                                >
+                                    <span>{link.label}</span>
+                                    {link.hasDropdown && <ChevronDown size={16} />}
+                                </Link>
+                            ))}
+                        </nav>
+
+                        {/* Nút Đăng nhập & Đăng ký */}
+                        <div className={styles.authGroup}>
                             <Link
-                                key={link.id}
-                                href={link.href}
-                                className={styles.navLink}
-                                onClick={(e) => handleNavClick(e, link.href)}
+                                href={header.loginButton.href}
+                                className={styles.loginBtn}
+                                onClick={(e) => handleNavClick(e, header.loginButton.href)}
                             >
-                                <span>{link.label}</span>
-                                {link.hasDropdown && <ChevronDown size={16} />}
+                                {header.loginButton.label}
                             </Link>
-                        ))}
-                    </nav>
-
-                    {/* Nút Đăng nhập & Đăng ký */}
-                    <div className={styles.authGroup}>
-                        <Link
-                            href={header.loginButton.href}
-                            className={styles.loginBtn}
-                            onClick={(e) => handleNavClick(e, header.loginButton.href)}
-                        >
-                            {header.loginButton.label}
-                        </Link>
-                        <Link
-                            href={header.signButton.href}
-                            className={styles.signBtn}
-                            onClick={(e) => handleNavClick(e, header.signButton.href)}
-                        >
-                            {header.signButton.label}
-                        </Link>
+                            <Link
+                                href={header.signButton.href}
+                                className={styles.signBtn}
+                                onClick={(e) => handleNavClick(e, header.signButton.href)}
+                            >
+                                {header.signButton.label}
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            )}
-        </header>
+                )}
+            </header>
+            <div className={styles.headerPlaceholder} />
+        </>
     );
 }

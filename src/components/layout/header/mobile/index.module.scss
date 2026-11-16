@@ -1,7 +1,9 @@
 .mobileHeader {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     width: 100%;
     background-color: #0b1219;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -83,6 +85,8 @@
 /* Khối Menu Drawer xổ xuống */
 .menuDrawer {
     width: 100%;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
     background-color: #0b1219;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 16px;
@@ -202,4 +206,9 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.headerPlaceholder {
+    height: 64px;
+    width: 100%;
 }

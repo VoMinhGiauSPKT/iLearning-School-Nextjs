@@ -4,7 +4,7 @@ import Header from "@/components/layout/header";
 import { getLandingPageData } from "@/services/landing.service";
 import { getIsMobile } from "@/lib/device";
 
-export const instant = false;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "ilearning School - Đào Tạo Lập Trình",

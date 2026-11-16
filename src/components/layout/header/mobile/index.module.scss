@@ -1,0 +1,205 @@
+.mobileHeader {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: #0b1219;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    .container {
+        width: 100%;
+        height: 64px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+
+        .brandText {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+
+            span {
+                font-size: 16px;
+                font-weight: 700;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .rightActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        /* Nút Liên hệ tư vấn bo góc */
+        .consultBtn {
+            background-color: #16222f;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(21, 204, 163, 0.2);
+            white-space: nowrap;
+            transition: all 0.2s ease;
+
+            &:active {
+                opacity: 0.8;
+            }
+        }
+
+        /* Nút Hamburger vuông màu xanh ngọc */
+        .menuBtn {
+            width: 38px;
+            height: 38px;
+            background-color: #15CCA3;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:active {
+                opacity: 0.85;
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
+/* Khối Menu Drawer xổ xuống */
+.menuDrawer {
+    width: 100%;
+    background-color: #0b1219;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: slideDown 0.25s ease-out;
+    box-sizing: border-box;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+
+    .searchBox {
+        width: 100%;
+        height: 42px;
+        background-color: #161c24;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+
+        .searchIcon {
+            color: #959595;
+            flex-shrink: 0;
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 13.5px;
+
+            &::placeholder {
+                color: #959595;
+            }
+        }
+    }
+
+    .navMenu {
+        display: flex;
+        flex-direction: column;
+
+        .navLink {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 6px;
+            color: #c4c4c4;
+            font-size: 14.5px;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: color 0.2s ease;
+
+            &:hover,
+            &:active {
+                color: #15CCA3;
+            }
+
+            svg {
+                color: #959595;
+            }
+        }
+    }
+
+    .authGroup {
+        display: flex;
+        gap: 12px;
+        padding-top: 6px;
+
+        .loginBtn,
+        .signBtn {
+            flex: 1;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .loginBtn {
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+
+            &:active {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        .signBtn {
+            background-color: #15CCA3;
+            border: none;
+            color: #ffffff;
+
+            &:active {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

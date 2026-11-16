@@ -1,0 +1,22 @@
+.mobileVideoSection {
+    width: 100%;
+    padding: 16px 16px 12px;
+    box-sizing: border-box;
+}
+
+.videoWrapper {
+    width: 100%;
+    background-color: #090c0f;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+    .player {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 9;
+        border: none;
+        background-color: #000000;
+    }
+}

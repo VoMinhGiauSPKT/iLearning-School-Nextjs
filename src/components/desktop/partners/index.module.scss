@@ -1,0 +1,126 @@
+.partnersSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 26px 90px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .subtitle {
+        font-size: 14px;
+        font-weight: 500;
+        color: #959595;
+        margin: 0 0 6px 0;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+}
+
+.partnersBox {
+    width: 100%;
+    background-color: #090c0f;
+    border-radius: 20px;
+    padding: 28px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+        padding: 20px 16px;
+        gap: 12px;
+    }
+}
+
+.prevBtn,
+.nextBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.prevBtn {
+    background-color: #1e2631;
+    border: none;
+    color: #ffffff;
+
+    &:hover {
+        background-color: #2a3443;
+    }
+}
+
+.nextBtn {
+    background-color: #15cca3;
+    border: none;
+    color: #ffffff;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.logosTrack {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 36px;
+    overflow-x: auto;
+    scrollbar-width: none; // Ẩn scrollbar chuẩn Firefox
+
+    &::-webkit-scrollbar {
+        display: none; // Ẩn scrollbar chuẩn Chrome/Safari
+    }
+
+    @media (max-width: 900px) {
+        justify-content: flex-start;
+    }
+}
+
+.partnerItem {
+    flex-shrink: 0; // Thêm dòng này để logo không bị bóp méo hay co nhỏ
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    min-width: 120px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        opacity: 0.85;
+    }
+
+    .logoImg {
+        max-height: 38px;
+        max-width: 150px;
+        object-fit: contain;
+        display: block;
+    }
+}

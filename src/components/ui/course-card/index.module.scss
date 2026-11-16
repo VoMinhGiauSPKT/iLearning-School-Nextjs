@@ -1,0 +1,110 @@
+.card {
+    width: 100%;
+    background-color: #090c0f;
+    border-radius: 20px;
+    padding: 28px 32px; // Giảm nhẹ từ 32px 36px
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+.imageCol {
+    flex: 0 0 40%; // Cân đối 40% ảnh - 60% thông tin
+    max-width: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background-color: #111721;
+    // ... các thuộc tính khác giữ nguyên ...
+
+    @media (max-width: 900px) {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.infoCol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0 0 8px 0;
+        line-height: 1.4;
+    }
+
+    .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #15cca3;
+        margin-bottom: 16px;
+    }
+
+    .featureList {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .featureItem {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 13.5px;
+        color: #959595;
+        line-height: 1.5;
+
+        .bullet {
+            color: #15cca3;
+            font-size: 10px;
+            margin-top: 3px;
+        }
+    }
+
+    .moreBtn {
+        display: inline-flex;
+        align-items: center;
+        background-color: #15cca3;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 24px;
+        border-radius: 20px;
+        text-decoration: none;
+        border: none; // Đảm bảo nút button không bị viền trình duyệt
+        cursor: pointer; // Con trỏ bàn tay khi rê chuột
+        font-family: inherit;
+        transition: opacity 0.2s ease, transform 0.1s ease;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+}

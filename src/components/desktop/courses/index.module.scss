@@ -1,0 +1,188 @@
+.coursesSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 26px 80px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px; // Chuẩn Figma: width: 1440px (tự động cách 2 bên 240px trên màn 1920)
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 36px;
+
+    .subtitle {
+        font-size: 14px;
+        font-weight: 500;
+        color: #959595;
+        margin: 0 0 6px 0;
+    }
+
+    .title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+}
+
+.courseItemWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.featuredWrap,
+.curriculumWrap {
+    width: 100%;
+    margin-bottom: 24px;
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.curriculumBox {
+    width: 100%;
+    background-color: #090c0f;
+    border-radius: 20px;
+    padding: 32px 36px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+
+    .curriculumTitle {
+        font-size: 20px;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0 0 20px 0;
+    }
+}
+
+.stageList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.stageItem {
+    background-color: #161c24;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stageHeader {
+    width: 100%;
+    padding: 14px 20px;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+
+    .stageTitle {
+        font-size: 14px;
+        font-weight: 600;
+        color: #c4c4c4;
+    }
+
+    .stageMeta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .badge {
+            background-color: #15cca3;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .icon {
+            color: #959595;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.stageContent {
+    padding: 4px 24px 18px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+    .lessonItem {
+        font-size: 13.5px;
+        color: #959595;
+        line-height: 1.8;
+        margin: 4px 0;
+    }
+}
+
+.btnCenter {
+    display: flex;
+    justify-content: center;
+
+    .registerBtn {
+        background-color: #15cca3;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 32px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
+
+.courseList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.allCoursesWrap {
+    display: flex;
+    justify-content: center;
+
+    .allCoursesBtn {
+        background-color: #15cca3;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 12px 36px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}

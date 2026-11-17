@@ -4,26 +4,6 @@
     box-sizing: border-box;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 24px;
-
-    .subtitle {
-        font-size: 15px;
-        color: #959595;
-        margin: 0 0 6px 0;
-        font-weight: 600;
-    }
-
-    .title {
-        font-size: 23px;
-        font-weight: 700;
-        color: #ffffff;
-        margin: 0;
-        line-height: 1.35;
-    }
-}
-
 .coursesList {
     display: flex;
     flex-direction: column;
@@ -39,15 +19,17 @@
 /* Thẻ khóa học xếp dọc chuẩn mobile */
 .courseCard {
     width: 100%;
-    background-color: #090c0f;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #090C0F; // Chuẩn Figma Rectangle 107
+    border-radius: 10px; // Chuẩn Figma: 10px
+    padding: 14px 14px 22px; // Chuẩn Figma: đệm ảnh 14px (390 - 362.92) / 2
+    border: 1px solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
 
     .thumbnailWrap {
         width: 100%;
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 363 / 203; // Chuẩn Figma Rectangle 4958: 362.92px / 203.12px
+        border-radius: 10px; // Chuẩn Figma: 9.48px
+        overflow: hidden;
         background-color: #111721;
 
         .thumbnail {
@@ -59,43 +41,52 @@
     }
 
     .info {
-        padding: 22px 18px;
+        padding: 18px 2px 0;
 
         .courseTitle {
-            font-size: 18.5px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0 0 10px 0;
-            line-height: 1.45;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 20px; // Chuẩn Figma: 20px
+            font-weight: 500; // Chuẩn Figma: 500
+            line-height: 24px; // Chuẩn Figma: 24px
+            color: #FFFFFF;
+            margin: 0 0 14px 0;
         }
 
         .price {
-            font-size: 20px;
-            font-weight: 700;
-            color: #15cca3;
-            margin-bottom: 16px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 25px; // Chuẩn Figma: 25px
+            font-weight: 600; // Chuẩn Figma: 600
+            line-height: 30px; // Chuẩn Figma: 30px
+            color: #15CCA3; // Chuẩn Figma: #15CCA3
+            margin-bottom: 22px;
         }
 
         .features {
             list-style: none;
             padding: 0;
-            margin: 0 0 20px 0;
+            margin: 0 0 24px 0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px;
 
             li {
                 display: flex;
                 align-items: flex-start;
                 gap: 10px;
-                font-size: 14.5px;
-                color: #cbd5e1;
-                line-height: 1.55;
+                font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 16px; // Chuẩn Figma: 16px
+                font-weight: 400; // Chuẩn Figma: 400
+                line-height: 28px; // Chuẩn Figma: 28px (175%)
+                color: #AEAEAE; // Chuẩn Figma: #AEAEAE
 
                 .bullet {
-                    color: #15cca3;
-                    font-size: 11px;
-                    margin-top: 3px;
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    background-color: #AEAEAE; // Dấu chấm tròn xám đồng màu
+                    border-radius: 50%;
+                    margin-top: 12px;
+                    flex-shrink: 0;
                 }
             }
         }
@@ -103,143 +94,48 @@
         .moreBtn {
             display: inline-flex;
             align-items: center;
-            background-color: #15cca3;
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 700;
-            padding: 12px 28px;
-            border-radius: 10px;
+            justify-content: center;
+            gap: 8px;
+            width: 150px; // Chuẩn Figma: 150px
+            height: 50px; // Chuẩn Figma: 50px
+            background-color: #15CCA3; // Chuẩn Figma: #15CCA3
+            border-radius: 10px; // Chuẩn Figma: 10px
             border: none;
             cursor: pointer;
+            color: #FFFFFF;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px; // Chuẩn Figma: 16px
+            font-weight: 600; // Chuẩn Figma: 600
+            letter-spacing: 0.02em;
             text-decoration: none;
-            transition: opacity 0.2s ease, transform 0.1s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(21, 204, 163, 0.3);
+
+            &:hover {
+                opacity: 0.92;
+            }
 
             &:active {
-                opacity: 0.85;
-                transform: scale(0.97);
-            }
-        }
-    }
-}
-
-/* Khối giáo trình Accordion */
-.curriculumBox {
-    width: 100%;
-    background-color: #090c0f;
-    border-radius: 16px;
-    padding: 22px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    margin-top: 14px;
-    box-sizing: border-box;
-    animation: fadeIn 0.25s ease-in-out;
-
-    .curriculumTitle {
-        font-size: 17.5px;
-        font-weight: 700;
-        color: #ffffff;
-        margin: 0 0 18px 0;
-        line-height: 1.45;
-    }
-
-    .stageList {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 24px;
-    }
-
-    .stageItem {
-        background-color: #161c24;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .stageHeader {
-        width: 100%;
-        padding: 15px 16px;
-        background: transparent;
-        border: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        text-align: left;
-
-        .stageTitle {
-            font-size: 14.5px;
-            font-weight: 600;
-            color: #e2e8f0;
-            flex: 1;
-            padding-right: 10px;
-            line-height: 1.45;
-        }
-
-        .stageMeta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            .badge {
-                background-color: #15cca3;
-                color: #ffffff;
-                font-size: 18px;
-                font-weight: 700;
-                padding: 6px 12px;
-                border-radius: 8px;
-                white-space: nowrap;
+                transform: scale(0.98);
             }
 
-            .icon {
-                color: #ffffff;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .btnText {
+                border-bottom: 2px solid #ffffff; // Gạch dưới chữ chuẩn thiết kế
+                line-height: 1.15;
+                padding-bottom: 0px;
+                display: inline-block;
+            }
+
+            .chevron {
+                display: inline-block;
+                transition: transform 0.2s ease;
+                flex-shrink: 0;
+
+                &.isExpanded {
+                    transform: rotate(180deg);
+                }
             }
         }
-    }
-
-    .stageContent {
-        padding: 10px 16px 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.04);
-
-        .lessonItem {
-            font-size: 14px;
-            color: #94a3b8;
-            line-height: 1.65;
-            margin: 6px 0;
-        }
-    }
-
-    .registerWrap {
-        display: flex;
-        justify-content: center;
-
-        .registerBtn {
-            background-color: #15cca3;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-            padding: 14px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-
-            &:active {
-                opacity: 0.85;
-            }
-        }
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-6px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 

@@ -23,10 +23,10 @@ export default function CourseItem({
 }: CourseItemProps) {
     const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
 
-    // Gắn tên khóa học vào tiêu đề giáo trình để người học dễ phân biệt
+    // Tiêu đề giáo trình "Giáo trình" theo đúng chuẩn thiết kế Figma
     const courseCurriculum = {
         ...curriculum,
-        title: `Nội dung đào tạo: ${course.title}`,
+        title: "Giáo trình",
     };
 
     return (

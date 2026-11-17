@@ -28,7 +28,11 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                 <ul className={styles.featureList}>
                     {course.features.map((feature, idx) => (
                         <li key={idx} className={styles.featureItem}>
-                            <span className={styles.bullet}>▶</span>
+                            <span className={styles.bullet}>
+                                <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+                                    <polygon points="4,2 16,9 4,16" fill="#15CCA3" />
+                                </svg>
+                            </span>
                             <span>{feature}</span>
                         </li>
                     ))}
@@ -41,11 +45,43 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                         onClick={onToggleMore}
                         className={styles.moreBtn}
                     >
-                        {isExpanded ? "Thu gọn ▴" : course.ctaButton.label}
+                        <span className={styles.btnText}>
+                            {isExpanded ? "Thu gọn" : "Xem thêm"}
+                        </span>
+                        <svg
+                            className={`${styles.chevron} ${isExpanded ? styles.isExpanded : ""}`}
+                            width="15"
+                            height="9"
+                            viewBox="0 0 15 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1.5 1.5L7.5 7.5L13.5 1.5"
+                                stroke="#FFFFFF"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
                     </button>
                 ) : (
                     <Link href={course.ctaButton.href} className={styles.moreBtn}>
-                        {course.ctaButton.label}
+                        <span className={styles.btnText}>{course.ctaButton.label}</span>
+                        <svg
+                            className={styles.chevron}
+                            width="15"
+                            height="9"
+                            viewBox="0 0 15 9"
+                            fill="none"
+                        >
+                            <path
+                                d="M1.5 1.5L7.5 7.5L13.5 1.5"
+                                stroke="#FFFFFF"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
                     </Link>
                 )}
             </div>

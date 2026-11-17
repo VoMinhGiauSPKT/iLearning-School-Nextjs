@@ -1,15 +1,22 @@
 .sliderWrapper {
     width: 100%;
+    max-width: 1920px;
+    margin: 26px auto 0;
     padding: 0 26px; // Đúng chuẩn Figma: left 26px, right 26px
-    margin-top: 26px;
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+
+    @media (max-width: 1024px) {
+        padding: 0 16px;
+        margin-top: 18px;
+    }
 }
 
 .sliderContainer {
     width: 100%;
     max-width: 1868px; // Chuẩn Figma: width: 1868px
-    min-height: 600px;
+    height: clamp(380px, 38.75vw, 724px); // Chuẩn Figma: height 724px trên màn 1920 (1868 / 724 = 2.58), co giãn tỷ lệ hợp lý trên laptop
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -18,7 +25,6 @@
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    padding: 40px 0 70px 0;
     box-sizing: border-box;
 
     /* Lớp phủ gradient kép đúng chuẩn Figma */
@@ -35,31 +41,33 @@
     .content {
         position: relative;
         z-index: 2;
-        max-width: 1150px; // Mở rộng không gian ngang cho chữ trải dài tự nhiên
-        padding: 0 80px;
+        max-width: 1150px;
+        padding: 0 clamp(24px, 4.2vw, 80px);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 18px; // Khoảng cách vừa phải, gọn gàng
+        gap: clamp(12px, 1.2vw, 18px);
 
         .title {
-            font-size: clamp(26px, 2.4vw, 36px); // Cỡ chữ uy lực, vừa vặn
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: clamp(22px, 2vw, 36px);
             font-weight: 700;
             color: #ffffff;
-            line-height: 1.35;
+            line-height: 1.3;
             letter-spacing: -0.5px;
             margin: 0;
-            white-space: pre-line; // Hiển thị 100% nội dung, không cắt ba chấm
+            white-space: pre-line;
         }
 
         .description {
-            font-size: 15.5px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: clamp(13.5px, 0.9vw, 16px);
             font-weight: 400;
             color: #e2e8f0;
-            line-height: 1.6;
+            line-height: 1.55;
             max-width: 980px;
             margin: 0;
-            white-space: pre-line; // Giữ nguyên dòng mô tả đầy đủ 100%
+            white-space: pre-line;
         }
 
         .ctaBtn {
@@ -68,12 +76,13 @@
             justify-content: center;
             background-color: #15CCA3;
             color: #ffffff;
-            font-size: 16px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: clamp(14px, 0.9vw, 16px);
             font-weight: 700;
-            padding: 14px 34px;
+            padding: clamp(10px, 0.8vw, 14px) clamp(22px, 1.8vw, 34px);
             border-radius: 12px;
             text-decoration: none;
-            margin-top: 6px;
+            margin-top: 4px;
             transition: all 0.25s ease;
             box-shadow: 0 4px 20px rgba(21, 204, 163, 0.35);
 
@@ -88,11 +97,11 @@
     /* Thanh rãnh trượt thanh mảnh, tinh tế */
     .sliderTrack {
         position: absolute;
-        bottom: 22px; // Đẩy sát mép dưới gọn gàng hơn
+        bottom: clamp(14px, 1.5vw, 22px);
         left: 50%;
         transform: translateX(-50%);
-        width: 80px; // Giảm chiều dài từ 110px xuống 80px
-        height: 5px; // Giảm độ dày xuống 5px (thanh mảnh, đẹp mắt)
+        width: 80px;
+        height: 5px;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
         overflow: hidden;
@@ -125,7 +134,6 @@
             position: relative;
             outline: none;
 
-            // Vùng bấm chuột (hitbox) vẫn rộng để click dễ dàng dù thanh mỏng
             &::before {
                 content: '';
                 position: absolute;

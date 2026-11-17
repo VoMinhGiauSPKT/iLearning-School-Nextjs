@@ -1,0 +1,121 @@
+/* Khối giáo trình Accordion chuẩn Figma Group 427321696 */
+.curriculumBox {
+    width: 100%;
+    background-color: #090C0F; // Chuẩn Figma Rectangle 12327: #090C0F
+    border-radius: 10px; // Chuẩn Figma: 10px
+    padding: 20px 15px 24px; // Chuẩn Figma: 390 - 360 = 30px => 15px mỗi bên
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 14px;
+    box-sizing: border-box;
+    animation: fadeIn 0.25s ease-in-out;
+
+    .curriculumTitle {
+        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px; // Chuẩn Figma: 28px (140%)
+        color: #FFFFFF;
+        margin: 0 0 16px 0;
+    }
+
+    .stageList {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .stageItem {
+        background-color: #202428; // Chuẩn Figma Rectangle 12345: #202428
+        border-radius: 10px; // Chuẩn Figma: 10px
+        overflow: hidden;
+        transition: background-color 0.2s ease;
+    }
+
+    .stageHeader {
+        width: 100%;
+        padding: 16px;
+        background: transparent;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        cursor: pointer;
+        text-align: left;
+        gap: 12px;
+
+        .stageTitle {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px; // Chuẩn Figma: 22px (140%)
+            letter-spacing: 0.02em;
+            color: #FFFFFF;
+            flex: 1;
+        }
+
+        .icon {
+            width: 19px;
+            height: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+    }
+
+    .stageContent {
+        padding: 0 16px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .lessonItem {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-style: normal;
+            font-weight: 300; // Thon gọn thanh mảnh hơn
+            font-size: 13.5px;
+            line-height: 25px; // Giãn dòng thanh thoát
+            letter-spacing: 0.01em;
+            color: rgba(255, 255, 255, 0.95);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+        }
+    }
+
+    .registerWrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        .registerBtn {
+            background-color: #15CCA3;
+            color: #FFFFFF;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+
+            &:active {
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

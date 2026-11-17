@@ -14,7 +14,8 @@ export default function VideoSection({ video }: VideoSectionProps) {
                 <div className={styles.videoWrapper}>
                     <iframe
                         src={video.videoUrl}
-                        title="Video"
+                        title="Video giới thiệu ilearning School"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                         className={styles.player}
                     />

@@ -48,7 +48,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                         </Link>
 
                         <div className={styles.searchBox}>
-                            <Search className={styles.searchIcon} />
+                            <Search className={styles.searchIcon} strokeWidth={1.5} />
                             <input
                                 type="text"
                                 placeholder={header.searchPlaceholder}
@@ -67,7 +67,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                                     onClick={(e) => handleNavClick(e, link.href)}
                                 >
                                     <span>{link.label}</span>
-                                    {link.hasDropdown && <ChevronDown size={16} />}
+                                    {link.hasDropdown && <ChevronDown size={18} />}
                                 </Link>
                             ))}
                         </nav>

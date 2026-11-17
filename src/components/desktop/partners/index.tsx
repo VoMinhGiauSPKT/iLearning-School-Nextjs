@@ -1,6 +1,6 @@
 import { PartnersSectionData } from "@/types/landing";
 import SectionHeader from "@/components/ui/section-header";
-import ScrollCarousel from "@/components/ui/scroll-carousel";
+import PartnerSlider from "./partner-slider";
 import styles from "./index.module.scss";
 
 interface PartnersSectionProps {
@@ -9,8 +9,8 @@ interface PartnersSectionProps {
 
 /**
  * PartnersSection là SERVER COMPONENT:
- * - Không có "use client"
- * - Render HTML toàn bộ danh sách logo đối tác tại Server
+ * - Render SectionHeader và cấu trúc bao bọc tại Server
+ * - Phần chuyển slide 5 logo tương tác được bọc trong Client Island PartnerSlider
  */
 export default function PartnersSection({ data }: PartnersSectionProps) {
     if (!data?.partners?.length) return null;
@@ -20,28 +20,7 @@ export default function PartnersSection({ data }: PartnersSectionProps) {
             <div className={styles.container}>
                 <SectionHeader subtitle={data.subtitle} title={data.title} />
 
-                <ScrollCarousel
-                    className={styles.partnersBox}
-                    trackClassName={styles.logosTrack}
-                    prevAriaLabel="Previous partners"
-                    nextAriaLabel="Next partners"
-                >
-                    {data.partners.map((partner) => (
-                        <a
-                            key={partner.id}
-                            href={partner.href || "#"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.partnerItem}
-                        >
-                            <img
-                                src={partner.logo}
-                                alt={partner.name}
-                                className={styles.logoImg}
-                            />
-                        </a>
-                    ))}
-                </ScrollCarousel>
+                <PartnerSlider partners={data.partners} />
             </div>
         </section>
     );

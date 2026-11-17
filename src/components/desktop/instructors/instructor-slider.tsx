@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import QuoteIcon from "@/components/ui/quote-icon";
 import { InstructorItem } from "@/types/landing";
 import styles from "./index.module.scss";
 
@@ -11,7 +12,8 @@ interface InstructorSliderProps {
 
 /**
  * Client Island:
- * Chỉ chịu trách nhiệm quản lý state chuyển đổi giảng viên (currentIndex)
+ * Quản lý state chuyển đổi giảng viên (currentIndex)
+ * Chuẩn thiết kế Figma: Thẻ lớn 1479x748, ảnh 500x500, nút điều hướng bo góc, 3 dots phân trang
  */
 export default function InstructorSlider({ instructors }: InstructorSliderProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,22 +31,25 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
     };
 
     return (
-        <>
-            {/* Thẻ Giảng viên lớn */}
-            <div className={styles.instructorCard}>
-                {/* Cột trái: Khung ảnh đại diện */}
+        /* Thẻ Giảng viên lớn chuẩn Figma (Rectangle 29) */
+        <div className={styles.instructorCard}>
+            <div className={styles.contentWrap}>
+                {/* Cột trái: Khung ảnh 500x500 (Rectangle 33) */}
                 <div className={styles.imageCol}>
-                    <img
-                        src={currentInstructor.avatar}
-                        alt={currentInstructor.name}
-                        className={styles.avatarImg}
-                    />
+                    {currentInstructor.avatar ? (
+                        <img
+                            src={currentInstructor.avatar}
+                            alt={currentInstructor.name}
+                            className={styles.avatarImg}
+                        />
+                    ) : null}
                 </div>
 
-                {/* Cột phải: Thông điệp trích dẫn & Thông tin */}
+                {/* Cột phải: Thông điệp trích dẫn & Thông tin (Group 62) */}
                 <div className={styles.infoCol}>
+                    {/* Dấu trích dẫn 2 thanh chéo song song chuẩn Figma */}
                     <div className={styles.quoteWrap}>
-                        <Quote size={28} className={styles.quoteIcon} />
+                        <QuoteIcon className={styles.quoteSvg} />
                     </div>
 
                     <div className={styles.bioText}>
@@ -59,7 +64,7 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                             <p className={styles.authorRole}>{currentInstructor.role}</p>
                         </div>
 
-                        {/* Cặp nút điều hướng Prev/Next */}
+                        {/* Cặp nút điều hướng Prev/Next chuẩn Figma (Group 66) */}
                         <div className={styles.navButtons}>
                             <button
                                 type="button"
@@ -67,7 +72,7 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                                 className={styles.prevBtn}
                                 aria-label="Previous instructor"
                             >
-                                <ChevronLeft size={20} />
+                                <ChevronLeft size={24} strokeWidth={2.5} />
                             </button>
                             <button
                                 type="button"
@@ -75,14 +80,14 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                                 className={styles.nextBtn}
                                 aria-label="Next instructor"
                             >
-                                <ChevronRight size={20} />
+                                <ChevronRight size={24} strokeWidth={2.5} />
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Các chấm tròn phân trang dưới đáy */}
+            {/* Các chấm tròn phân trang nằm BÊN TRONG thẻ ở đáy chuẩn Figma (Group 67) */}
             <div className={styles.dots}>
                 {instructors.map((_, idx) => (
                     <button
@@ -94,6 +99,6 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                     />
                 ))}
             </div>
-        </>
+        </div>
     );
 }

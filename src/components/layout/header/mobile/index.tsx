@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import { HeaderData } from "@/types/landing";
 import styles from "./index.module.scss";
 
@@ -60,8 +60,9 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                         <Image
                             src="/logo.svg"
                             alt="Logo"
-                            width={36}
-                            height={32}
+                            width={48}
+                            height={42}
+                            className={styles.logoImg}
                             priority
                         />
                         <div className={styles.brandText}>
@@ -86,7 +87,43 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                             className={styles.menuBtn}
                             aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
                         >
-                            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                            {isMenuOpen ? (
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path
+                                        d="M4 4L16 16"
+                                        stroke="#FFFFFF"
+                                        strokeWidth="2.4"
+                                        strokeLinecap="round"
+                                    />
+                                    <path
+                                        d="M16 4L4 16"
+                                        stroke="#FFFFFF"
+                                        strokeWidth="2.4"
+                                        strokeLinecap="round"
+                                    />
+                                </svg>
+                            ) : (
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                    <path
+                                        d="M2.5 5H20.5"
+                                        stroke="#FFFFFF"
+                                        strokeWidth="2.4"
+                                        strokeLinecap="round"
+                                    />
+                                    <path
+                                        d="M2.5 11.5H20.5"
+                                        stroke="#FFFFFF"
+                                        strokeWidth="2.4"
+                                        strokeLinecap="round"
+                                    />
+                                    <path
+                                        d="M2.5 18H20.5"
+                                        stroke="#FFFFFF"
+                                        strokeWidth="2.4"
+                                        strokeLinecap="round"
+                                    />
+                                </svg>
+                            )}
                         </button>
                     </div>
                 </div>

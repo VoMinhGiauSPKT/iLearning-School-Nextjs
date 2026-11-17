@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Plus, Minus } from "lucide-react";
 import { CurriculumStage } from "@/types/landing";
 import styles from "./index.module.scss";
 
@@ -45,8 +44,12 @@ export default function CurriculumAccordion({ data }: CurriculumAccordionProps) 
 
                                 <div className={styles.stageMeta}>
                                     <span className={styles.badge}>{stage.duration}</span>
-                                    <span className={styles.icon}>
-                                        {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                                    <span
+                                        className={`${styles.toggleIcon} ${isOpen ? styles.isOpen : ""}`}
+                                        aria-label={isOpen ? "Thu gọn" : "Mở rộng"}
+                                    >
+                                        <span className={styles.lineH} />
+                                        <span className={styles.lineV} />
                                     </span>
                                 </div>
                             </button>

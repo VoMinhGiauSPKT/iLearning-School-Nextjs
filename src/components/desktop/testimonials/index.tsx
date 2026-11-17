@@ -1,7 +1,6 @@
-import { Quote } from "lucide-react";
 import { TestimonialsSectionData } from "@/types/landing";
 import SectionHeader from "@/components/ui/section-header";
-import ScrollCarousel from "@/components/ui/scroll-carousel";
+import QuoteIcon from "@/components/ui/quote-icon";
 import styles from "./index.module.scss";
 
 interface TestimonialsSectionProps {
@@ -9,29 +8,26 @@ interface TestimonialsSectionProps {
 }
 
 /**
- * TestimonialsSection là SERVER COMPONENT:
- * - Không có "use client"
- * - Toàn bộ nội dung đánh giá và avatar học viên được Server render sẵn thành HTML
+ * TestimonialsSection Desktop:
+ * Hiển thị chính xác 3 thẻ đánh giá theo chuẩn thiết kế Figma (không còn mũi tên trượt 2 bên)
  */
 export default function TestimonialsSection({ data }: TestimonialsSectionProps) {
     if (!data?.testimonials?.length) return null;
+
+    // Chỉ hiển thị tối đa 3 đánh giá theo yêu cầu Figma
+    const displayTestimonials = data.testimonials.slice(0, 3);
 
     return (
         <section id="goc-hoc-vien" className={styles.testimonialsSection}>
             <div className={styles.container}>
                 <SectionHeader subtitle={data.subtitle} title={data.title} />
 
-                <ScrollCarousel
-                    className={styles.carouselWrapper}
-                    trackClassName={styles.cardsTrack}
-                    prevAriaLabel="Previous testimonials"
-                    nextAriaLabel="Next testimonials"
-                >
-                    {data.testimonials.map((item) => (
+                <div className={styles.grid}>
+                    {displayTestimonials.map((item) => (
                         <div key={item.id} className={styles.card}>
-                            {/* Dấu trích dẫn kép */}
+                            {/* Biểu tượng dấu trích dẫn chuẩn Figma (hai thanh chéo song song #AEAEAE) */}
                             <div className={styles.quoteIconWrap}>
-                                <Quote size={28} className={styles.quoteIcon} />
+                                <QuoteIcon className={styles.quoteSvg} />
                             </div>
 
                             {/* Nội dung đánh giá */}
@@ -53,7 +49,7 @@ export default function TestimonialsSection({ data }: TestimonialsSectionProps) 
                             </div>
                         </div>
                     ))}
-                </ScrollCarousel>
+                </div>
             </div>
         </section>
     );

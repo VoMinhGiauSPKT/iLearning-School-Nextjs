@@ -20,76 +20,96 @@
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
     box-sizing: border-box;
 
-    /* Lớp phủ gradient kép đúng chuẩn Figma */
-    .overlay {
-        position: absolute;
-        inset: 0;
-        background:
-            linear-gradient(0deg, rgba(24, 32, 41, 0.6), rgba(24, 32, 41, 0.6)),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 81.32%);
-        z-index: 1;
+    /* Dải track trượt ngang mượt mà */
+    .slidesTrack {
+        display: flex;
+        height: 100%;
+        will-change: transform;
+        transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    /* Khung nội dung text bên trái */
-    .content {
+    /* Từng slide độc lập hiển thị hình nền và nội dung */
+    .slideItem {
+        height: 100%;
         position: relative;
-        z-index: 2;
-        max-width: 1150px;
-        padding: 0 clamp(24px, 4.2vw, 80px);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: clamp(12px, 1.2vw, 18px);
+        align-items: center;
+        box-sizing: border-box;
+        flex-shrink: 0;
 
-        .title {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: clamp(22px, 2vw, 36px);
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.3;
-            letter-spacing: -0.5px;
-            margin: 0;
-            white-space: pre-line;
+        /* Lớp phủ gradient kép đúng chuẩn Figma */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(0deg, rgba(24, 32, 41, 0.6), rgba(24, 32, 41, 0.6)),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 81.32%);
+            z-index: 1;
         }
 
-        .description {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: clamp(13.5px, 0.9vw, 16px);
-            font-weight: 400;
-            color: #e2e8f0;
-            line-height: 1.55;
-            max-width: 980px;
-            margin: 0;
-            white-space: pre-line;
-        }
+        /* Khung nội dung text bên trái */
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 1150px;
+            padding: 0 clamp(24px, 4.2vw, 80px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: clamp(12px, 1.2vw, 18px);
 
-        .ctaBtn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #15CCA3;
-            color: #ffffff;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: clamp(14px, 0.9vw, 16px);
-            font-weight: 700;
-            padding: clamp(10px, 0.8vw, 14px) clamp(22px, 1.8vw, 34px);
-            border-radius: 12px;
-            text-decoration: none;
-            margin-top: 4px;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(21, 204, 163, 0.35);
+            .title {
+                font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: clamp(22px, 2vw, 36px);
+                font-weight: 700;
+                color: #ffffff;
+                line-height: 1.3;
+                letter-spacing: -0.5px;
+                margin: 0;
+                white-space: pre-line;
+            }
 
-            &:hover {
-                background-color: #12b48f;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 25px rgba(21, 204, 163, 0.5);
+            .description {
+                font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: clamp(13.5px, 0.9vw, 16px);
+                font-weight: 400;
+                color: #e2e8f0;
+                line-height: 1.55;
+                max-width: 980px;
+                margin: 0;
+                white-space: pre-line;
+            }
+
+            .ctaBtn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #15CCA3;
+                color: #ffffff;
+                font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: clamp(14px, 0.9vw, 16px);
+                font-weight: 700;
+                padding: clamp(10px, 0.8vw, 14px) clamp(22px, 1.8vw, 34px);
+                border-radius: 12px;
+                text-decoration: none;
+                margin-top: 4px;
+                transition: all 0.25s ease;
+                box-shadow: 0 4px 20px rgba(21, 204, 163, 0.35);
+
+                &:hover {
+                    background-color: #12b48f;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 25px rgba(21, 204, 163, 0.5);
+                }
+
+                &:active {
+                    transform: scale(0.96);
+                }
             }
         }
     }

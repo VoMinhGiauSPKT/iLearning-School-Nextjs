@@ -195,6 +195,17 @@ export const mockLandingData = {
     partners: {
         subtitle: "Khách hàng và",
         title: "Đối tác của UI8",
-        partners: [],
+        partners: [
+            { id: "partner-1", name: "FPT Play", logo: "/images/partners/fpt-play.png", href: "#" },
+            { id: "partner-2", name: "Pharmacity", logo: "/images/partners/pharmacity.png", href: "#" },
+            { id: "partner-3", name: "KMS Technology", logo: "/images/partners/kms-technology.png", href: "#" },
+            { id: "partner-4", name: "TMA Solutions", logo: "/images/partners/tma-solutions.png", href: "#" },
+            { id: "partner-5", name: "Sendo", logo: "/images/partners/sendo.png", href: "#" },
+            { id: "partner-6", name: "KMS Technology", logo: "/images/partners/kms-technology.png", href: "#" },
+            { id: "partner-7", name: "Sendo", logo: "/images/partners/sendo.png", href: "#" },
+            { id: "partner-8", name: "FPT Play", logo: "/images/partners/fpt-play.png", href: "#" },
+            { id: "partner-9", name: "Pharmacity", logo: "/images/partners/pharmacity.png", href: "#" },
+            { id: "partner-10", name: "TMA Solutions", logo: "/images/partners/tma-solutions.png", href: "#" },
+        ],
     } as PartnersSectionData,
 };

@@ -13,14 +13,15 @@ interface PartnersSectionProps {
  * - Phần chuyển slide 5 logo tương tác được bọc trong Client Island PartnerSlider
  */
 export default function PartnersSection({ data }: PartnersSectionProps) {
-    if (!data?.partners?.length) return null;
-
     return (
         <section id="doi-tac" className={styles.partnersSection}>
             <div className={styles.container}>
-                <SectionHeader subtitle={data.subtitle} title={data.title} />
+                <SectionHeader
+                    subtitle={data?.subtitle || "Khách hàng và"}
+                    title={data?.title || "Đối tác của UI8"}
+                />
 
-                <PartnerSlider partners={data.partners} />
+                <PartnerSlider partners={data?.partners || []} />
             </div>
         </section>
     );

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.box {
+    display: flex;
+    width: 800px;
+    background: #000;
+}
+.viewport {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+.track {
+    display: flex;
+    width: 200%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.page {
+    width: 50%;
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.item {
+    width: 60px;
+    height: 40px;
+    background: #222;
+    color: white;
+}
+</style>
+</head>
+<body>
+<div class="box">
+    <button id="prev">Prev</button>
+    <div class="viewport">
+        <div class="track" id="track" style="transform: translateX(0%);">
+            <div class="page" id="p0">
+                <div class="item">L1</div><div class="item">L2</div><div class="item">L3</div><div class="item">L4</div><div class="item">L5</div>
+            </div>
+            <div class="page" id="p1">
+                <div class="item">L6</div><div class="item">L7</div><div class="item">L8</div><div class="item">L9</div><div class="item">L10</div>
+            </div>
+        </div>
+    </div>
+    <button id="next">Next</button>
+</div>
+<script>
+let page = 0;
+document.getElementById('next').onclick = () => {
+    page = page === 0 ? 1 : 0;
+    document.getElementById('track').style.transform = 'translateX(-' + (page * 50) + '%)';
+    console.log('TRANSFORM_SET', document.getElementById('track').style.transform);
+};
+</script>
+</body>
+</html>

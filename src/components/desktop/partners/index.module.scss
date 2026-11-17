@@ -34,63 +34,73 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
-    gap: clamp(16px, 2.5vw, 40px);
+    gap: clamp(14px, 2vw, 32px);
     box-sizing: border-box;
 }
 
-/* & Navigation.Button */
-.prevBtn,
-.nextBtn {
-    width: clamp(42px, 3vw, 56.67px); // Chuẩn Figma: width 56.67px, height 56.67px
-    height: clamp(42px, 3vw, 56.67px);
-    border-radius: 50%; // Chuẩn Figma: border-radius 33.0556px (50%)
+/* Nút điều hướng mũi tên thon gọn, thanh mảnh */
+.navBtn {
+    width: clamp(34px, 2.4vw, 42px); // Thu nhỏ vừa vặn, thanh thoát
+    height: clamp(34px, 2.4vw, 42px);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     flex-shrink: 0;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     border: none;
     box-sizing: border-box;
+    background-color: #202428;
+    color: #ffffff;
+
+    svg {
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: #15cca3;
+        box-shadow: 0 4px 15px rgba(21, 204, 163, 0.35);
+        transform: scale(1.08);
+    }
 
     &:active {
         transform: scale(0.92);
     }
-}
 
-/* Navigation Left: Surface #202428, Icon ← */
-.prevBtn {
-    background-color: #202428; // Chuẩn Figma: background #202428
-    color: #ffffff;
-
-    &:hover {
-        background-color: #2e343a;
-        transform: scale(1.05);
+    &.active {
+        background-color: #15cca3;
+        box-shadow: 0 4px 15px rgba(21, 204, 163, 0.35);
     }
 }
 
-/* Navigation Right: Surface #15CCA3, Icon → */
-.nextBtn {
-    background-color: #15cca3; // Chuẩn Figma: background #15CCA3
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(21, 204, 163, 0.35);
-
-    &:hover {
-        opacity: 0.92;
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(21, 204, 163, 0.5);
-    }
-}
-
-/* Frame 13399: Cố định 5 logo một lần hiển thị */
-.logosTrack {
+/* Viewport bao bọc và che phần tràn khi trượt */
+.sliderViewport {
     flex: 1;
+    min-width: 0; // Quan trọng để flex child tôn trọng lề và overflow: hidden
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Track trượt ngang chứa tất cả các trang, di chuyển mượt mà bằng CSS transform */
+.sliderTrack {
+    display: flex;
+    will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Từng trang chứa đúng 5 logo (Frame 13399) */
+.logosPage {
     display: grid;
     grid-template-columns: repeat(5, 1fr); // Cố định hiển thị đúng 5 logo
     align-items: center;
     justify-items: center;
     gap: clamp(16px, 3.5vw, 90px); // Chuẩn Figma Frame 13399: gap 90px
     box-sizing: border-box;
+    padding: 0 10px;
+    flex-shrink: 0;
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(3, 1fr);
@@ -121,5 +131,7 @@
         height: auto;
         object-fit: contain;
         display: block;
+        user-select: none;
+        pointer-events: none;
     }
 }

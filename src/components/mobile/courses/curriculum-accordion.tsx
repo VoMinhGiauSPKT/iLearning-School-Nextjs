@@ -45,29 +45,12 @@ export default function CurriculumAccordion({
                                 aria-expanded={isStageOpen}
                             >
                                 <span className={styles.stageTitle}>{stage.title}</span>
-                                <span className={styles.icon}>
-                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                        {/* Line 46: Nét ngang */}
-                                        <line
-                                            x1="0"
-                                            y1="9.5"
-                                            x2="19"
-                                            y2="9.5"
-                                            stroke="#FFFFFF"
-                                            strokeWidth="1"
-                                        />
-                                        {/* Line 45: Nét dọc (chỉ hiển thị khi đóng) */}
-                                        {!isStageOpen && (
-                                            <line
-                                                x1="9.5"
-                                                y1="0"
-                                                x2="9.5"
-                                                y2="19"
-                                                stroke="#FFFFFF"
-                                                strokeWidth="1"
-                                            />
-                                        )}
-                                    </svg>
+                                <span
+                                    className={`${styles.toggleIcon} ${isStageOpen ? styles.isOpen : ""}`}
+                                    aria-label={isStageOpen ? "Thu gọn" : "Mở rộng"}
+                                >
+                                    <span className={styles.lineH} />
+                                    <span className={styles.lineV} />
                                 </span>
                             </button>
 

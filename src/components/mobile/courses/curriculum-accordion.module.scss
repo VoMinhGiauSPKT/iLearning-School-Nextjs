@@ -55,7 +55,9 @@
             flex: 1;
         }
 
-        .icon {
+        /* Group 427321681: Biểu tượng đóng/mở chuẩn Figma 19px x 19px */
+        .toggleIcon {
+            position: relative;
             width: 19px;
             height: 19px;
             display: flex;
@@ -63,6 +65,38 @@
             justify-content: center;
             flex-shrink: 0;
             margin-top: 2px;
+
+            /* Line 46: Thanh ngang chuẩn Figma */
+            .lineH {
+                position: absolute;
+                width: 19px;
+                height: 0;
+                border-top: 1px solid #ffffff;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+
+            /* Line 45: Thanh dọc chuẩn Figma xoay 90deg */
+            .lineV {
+                position: absolute;
+                height: 19px;
+                width: 0;
+                border-left: 1px solid #ffffff;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+                transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+
+            /* Khi mở rộng: Line 45 xoay 90deg và mờ dần biến thành dấu trừ cực mượt */
+            &.isOpen {
+                .lineV {
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateX(-50%) rotate(90deg);
+                }
+            }
         }
     }
 
@@ -71,6 +105,7 @@
         display: flex;
         flex-direction: column;
         gap: 4px;
+        animation: accordionFade 0.25s ease-out;
 
         .lessonItem {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -106,6 +141,17 @@
                 opacity: 0.85;
             }
         }
+    }
+}
+
+@keyframes accordionFade {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

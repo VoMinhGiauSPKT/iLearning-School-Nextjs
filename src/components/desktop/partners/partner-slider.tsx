@@ -6,80 +6,104 @@ import { PartnerItem } from "@/types/landing";
 import styles from "./index.module.scss";
 
 interface PartnerSliderProps {
-    partners: PartnerItem[];
+    partners?: PartnerItem[];
 }
 
 /**
- * Client Island cho Partners:
- * - Cố định hiển thị đúng 5 logo cho một lần xem
- * - Cặp nút điều hướng hình tròn với mũi tên ngang ← và → chuẩn Figma
+ * Client Island cho Đối tác (Partners):
+ * - Nhận dữ liệu đối tác trực tiếp từ Server Component (call từ API /v1/company/public/list)
+ * - Cố định hiển thị 5 logo trên một khung nhìn (Frame 13399)
+ * - Mũi tên điều hướng thon gọn, thanh mảnh
+ * - Track trượt mượt mà với CSS transform
  */
-export default function PartnerSlider({ partners }: PartnerSliderProps) {
-    const [pageIndex, setPageIndex] = useState(0);
+export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
+    if (!partners || partners.length === 0) return null;
 
     const pageSize = 5;
-    const totalPages = Math.ceil(partners.length / pageSize) || 1;
+
+    // Chia danh sách đối tác thành các trang, mỗi trang tối đa 5 logo
+    const pages: PartnerItem[][] = [];
+    for (let i = 0; i < partners.length; i += pageSize) {
+        pages.push(partners.slice(i, i + pageSize));
+    }
+
+    const totalPages = pages.length;
+    const [pageIndex, setPageIndex] = useState(0);
 
     const handlePrev = () => {
         setPageIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
     };
 
     const handleNext = () => {
-        setPageIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+        setPageIndex((prev) => (prev + 1) % totalPages);
     };
 
-    // Lấy đúng 5 logo cho trang hiện tại
-    const currentPartners = partners.slice(
-        pageIndex * pageSize,
-        pageIndex * pageSize + pageSize
-    );
-
-    // Đảm bảo đủ 5 logo nếu có từ 5 logo trở lên
-    const displayPartners =
-        currentPartners.length < pageSize && partners.length >= pageSize
-            ? [...currentPartners, ...partners.slice(0, pageSize - currentPartners.length)]
-            : currentPartners;
+    // Chiều rộng mỗi trang tính theo phần trăm của track
+    const pagePercentOfTrack = 100 / totalPages;
+    const showNavigation = totalPages > 1;
 
     return (
         <div className={styles.partnersBox}>
-            {/* Nút lùi bên trái: Surface #202428, Icon mũi tên ← chuẩn Figma */}
-            <button
-                type="button"
-                onClick={handlePrev}
-                className={styles.prevBtn}
-                aria-label="Previous partners"
-            >
-                <ArrowLeft size={24} strokeWidth={2.5} />
-            </button>
+            {/* Nút lùi bên trái: thon gọn, icon thanh mảnh */}
+            {showNavigation && (
+                <button
+                    type="button"
+                    onClick={handlePrev}
+                    className={`${styles.navBtn} ${pageIndex > 0 ? styles.active : ""}`}
+                    aria-label="Trang đối tác trước"
+                >
+                    <ArrowLeft size={18} strokeWidth={1.8} />
+                </button>
+            )}
 
-            {/* Dải 5 logo cố định (Frame 13399) */}
-            <div className={styles.logosTrack}>
-                {displayPartners.map((partner, index) => (
-                    <a
-                        key={`${partner.id}-${index}`}
-                        href={partner.href || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.partnerItem}
-                    >
-                        <img
-                            src={partner.logo}
-                            alt={partner.name}
-                            className={styles.logoImg}
-                        />
-                    </a>
-                ))}
+            {/* Khung nhìn che phần tràn (Viewport) */}
+            <div className={styles.sliderViewport}>
+                <div
+                    className={styles.sliderTrack}
+                    style={{
+                        width: `${totalPages * 100}%`,
+                        transform: `translateX(-${pageIndex * pagePercentOfTrack}%)`,
+                    }}
+                >
+                    {pages.map((page, pIdx) => (
+                        <div
+                            key={`page-${pIdx}`}
+                            className={styles.logosPage}
+                            style={{
+                                width: `${pagePercentOfTrack}%`,
+                            }}
+                        >
+                            {page.map((partner, itemIdx) => (
+                                <a
+                                    key={partner.id || `partner-${pIdx}-${itemIdx}`}
+                                    href={partner.href || "#"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.partnerItem}
+                                >
+                                    <img
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        className={styles.logoImg}
+                                    />
+                                </a>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            {/* Nút tiến bên phải: Surface #15CCA3, Icon mũi tên → chuẩn Figma */}
-            <button
-                type="button"
-                onClick={handleNext}
-                className={styles.nextBtn}
-                aria-label="Next partners"
-            >
-                <ArrowRight size={24} strokeWidth={2.5} />
-            </button>
+            {/* Nút tiến bên phải: thon gọn, icon thanh mảnh */}
+            {showNavigation && (
+                <button
+                    type="button"
+                    onClick={handleNext}
+                    className={`${styles.navBtn} ${pageIndex === 0 ? styles.active : ""}`}
+                    aria-label="Trang đối tác tiếp theo"
+                >
+                    <ArrowRight size={18} strokeWidth={1.8} />
+                </button>
+            )}
         </div>
     );
 }

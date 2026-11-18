@@ -241,11 +241,10 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: clamp(20px, 2vw, 36px);
 
     .allCoursesBtn {
-        width: clamp(200px, 14vw, 270px); // Chuẩn Figma Group 427321672: width 270px
-        height: clamp(52px, 3.65vw, 70px); // Chuẩn Figma: height 70px
+        width: clamp(170px, 14vw, 270px); // Chuẩn Figma Group 427321672: width 270px
+        height: clamp(40px, 3.65vw, 70px); // Chuẩn Figma: height 70px
         background-color: #15cca3; // Chuẩn Figma Rectangle 12344: #15CCA3
         color: #ffffff;
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -253,7 +252,7 @@
         font-weight: 500; // Giảm từ 600 xuống 500 giúp nét chữ thon gọn, thanh mảnh đúng ảnh gốc
         line-height: 165%; // Chuẩn Figma: line-height 165%
         letter-spacing: 0.02em;
-        border-radius: 1.3rem; // Đồng bộ 1.3rem chuẩn Figma
+        border-radius: 1.25rem; // Đồng bộ 1.3rem chuẩn Figma
         text-decoration: none;
         display: inline-flex;
         align-items: center;

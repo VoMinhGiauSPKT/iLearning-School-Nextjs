@@ -1,13 +1,17 @@
 .mobileCoursesSection {
     width: 100%;
-    padding: 16px 16px 40px;
+    padding: 18px 16px 40px;
     box-sizing: border-box;
+}
+
+.sectionHeader {
+    margin: 0 auto 36px;
 }
 
 .coursesList {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 30px;
 }
 
 .courseItemWrap {
@@ -96,21 +100,23 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 150px; // Chuẩn Figma: 150px
-            height: 50px; // Chuẩn Figma: 50px
-            background-color: #15CCA3; // Chuẩn Figma: #15CCA3
-            border-radius: 10px; // Chuẩn Figma: 10px
-            border: none;
-            cursor: pointer;
-            color: #FFFFFF;
+            width: 150px; // Chuẩn Figma: width 150px
+            height: 50px; // Chuẩn Figma: height 50px
+            background-color: #15cca3;
+            color: #ffffff;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 16px; // Chuẩn Figma: 16px
-            font-weight: 600; // Chuẩn Figma: 600
+            font-weight: 600; // Chuẩn Figma: Semibold 600
             letter-spacing: 0.02em;
+            border-radius: 10px; // Chuẩn Figma: border-radius 10px
             text-decoration: none;
+            border: none;
+            cursor: pointer;
             transition: all 0.2s ease;
-&:hover {
+
+            &:hover {
                 opacity: 0.92;
+                transform: translateY(-1px);
             }
 
             &:active {
@@ -118,14 +124,16 @@
             }
 
             .btnText {
-                border-bottom: 2px solid #ffffff; // Gạch dưới chữ chuẩn thiết kế
-                line-height: 1.15;
-                padding-bottom: 0px;
                 display: inline-block;
+                line-height: 1.15;
+                border-bottom: 1.5px solid #ffffff; // Đường gạch dưới thanh mảnh kéo sát chân chữ
+                padding-bottom: 0;
             }
 
             .chevron {
                 display: inline-block;
+                width: 12px;
+                height: auto;
                 transition: transform 0.2s ease;
                 flex-shrink: 0;
 

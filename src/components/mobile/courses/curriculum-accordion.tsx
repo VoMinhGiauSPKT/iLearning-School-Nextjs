@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { CurriculumStage } from "@/types/landing";
 import styles from "./curriculum-accordion.module.scss";
 
@@ -67,17 +66,6 @@ export default function CurriculumAccordion({
                     );
                 })}
             </div>
-
-            {curriculum.registerButton && (
-                <div className={styles.registerWrap}>
-                    <Link
-                        href={curriculum.registerButton.href || "#dang-ky"}
-                        className={styles.registerBtn}
-                    >
-                        {curriculum.registerButton.label || "Đăng ký ngay"}
-                    </Link>
-                </div>
-            )}
         </div>
     );
 }

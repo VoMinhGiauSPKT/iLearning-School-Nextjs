@@ -54,25 +54,35 @@
         display: flex;
         align-items: center;
         gap: 10px; // Chuẩn Figma: 366 - (232 + 124) = 10px
+        height: 35px;
         flex-shrink: 0;
 
         /* Nút Liên hệ tư vấn bo góc chuẩn Figma Group 427321693 */
         .consultBtn {
             width: 124px;
+            min-width: 124px;
+            max-width: 124px;
             height: 35px;
+            min-height: 35px;
+            max-height: 35px;
+            box-sizing: border-box;
             background-color: rgba(21, 204, 163, 0.2); // Chuẩn Figma Rectangle 12352: #15CCA3 opacity 0.2
             color: #ffffff;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 16px; // Chuẩn Figma: 16px
-            font-weight: 500; // Chuẩn Figma: 500
-            line-height: 19px;
+            font-weight: 300; // Chuẩn Figma: 500
+            line-height: 1;
             border-radius: 6px; // Chuẩn Figma: 6px
             text-decoration: none;
             border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
+            flex-shrink: 0;
             transition: all 0.2s ease;
 
             &:active {
@@ -84,9 +94,15 @@
         /* Nút Hamburger vuông màu xanh ngọc chuẩn Figma Group 427321692 */
         .menuBtn {
             width: 36px;
+            min-width: 36px;
+            max-width: 36px;
             height: 35px;
+            min-height: 35px;
+            max-height: 35px;
+            box-sizing: border-box;
             background-color: #15CCA3; // Chuẩn Figma: #15CCA3
             border: none;
+            outline: none;
             border-radius: 6px; // Chuẩn Figma: 6px
             color: #ffffff;
             display: flex;
@@ -94,8 +110,16 @@
             justify-content: center;
             cursor: pointer;
             padding: 0;
+            margin: 0;
             flex-shrink: 0;
+            -webkit-appearance: none;
+            appearance: none;
             transition: all 0.2s ease;
+
+            svg {
+                display: block;
+                flex-shrink: 0;
+            }
 
             &:active {
                 opacity: 0.85;
@@ -118,7 +142,8 @@
     gap: 18px;
     animation: slideDown 0.25s ease-out;
     box-sizing: border-box;
-.searchBox {
+
+    .searchBox {
         width: 100%;
         height: 46px;
         background-color: #161c24;
@@ -143,7 +168,8 @@
             color: #ffffff;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-weight: 300;
-            font-size: 0.9rem; /* 15px -> 0.9rem */
+            font-size: 0.9rem;
+            /* 15px -> 0.9rem */
             line-height: 100%;
             letter-spacing: 0%;
 
@@ -231,6 +257,7 @@
         opacity: 0;
         transform: translateY(-8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

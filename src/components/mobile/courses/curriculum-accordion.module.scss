@@ -12,7 +12,7 @@
     .curriculumTitle {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 20px;
         line-height: 28px; // Chuẩn Figma: 28px (140%)
         color: #FFFFFF;
@@ -47,7 +47,7 @@
         .stageTitle {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 400;
             font-size: 16px;
             line-height: 22px; // Chuẩn Figma: 22px (140%)
             letter-spacing: 0.02em;
@@ -149,6 +149,7 @@
         opacity: 0;
         transform: translateY(-6px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -160,6 +161,7 @@
         opacity: 0;
         transform: translateY(-6px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

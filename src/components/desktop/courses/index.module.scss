@@ -93,8 +93,8 @@
 
     .stageTitle {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: 1.6rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
-        font-weight: 500;
+        font-size: 1.3rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
+        font-weight: 400;
         line-height: 1.4;
         letter-spacing: 0.02em;
         color: #ffffff; // Chuẩn Figma: #FFFFFF
@@ -110,8 +110,8 @@
             background-color: #15cca3; // Chuẩn Figma: background #15CCA3
             color: #ffffff;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.6rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
-            font-weight: 500; // Chuẩn Figma: Medium 500
+            font-size: 1.4rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
+            font-weight: 400; // Chuẩn Figma: Medium 500
             line-height: 1.4; // Chuẩn Figma: line-height 140%
             letter-spacing: 0.02em; // Chuẩn Figma: letter-spacing 2%
             border-radius: 0.6rem; // Chuẩn Figma: border-radius 10px (10 / 16 = 0.6rem)
@@ -171,14 +171,15 @@
 }
 
 .stageContent {
+    margin-top: -1.5rem;
     padding: 0 2.2rem 1.7rem 2.2rem; // Chuẩn Figma: padding trái 35px (2.2rem) thẳng hàng tiêu đề, đáy 44px (2.8rem)
     background-color: #202428;
     animation: accordionFade 0.25s ease-out;
 
     .lessonItem {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: 1.4rem; // Chuẩn Figma: font-size 22px (22 / 16 = 1.4rem)
-        font-weight: 400; // Chuẩn Figma: font-weight 400 Regular
+        font-size: 1.2rem; // Chuẩn Figma: font-size 22px (22 / 16 = 1.4rem)
+        font-weight: 300; // Chuẩn Figma: font-weight 400 Regular
         color: #ffffff; // Chuẩn Figma: color #FFFFFF
         line-height: 2.4rem; // Chuẩn Figma: line-height 38px (38 / 16 = 2.4rem), 5 dòng đúng 190px chuẩn Figma
         letter-spacing: 0.02em; // Chuẩn Figma: letter-spacing 2%

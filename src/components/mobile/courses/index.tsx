@@ -59,15 +59,15 @@ function MobileCourseItem({
                         </span>
                         <svg
                             className={`${styles.chevron} ${isOpen ? styles.isExpanded : ""}`}
-                            width="11"
-                            height="7"
-                            viewBox="0 0 11 7"
+                            width="15"
+                            height="9"
+                            viewBox="0 0 15 9"
                             fill="none"
                         >
                             <path
-                                d="M1.5 1.5L5.5 5.5L9.5 1.5"
+                                d="M1.5 1.5L7.5 7.5L13.5 1.5"
                                 stroke="#FFFFFF"
-                                strokeWidth="1.8"
+                                strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                             />
@@ -92,7 +92,11 @@ export default function MobileCourses({ data }: MobileCoursesProps) {
 
     return (
         <section id="khoahoc" className={styles.mobileCoursesSection}>
-            <SectionHeader subtitle={data.subtitle} title={data.title} />
+            <SectionHeader
+                subtitle={data.subtitle}
+                title={data.title}
+                className={styles.sectionHeader}
+            />
 
             <div className={styles.coursesList}>
                 {allCourses.map((course, index) => (

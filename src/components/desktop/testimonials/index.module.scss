@@ -37,7 +37,7 @@
     width: 100%;
     background-color: #090C0F; // Chuẩn Figma Rectangle 29, 33, 34: background #090C0F
     border-radius: 10px; // Chuẩn Figma: border-radius 10px
-    padding: clamp(55px, 2.6vw, 49px) clamp(20px, 1.4vw, 27px); // Chuẩn khoảng cách lề trong Figma
+    padding: 50px 15px 30px 16px; // Chuẩn khoảng cách lề trong Figma
     min-height: auto; // Chuẩn Figma: height 539px
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
@@ -87,8 +87,8 @@
 }
 
 .avatar {
-    width: clamp(56px, 4.1vw, 79px); // Chuẩn Figma Ellipse 15: width 79px, height 79px
-    height: clamp(56px, 4.1vw, 79px);
+    width: clamp(50px, 4.1vw, 79px); // Chuẩn Figma Ellipse 15: width 79px, height 79px
+    height: clamp(50px, 4.1vw, 79px);
     border-radius: 50%;
     background-color: #202428; // Chuẩn Figma: background #202428
     overflow: hidden;
@@ -112,8 +112,8 @@
 
     .authorName {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(18px, 1.3vw, 25px); // Chuẩn Figma: 25px
-        font-weight: 700; // Chuẩn Figma: font-weight 700
+        font-size: clamp(15px, 1.3vw, 25px); // Chuẩn Figma: 25px
+        font-weight: 600; // Chuẩn Figma: font-weight 700
         color: #AEAEAE; // Chuẩn Figma: #AEAEAE
         line-height: 120%;
         margin: 0;
@@ -125,7 +125,7 @@
     .authorLocation {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: clamp(13px, 0.94vw, 18px); // Chuẩn Figma: 18px
-        font-weight: 600; // Chuẩn Figma: font-weight 600
+        font-weight: 500; // Chuẩn Figma: font-weight 600
         color: #AEAEAE; // Chuẩn Figma: #AEAEAE
         line-height: 130%;
         letter-spacing: 0.02em;

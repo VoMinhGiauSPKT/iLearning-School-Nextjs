@@ -1,36 +1,56 @@
 .card {
     width: 100%;
     background-color: #090C0F; // Chuẩn Figma Rectangle 12343
-    border-radius: 20px;
-    padding: clamp(24px, 2.5vw, 42px) clamp(24px, 3.8vw, 68px);
+    border-radius: 1.3rem; // 20px / 16 = 1.3rem
+    padding: 2.6rem 4rem; // Chuẩn lề trên dưới 42px (2.6rem) và 2 bên 64px (4rem)
     display: flex;
-    gap: clamp(24px, 3.8vw, 68px);
+    flex-direction: column;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    border: 0.1rem solid rgba(255, 255, 255, 0.05);
+box-sizing: border-box;
+
+    @media (max-width: 960px) {
+        padding: 1.5rem 1.3rem;
+    }
+}
+
+.cardContent {
+    width: 100%;
+    max-width: 82rem; // Chuẩn Figma: width 1312px (1312 / 16 = 82rem)
+    min-height: 29.1rem; // Chuẩn Figma: height 465px (465 / 16 = 29.1rem)
+    margin: auto 0; // Căn giữa tuyệt đối, đảm bảo khoảng cách trên và dưới thẻ bên ngoài luôn bằng nhau
+    display: flex;
+    align-items: flex-start; // Căn các cột neo ở đầu trên, không để ảnh bị trôi xuống giữa khi nội dung dài
+    justify-content: space-between;
+    gap: 6.8rem; // Chuẩn Figma: khoảng cách giữa ảnh và nội dung phải là 109px (996px - 887px = 109px -> 6.8rem)
     box-sizing: border-box;
 
     @media (max-width: 960px) {
         flex-direction: column;
-        padding: 24px 20px;
-        gap: 24px;
+        gap: 1.5rem;
+        min-height: auto;
     }
 }
 
 .imageCol {
-    flex: 0 0 clamp(280px, 32vw, 557px);
-    width: clamp(280px, 32vw, 557px);
+    flex: 0 0 34.8rem;
+    width: 34.8rem; // Chuẩn Figma: width 557px (557 / 16 = 34.8rem)
     max-width: 100%;
-    aspect-ratio: 557 / 393; // Chuẩn Figma Rectangle 12345: width 557px, height 393px
-    border-radius: 20px;
+    aspect-ratio: 557 / 393; // Chuẩn Figma Rectangle 12345: width 557px, height 393px (393 / 16 = 24.6rem)
+    border-radius: 1.3rem; // 20px / 16 = 1.3rem
     overflow: hidden;
     background-color: #111721;
     box-sizing: border-box;
     flex-shrink: 0;
+    margin-top: 2.3rem; // Neo ảnh ở đầu, thấp hơn đỉnh tiêu đề đúng 36px chuẩn Figma (top 2225px vs 2189px)
+    align-self: flex-start; // Cố định ở đầu trên, không bị trôi xuống giữa trục dọc
 
     @media (max-width: 960px) {
         width: 100%;
         max-width: 100%;
+        flex: none;
+        margin-top: 0;
     }
 
     .thumbnail {
@@ -42,83 +62,95 @@
 }
 
 .infoCol {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 40.4rem;
+    width: 40.4rem; // Chuẩn Figma: width 646px (646 / 16 = 40.4rem)
+    max-width: 40.4rem;
+    min-height: 29.1rem; // Chiều cao 465px chuẩn Figma để nút luôn neo ở đáy
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start; // Giữ các dòng tiêu đề, giá, mô tả liền mạch không bị tách rời
+    box-sizing: border-box;
+
+    @media (max-width: 960px) {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+        min-height: auto;
+    }
 
     .title {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(20px, 1.8vw, 35px); // Chuẩn Figma: 35px
+        font-size: 2.2rem; // Chuẩn Figma: 35px (35 / 16 = 2.2rem)
         font-weight: 500;
         color: #ffffff;
         line-height: 1.4;
-        margin: 0 0 clamp(6px, 0.6vw, 10px) 0;
+        margin: 0 0 0.6rem 0; // 10px / 16 = 0.6rem
     }
 
     .price {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(20px, 1.8vw, 35px); // Chuẩn Figma: 35px
+        font-size: 2.2rem; // Chuẩn Figma: 35px (35 / 16 = 2.2rem)
         font-weight: 500;
         color: #15cca3;
         line-height: 1.4;
-        margin-bottom: clamp(14px, 1.4vw, 24px);
+        margin-bottom: 1.5rem; // 24px / 16 = 1.5rem
     }
 
     .featureList {
         list-style: none;
         padding: 0;
-        margin: 0 0 clamp(18px, 1.8vw, 30px) 0;
+        margin: 0 0 1.5rem 0;
         display: flex;
         flex-direction: column;
-        gap: clamp(8px, 0.8vw, 14px);
+        gap: 0.9rem; // 14px / 16 = 0.9rem
     }
 
     .featureItem {
         display: flex;
-        align-items: flex-start;
-        gap: 12px;
+        align-items: center; // Căn giữa hoàn hảo giữa icon tam giác và dòng chữ
+        gap: 0.8rem; // 12px / 16 = 0.8rem
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(14px, 1.05vw, 20px); // Chuẩn Figma: 20px
-        font-weight: 400;
-        color: #AEAEAE; // Chuẩn Figma: #AEAEAE
-        line-height: 1.45;
+        font-size: 1.3rem; // Chuẩn Figma: 20px (20 / 16 = 1.3rem)
+        font-weight: 300;
+        color: #aeaeae; // Chuẩn Figma: #AEAEAE
+        line-height: 1;
 
         .bullet {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 3px;
             flex-shrink: 0;
         }
     }
 
     .moreBtn {
+        margin-top: auto; // Nút luôn nằm ở dưới cùng của cột phải
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        width: clamp(160px, 11.5vw, 220px); // Chuẩn Figma: width 220px
-        height: clamp(50px, 3.65vw, 70px); // Chuẩn Figma: height 70px
+        gap: 0.6rem; // 10px / 16 = 0.6rem
+        width: 13.8rem; // Chuẩn Figma: width 220px (220 / 16 = 13.8rem)
+        height: 4.4rem; // Chuẩn Figma: height 70px (70 / 16 = 4.4rem)
         background-color: #15cca3;
         color: #ffffff;
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(16px, 1.15vw, 22px);
+        font-size: 1.4rem; // 22px / 16 = 1.4rem
         font-weight: 500; // Thon gọn thanh mảnh chuẩn ảnh gốc
         letter-spacing: 0.02em;
-        border-radius: 20px; // Chuẩn Figma: border-radius 20px
+        border-radius: 1.3rem; // Chuẩn Figma: border-radius 20px (20 / 16 = 1.3rem)
         text-decoration: none;
         border: none;
         cursor: pointer;
         transition: all 0.2s ease;
-        box-shadow: 0 4px 20px rgba(21, 204, 163, 0.35);
+@media (max-width: 960px) {
+            margin-top: 1rem;
+        }
 
         &:hover {
             opacity: 0.92;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(21, 204, 163, 0.5);
-        }
+            transform: translateY(-0.1rem);
+}
 
         &:active {
             transform: scale(0.98);
@@ -127,12 +159,14 @@
         .btnText {
             display: inline-block;
             line-height: 1.15;
-            border-bottom: 2px solid #ffffff; // Đường gạch dưới chuẩn ảnh gốc
+            border-bottom: 0.1rem solid #ffffff; // Đường gạch dưới chuẩn ảnh gốc
             padding-bottom: 0; // Kéo sát vào chân chữ hơn
         }
 
         .chevron {
             display: inline-block;
+            width: 0.9rem;
+            height: auto;
             transition: transform 0.2s ease;
             flex-shrink: 0;
 

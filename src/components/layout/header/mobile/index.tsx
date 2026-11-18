@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import SearchIcon from "@/components/ui/search-icon";
 import { HeaderData } from "@/types/landing";
 import styles from "./index.module.scss";
 
@@ -133,7 +134,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                     <div className={styles.menuDrawer}>
                         {/* Ô tìm kiếm nhanh */}
                         <div className={styles.searchBox}>
-                            <Search className={styles.searchIcon} size={18} />
+                            <SearchIcon className={styles.searchIcon} size={18} strokeWidth={1.5} />
                             <input
                                 type="text"
                                 placeholder={header.searchPlaceholder}

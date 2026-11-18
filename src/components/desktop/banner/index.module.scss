@@ -2,58 +2,103 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: clamp(30px, 3.5vw, 60px) 0 clamp(40px, 4.5vw, 80px);
+    margin-top: 4.4rem;
+    /* Chuẩn Figma: gap 70px (70 / 16 = 4.4rem) */
     box-sizing: border-box;
 }
 
 .container {
-    /* Chuẩn tỷ lệ Figma: 876px / 1920px = 45.625% (tạo 2 khoảng trống lớn ~27.2% mỗi bên, nhỏ hơn Video 61%) */
-    width: 45.6%;
-    max-width: 876px;
+    /* Chuẩn tỷ lệ Figma: 876px / 1920px = 45.6% (876 / 16 = 54.8rem) */
+    width: 54.8rem;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-
-    @media (max-width: 1200px) {
-        width: 49%;
-    }
-
-    @media (max-width: 900px) {
-        width: 60%;
-    }
+    box-sizing: border-box;
 }
 
 .bannerCard {
     width: 100%;
+    aspect-ratio: 876 / 282;
+    /* Chuẩn tỷ lệ Figma: 876px x 282px trên mọi màn hình */
+    min-height: 17.6rem;
+    /* 282px trên màn 1920px -> 17.6rem */
     background-color: #15cca3;
-    border-radius: 10px; // Chuẩn Figma: border-radius: 10px
-    padding: clamp(28px, 2.8vw, 45px) clamp(20px, 3vw, 50px);
+    border-radius: 0.6rem;
+    /* Chuẩn Figma: border-radius 10px -> 0.6rem */
+    padding: 2rem 4.5rem;
+    /* Canh trên dưới và 2 bên cân đối chuẩn Figma */
     text-align: center;
-    box-shadow: 0 10px 40px rgba(21, 204, 163, 0.2);
-    box-sizing: border-box;
+box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    opacity: 1;
+
+    .content {
+        width: 100%;
+        max-width: 41.9rem;
+        /* Chuẩn Figma: width 670px (670 / 16 = 41.9rem) */
+        margin: auto 0;
+        /* Tự động căn giữa tuyệt đối, đảm bảo khoảng cách trên và dưới bằng nhau 100% */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        /* Khoảng cách giữa tiêu đề và mô tả đồng bộ giãn dòng */
+        opacity: 1;
+        box-sizing: border-box;
+    }
 
     .title {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(18px, 1.35vw, 24px); // Chuẩn Figma: 24px trên màn 1920
         font-weight: 700;
-        color: #ffffff;
-        line-height: 1.4;
+        font-style: normal;
+        /* Bold */
+        font-size: 1.5rem;
+        /* Chuẩn Figma: 24px (24 / 16 = 1.5rem) */
+        line-height: 150%;
+        /* Chuẩn Figma: line-height: 150% (đồng bộ với mô tả) */
+        letter-spacing: 0%;
         text-align: center;
-        margin: 0 0 clamp(10px, 1vw, 16px) 0;
+        color: #ffffff;
+        width: 100%;
+        max-width: 29.4rem;
+        /* 470px: Giữ cố định "Engineer?" rớt xuống dòng 2 chuẩn Figma trên MỌI màn hình */
+        margin: 0 auto;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
     }
 
     .description {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(13px, 0.9vw, 16px);
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.95);
-        line-height: 1.5;
+        font-weight: 300;
+        font-style: normal;
+        /* Regular */
+        font-size: 1.3rem;
+        /* Chuẩn Figma: 20px (20 / 16 = 1.3rem) */
+        line-height: 150%;
+        /* Chuẩn Figma: line-height: 150% (đồng bộ với tiêu đề) */
+        letter-spacing: 0%;
         text-align: center;
-        max-width: 670px; // Chuẩn Figma: width: 670px
+        color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        max-width: 41.9rem;
+        /* Chuẩn Figma: width 670px -> 41.9rem */
         margin: 0 auto;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
     }
 }

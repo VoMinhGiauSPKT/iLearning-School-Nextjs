@@ -1,29 +1,34 @@
 .header {
     text-align: center;
-    margin: 0 auto clamp(36px, 3.5vw, 64px);
+    margin: 0 auto 4.4rem;
+    /* Canh khoảng cách dưới bằng đúng khoảng cách trên 70px (4.4rem) */
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    max-width: 25rem;
+    /* 400px -> 25rem */
     box-sizing: border-box;
 
     .subtitle {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-style: normal;
         font-weight: 400; // Mảnh hơn dòng dưới
-        font-size: clamp(18px, 1.2vw, 23px);
-        line-height: 130%;
+        font-size: 1.4rem;
+        /* 23px (23 / 16 = 1.4rem) */
+        line-height: 120%;
         color: #ffffff;
-        margin: 0 0 4px 0;
+        margin: 0 0 0.2rem 0;
+        /* 4px -> 0.3rem */
         text-align: center;
     }
 
     .title {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-style: normal;
-        font-weight: 700; // Dày hơn dòng ở trên
-        font-size: clamp(18px, 1.2vw, 23px);
-        line-height: 130%;
+        font-weight: 600; // Dày hơn dòng ở trên
+        font-size: 1.5rem;
+        /* 23px (23 / 16 = 1.4rem) */
+        line-height: 120%;
         color: #ffffff;
         margin: 0;
         text-align: center;

@@ -2,26 +2,19 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: clamp(40px, 4vw, 70px) 0 clamp(40px, 4.5vw, 80px);
+    padding: 4.4rem 0 0;
+    /* Canh khoảng cách trên dưới đều nhau chuẩn 70px (4.4rem) */
     box-sizing: border-box;
 }
 
 .container {
-    /* Chuẩn tỷ lệ Figma: 1440px / 1920px = 75% (tạo 2 khoảng trống 12.5% mỗi bên) */
-    width: 75%;
-    max-width: 1440px;
+    /* Chuẩn tỷ lệ Figma: 1440px / 1920px = 75% (1440 / 16 = 90rem) */
+    width: 90rem;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @media (max-width: 1400px) {
-        width: 84%;
-    }
-
-    @media (max-width: 1100px) {
-        width: 90%;
-    }
 }
 
 .courseItemWrap {
@@ -51,41 +44,44 @@
 
 .curriculumBox {
     width: 100%;
+    min-height: 63.9rem; // Chuẩn Figma: height 1022px (1022 / 16 = 63.9rem)
     background-color: #090C0F; // Chuẩn Figma Rectangle 12327: background #090C0F
-    border-radius: 20px;
-    padding: clamp(32px, 3.2vw, 50px) clamp(24px, 3.5vw, 50px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 1.3rem; // Chuẩn Figma: border-radius 20px (20 / 16 = 1.3rem)
+    padding: 3.1rem 3.1rem 3.8rem; // Chuẩn Figma: padding lề trái phải 50px (3.1rem), cách đều 2 bên
+    border: 0.1rem solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
 
     .curriculumTitle {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(24px, 1.8vw, 35px); // Chuẩn Figma: 35px
+        font-size: 2.2rem; // Chuẩn Figma: 35px (35 / 16 = 2.2rem)
         font-weight: 500;
-        line-height: 140%;
+        line-height: 1.4;
         color: #ffffff;
-        margin: 0 0 clamp(24px, 2.2vw, 42px) 0;
+        margin: 0 0 2.6rem 0; // Chuẩn Figma: cách giai đoạn 1 đúng 42px (2.6rem)
     }
 }
 
 .stageList {
     display: flex;
     flex-direction: column;
-    gap: clamp(14px, 1.2vw, 20px);
-    margin-bottom: clamp(28px, 2.5vw, 44px);
+    gap: 1.3rem; // Chuẩn Figma: khoảng cách giữa các giai đoạn là 20px (1.3rem)
+    margin-bottom: 2.8rem; // Chuẩn Figma: cách nút Đăng ký ngay 44px (2.8rem)
 }
 
 .stageItem {
-    background-color: #202428; // Chuẩn Figma Rectangle 12345: background #202428
-    border-radius: 20px; // Chuẩn Figma: border-radius 20px
+    width: 100%; // Chuẩn Figma: width 1340px
+    background-color: #202428; // Chuẩn Figma: background #202428
+    border-radius: 1.3rem; // Chuẩn Figma: border-radius 20px (1.3rem)
+    border: none; // Xóa viền trắng theo yêu cầu
     overflow: hidden;
     transition: all 0.2s ease;
 }
 
 .stageHeader {
     width: 100%;
-    padding: clamp(16px, 1.6vw, 28px) clamp(20px, 2.2vw, 36px);
-    min-height: clamp(64px, 5.7vw, 110px); // Chuẩn Figma: height 110px
+    min-height: 6.9rem; // Chuẩn Figma: height 110px (110 / 16 = 6.9rem)
+    height: 6.9rem;
+    padding: 0 2.2rem; // Chuẩn Figma: padding lề 35px (2.2rem)
     background: transparent;
     border: none;
     display: flex;
@@ -97,9 +93,9 @@
 
     .stageTitle {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(16px, 1.3vw, 25px); // Chuẩn Figma: 25px
+        font-size: 1.6rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
         font-weight: 500;
-        line-height: 140%;
+        line-height: 1.4;
         letter-spacing: 0.02em;
         color: #ffffff; // Chuẩn Figma: #FFFFFF
     }
@@ -107,31 +103,33 @@
     .stageMeta {
         display: flex;
         align-items: center;
-        gap: clamp(14px, 1.4vw, 24px);
+        gap: 3rem; // Khoảng cách giữa badge và icon toggle chuẩn 24px (1.5rem)
         flex-shrink: 0;
 
         .badge {
-            background-color: #15cca3; // Chuẩn Figma Rectangle 12349
+            background-color: #15cca3; // Chuẩn Figma: background #15CCA3
             color: #ffffff;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: clamp(15px, 1.3vw, 25px); // Chuẩn Figma: 25px
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            border-radius: 10px; // Chuẩn Figma: border-radius 10px
-            min-width: clamp(75px, 5.6vw, 107px); // Chuẩn Figma: width 107px
-            height: clamp(38px, 2.8vw, 54px); // Chuẩn Figma: height 54px
+            font-size: 1.6rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
+            font-weight: 500; // Chuẩn Figma: Medium 500
+            line-height: 1.4; // Chuẩn Figma: line-height 140%
+            letter-spacing: 0.02em; // Chuẩn Figma: letter-spacing 2%
+            border-radius: 0.6rem; // Chuẩn Figma: border-radius 10px (10 / 16 = 0.6rem)
+            width: 6.7rem; // Chuẩn Figma: width 107px (107 / 16 = 6.7rem)
+            min-width: 6.7rem;
+            height: 3.4rem; // Chuẩn Figma: height 54px (54 / 16 = 3.4rem)
             display: inline-flex;
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
-            padding: 0 16px;
+            padding: 0;
         }
 
-        /* Group 427321681: Chuẩn kích thước 40px x 40px */
+        /* Group 427321681: Chuẩn kích thước 40px x 40px (2.5rem x 2.5rem) */
         .toggleIcon {
             position: relative;
-            width: clamp(26px, 2.1vw, 40px); // Chuẩn Figma: width 40px
-            height: clamp(26px, 2.1vw, 40px); // Chuẩn Figma: height 40px
+            width: 2.5rem; // Chuẩn Figma: width 40px (2.5rem)
+            height: 2.5rem; // Chuẩn Figma: height 40px (2.5rem)
             display: flex;
             align-items: center;
             justify-content: center;
@@ -142,7 +140,7 @@
                 position: absolute;
                 width: 100%;
                 height: 0;
-                border-top: 1px solid #ffffff; // Chuẩn Figma: border: 1px solid #FFFFFF
+                border-top: 0.1rem solid #ffffff; // Chuẩn Figma: border: 1px solid #FFFFFF
                 top: 50%;
                 left: 0;
                 transform: translateY(-50%);
@@ -153,14 +151,14 @@
                 position: absolute;
                 height: 100%;
                 width: 0;
-                border-left: 1px solid #ffffff; // Chuẩn Figma: border: 1px solid #FFFFFF (rotate 90deg)
+                border-left: 0.1rem solid #ffffff; // Chuẩn Figma: border: 1px solid #FFFFFF (rotate 90deg)
                 left: 50%;
                 top: 0;
                 transform: translateX(-50%);
                 transition: opacity 0.2s ease, transform 0.2s ease;
             }
 
-            /* Khi mở rộng: Line 45 ẩn đi (Figma: visibility: hidden) biến thành dấu trừ */
+            /* Khi mở rộng: Line 45 ẩn đi biến thành dấu trừ */
             &.isOpen {
                 .lineV {
                     opacity: 0;
@@ -173,18 +171,18 @@
 }
 
 .stageContent {
-    padding: 0 clamp(20px, 2.2vw, 36px) clamp(20px, 1.8vw, 32px) clamp(20px, 2.2vw, 36px);
+    padding: 0 2.2rem 1.7rem 2.2rem; // Chuẩn Figma: padding trái 35px (2.2rem) thẳng hàng tiêu đề, đáy 44px (2.8rem)
     background-color: #202428;
     animation: accordionFade 0.25s ease-out;
 
     .lessonItem {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(15px, 1.15vw, 22px); // Chuẩn Figma: 22px
-        font-weight: 400;
-        color: #ffffff; // Chuẩn Figma: #FFFFFF
-        line-height: clamp(26px, 2vw, 38px); // Chuẩn Figma: line-height 38px
-        letter-spacing: 0.02em;
-        margin: 6px 0;
+        font-size: 1.4rem; // Chuẩn Figma: font-size 22px (22 / 16 = 1.4rem)
+        font-weight: 400; // Chuẩn Figma: font-weight 400 Regular
+        color: #ffffff; // Chuẩn Figma: color #FFFFFF
+        line-height: 2.4rem; // Chuẩn Figma: line-height 38px (38 / 16 = 2.4rem), 5 dòng đúng 190px chuẩn Figma
+        letter-spacing: 0.02em; // Chuẩn Figma: letter-spacing 2%
+        margin: 0; // Khớp chính xác chiều cao 190px chuẩn Figma
     }
 }
 
@@ -193,6 +191,7 @@
         opacity: 0;
         transform: translateY(-8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -204,25 +203,23 @@
     justify-content: center;
 
     .registerBtn {
-        width: clamp(170px, 12vw, 230px); // Chuẩn Figma Group 427321698: width 230px
-        height: clamp(52px, 4.2vw, 80px); // Chuẩn Figma: height 80px
+        width: 14.4rem; // Chuẩn Figma: width 230px (230 / 16 = 14.4rem)
+        height: 5rem; // Chuẩn Figma: height 80px (80 / 16 = 5rem)
         background-color: #15cca3;
         color: #ffffff;
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(17px, 1.3vw, 25px); // Chuẩn Figma: 25px
+        font-size: 1.6rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
         font-weight: 700;
-        border-radius: 20px; // Chuẩn Figma: border-radius 20px
+        border-radius: 1.3rem; // Đồng bộ 1.3rem chuẩn Figma giống nút thẻ khóa học
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         transition: all 0.2s ease;
-        box-shadow: 0 4px 20px rgba(21, 204, 163, 0.35);
 
         &:hover {
             opacity: 0.92;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(21, 204, 163, 0.5);
+            transform: translateY(-0.1rem);
         }
 
         &:active {
@@ -235,7 +232,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 56px;
     margin-bottom: 40px;
 }
 
@@ -255,18 +252,16 @@
         font-weight: 500; // Giảm từ 600 xuống 500 giúp nét chữ thon gọn, thanh mảnh đúng ảnh gốc
         line-height: 165%; // Chuẩn Figma: line-height 165%
         letter-spacing: 0.02em;
-        border-radius: 20px; // Chuẩn Figma: border-radius 20px
+        border-radius: 1.3rem; // Đồng bộ 1.3rem chuẩn Figma
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         transition: all 0.2s ease;
-        box-shadow: 0 4px 20px rgba(21, 204, 163, 0.35);
 
         &:hover {
             opacity: 0.92;
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(21, 204, 163, 0.5);
         }
 
         &:active {

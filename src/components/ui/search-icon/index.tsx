@@ -1,0 +1,46 @@
+import React from "react";
+
+interface SearchIconProps extends React.SVGProps<SVGSVGElement> {
+    size?: number | string;
+    strokeWidth?: number | string;
+}
+
+/**
+ * Biểu tượng tìm kiếm chuẩn Vuesax Linear (vuesax/linear/search-normal) theo Figma
+ * - ViewBox: 24 x 24
+ * - Stroke: currentColor (kế thừa màu từ class / inline style)
+ * - StrokeWidth mặc định: 1.5
+ */
+export default function SearchIcon({
+    size = 24,
+    strokeWidth = 1.5,
+    className,
+    ...props
+}: SearchIconProps) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+            {...props}
+        >
+            <path
+                d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                stroke="currentColor"
+                strokeWidth={strokeWidth}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M22 22L20 20"
+                stroke="currentColor"
+                strokeWidth={strokeWidth}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+}

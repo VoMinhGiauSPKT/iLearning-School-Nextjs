@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import SearchIcon from "@/components/ui/search-icon";
 import { HeaderData } from "@/types/landing";
 import styles from "./index.module.scss";
 
@@ -48,7 +49,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                         </Link>
 
                         <div className={styles.searchBox}>
-                            <Search className={styles.searchIcon} strokeWidth={1.5} />
+                            <SearchIcon className={styles.searchIcon} size="1.5rem" strokeWidth={1.5} />
                             <input
                                 type="text"
                                 placeholder={header.searchPlaceholder}
@@ -67,7 +68,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                                     onClick={(e) => handleNavClick(e, link.href)}
                                 >
                                     <span>{link.label}</span>
-                                    {link.hasDropdown && <ChevronDown size={18} />}
+                                    {link.hasDropdown && <ChevronDown size="1.1rem" />}
                                 </Link>
                             ))}
                         </nav>

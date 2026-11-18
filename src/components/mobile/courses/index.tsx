@@ -40,7 +40,7 @@ function MobileCourseItem({
                 </div>
                 <div className={styles.info}>
                     <h3 className={styles.courseTitle}>{course.title}</h3>
-                    <div className={styles.price}>{course.price}</div>
+                    <div className={styles.price}>{course.price?.replace(/\./g, ",")}</div>
                     <ul className={styles.features}>
                         {course.features.map((item, idx) => (
                             <li key={idx}>

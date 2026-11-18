@@ -71,6 +71,8 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
                             className={styles.logosPage}
                             style={{
                                 width: `${pagePercentOfTrack}%`,
+                                flex: `0 0 ${pagePercentOfTrack}%`,
+                                maxWidth: `${pagePercentOfTrack}%`,
                             }}
                         >
                             {page.map((partner, itemIdx) => (

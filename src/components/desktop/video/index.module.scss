@@ -2,36 +2,30 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: clamp(40px, 4vw, 70px) 0 clamp(30px, 3vw, 50px);
+    padding: 6.3rem 0 0;
+    /* Chuẩn Figma: gap 100px (100 / 16 = 6.3rem) */
     box-sizing: border-box;
 }
 
 .container {
-    /* Chuẩn tỷ lệ Figma: 1170px / 1920px = 60.94% (tạo khoảng trống lớn ~19.5% ở cả 2 bên trái & phải) */
-    width: 61%;
-    max-width: 1170px;
+    /* Chuẩn tỷ lệ Figma: 1170px / 1920px = 61% (1170 / 16 = 73.1rem) */
+    width: 73.1rem;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-
-    @media (max-width: 1200px) {
-        width: 65%;
-    }
-
-    @media (max-width: 900px) {
-        width: 75%;
-    }
+    box-sizing: border-box;
 }
 
 .videoWrapper {
     width: 100%;
-    aspect-ratio: 1170 / 658.06; // Chuẩn tỷ lệ Figma: width 1170px, height 658.06px (16:9)
+    aspect-ratio: 1170 / 658.06;
+    /* Chuẩn tỷ lệ Figma 1170x658.06 trên mọi màn hình, không bị méo */
     background-color: #090c0f;
-    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-    position: relative;
+    border: 0.1rem solid rgba(255, 255, 255, 0.08);
+position: relative;
+    opacity: 1;
 
     .player {
         width: 100%;

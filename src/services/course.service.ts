@@ -1,9 +1,17 @@
 import { CourseItem } from "@/types/landing";
 import { apiFetch, getFileUrl } from "@/lib/api-client";
 
-function formatPrice(price?: number): string {
+function formatPrice(price?: number | string): string {
+    if (price === undefined || price === null || price === "") return "Liên hệ";
+    if (typeof price === "string") {
+        const num = Number(price.replace(/[^\d]/g, ""));
+        if (!isNaN(num) && num > 0) {
+            return new Intl.NumberFormat("en-US").format(num) + " đ";
+        }
+        return price.replace(/\./g, ",");
+    }
     if (typeof price !== "number" || isNaN(price)) return "Liên hệ";
-    return new Intl.NumberFormat("vi-VN").format(price) + " đ";
+    return new Intl.NumberFormat("en-US").format(price) + " đ";
 }
 
 export async function getClassroomList(): Promise<CourseItem[]> {

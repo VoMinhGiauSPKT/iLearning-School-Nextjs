@@ -5,45 +5,50 @@
     right: 0;
     z-index: 1000;
     width: 100%;
-    height: 100px;
+    height: clamp(4.4rem, 5.2vw, 6.3rem);
+    /* Co giãn từ 70px (1024px) đến 100px (1920px) */
     background-color: rgba(48, 48, 48, 0.5);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     .container {
         width: 100%;
-        max-width: 1920px;
+        max-width: 120rem;
+        /* 1920px */
         height: 100%;
         margin: 0 auto;
-        padding: 0 32px;
+        padding: 0 clamp(1rem, 2vw, 2rem);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 30px;
+        gap: clamp(1rem, 1.8vw, 2rem);
+        box-sizing: border-box;
     }
 
     /* KHỐI TRÁI: LOGO VÀ Ô TÌM KIẾM */
     .leftGroup {
         display: flex;
         align-items: center;
-        gap: 36px;
+        gap: clamp(2.8rem, 5vw, 5.6rem);
+        /* Khoảng cách rộng rãi giữa Logo và Ô search chuẩn Figma */
         flex: 0 1 auto;
         min-width: 0;
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: clamp(0.5rem, 0.6vw, 0.8rem);
             text-decoration: none;
             flex-shrink: 0;
 
             img {
                 width: auto;
-                height: 43px;
+                height: clamp(2rem, 2.2vw, 2.7rem);
+                /* 32px ở 1024px -> 43px ở 1920px */
             }
 
             .brandText {
@@ -52,26 +57,28 @@
                 line-height: 1.1;
 
                 span {
-                    font-size: 21px;
+                    font-size: clamp(0.9rem, 1.1vw, 1.3rem);
                     font-weight: 700;
                     color: #ffffff;
-                    letter-spacing: -0.5px;
+                    letter-spacing: -0.03em;
                 }
             }
         }
 
         .searchBox {
             box-sizing: border-box;
-            width: 500px;
+            width: clamp(15.1rem, 24vw, 28.8rem);
+            /* Chuẩn Figma: 242px ở 1024px -> 460px ở 1920px */
             max-width: 100%;
-            min-width: 140px;
-            height: 60px;
+            min-width: 12rem;
+            height: clamp(2.4rem, 3.1vw, 3.8rem);
+            /* Chuẩn Figma: 38px ở 1024px -> 60px ở 1920px */
             background-color: #090C0F;
-            border-radius: 10px;
+            border-radius: clamp(0.5rem, 0.6vw, 0.6rem);
             display: flex;
             align-items: center;
-            padding: 0 18px;
-            gap: 10px;
+            padding: 0 clamp(0.8rem, 1vw, 1.2rem);
+            gap: clamp(0.5rem, 0.6vw, 0.8rem);
             border: none;
             outline: none;
             flex-shrink: 1;
@@ -79,13 +86,13 @@
             transition: all 0.2s ease;
 
             &:focus-within {
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
-            }
+                outline: 0.1rem solid rgba(255, 255, 255, 0.15);
+}
 
             .searchIcon {
                 color: #959595;
-                width: 23px;
-                height: 23px;
+                width: clamp(1rem, 1.2vw, 1.5rem);
+                height: clamp(1rem, 1.2vw, 1.5rem);
                 flex-shrink: 0;
             }
 
@@ -100,16 +107,22 @@
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 font-style: normal;
                 font-weight: 300;
-                font-size: 20px;
-                line-height: 24px;
+                /* Đồng bộ tự co giãn: 0.8rem ở laptop 100% -> đạt đúng 1.3rem (20px) ở màn 1920 (hoặc khi zoom 67%) */
+                font-size: clamp(0.8rem, 1vw, 1.3rem);
+                line-height: 100%;
+                letter-spacing: 0%;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
 
                 &::placeholder {
                     color: #959595;
                     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                     font-style: normal;
                     font-weight: 300;
-                    font-size: 20px;
-                    line-height: 24px;
+                    font-size: clamp(0.8rem, 1vw, 1.3rem);
+                    line-height: 100%;
+                    letter-spacing: 0%;
+                    opacity: 1;
                 }
             }
         }
@@ -119,36 +132,43 @@
     .rightGroup {
         display: flex;
         align-items: center;
-        gap: 36px;
+        gap: clamp(1.8rem, 3vw, 3.8rem);
+        /* Khoảng cách rộng rãi giữa NavMenu, Divider, Log In và SIGN */
         flex-shrink: 0;
 
         .navMenu {
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: clamp(1.8rem, 3.2vw, 4rem);
+            /* Khoảng cách giữa các liên kết menu chuẩn Figma: ~35px ở 1024px -> 64px ở 1920px */
 
             .navLink {
                 display: flex;
                 align-items: center;
-                gap: 6px;
+                gap: clamp(0.2rem, 0.3vw, 0.4rem);
                 color: #959595;
                 font-family: inherit;
-                font-size: 20px;
+                font-size: clamp(0.9rem, 1vw, 1.3rem);
                 font-weight: 500;
-                line-height: 24px;
+                /* Nét mảnh thanh thoát chuẩn Light (300) */
+                line-height: 1.5rem;
                 text-decoration: none;
                 transition: color 0.2s ease;
                 white-space: nowrap;
+                -webkit-font-smoothing: antialiased;
 
                 &:hover {
                     color: #ffffff;
                 }
 
                 svg {
-                    width: 18px;
-                    height: 18px;
+                    width: clamp(0.8rem, 1vw, 1.1rem);
+                    height: clamp(0.8rem, 1vw, 1.1rem);
                     color: #959595;
                     transition: color 0.2s ease;
+                    transform: translateY(0.1rem);
+                    /* Hạ icon mũi tên xuống xíu để cân đối với dòng chữ */
+                    flex-shrink: 0;
                 }
 
                 &:hover svg {
@@ -158,8 +178,8 @@
         }
 
         .divider {
-            width: 1px;
-            height: 24px;
+            width: 0.1rem;
+            height: clamp(1rem, 1.2vw, 1.5rem);
             background-color: #959595;
             opacity: 0.6;
             flex-shrink: 0;
@@ -167,13 +187,15 @@
 
         .loginLink {
             color: #959595;
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 24px;
+            font-size: clamp(0.9rem, 1vw, 1.3rem);
+            font-weight: 400;
+            /* Nét mảnh thanh thoát Light (300) */
+            line-height: 1.5rem;
             text-decoration: none;
             white-space: nowrap;
             transition: color 0.2s ease;
             flex-shrink: 0;
+            -webkit-font-smoothing: antialiased;
 
             &:hover {
                 color: #ffffff;
@@ -181,15 +203,17 @@
         }
 
         .signBtn {
-            width: 149px;
-            height: 60px;
+            width: clamp(4.9rem, 7.8vw, 9.3rem);
+            /* 79px ở 1024px -> 149px ở 1920px */
+            height: clamp(2.4rem, 3.1vw, 3.8rem);
+            /* 38px ở 1024px -> 60px ở 1920px */
             background-color: #090C0F;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: clamp(0.5rem, 0.6vw, 0.6rem);
+            border: 0.1rem solid rgba(255, 255, 255, 0.08);
             color: #959595;
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 24px;
+            font-size: clamp(0.9rem, 1vw, 1.3rem);
+            font-weight: 400;
+            line-height: 1.5rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -202,297 +226,12 @@
             &:hover {
                 border-color: #15CCA3;
                 color: #15CCA3;
-                box-shadow: 0 0 20px rgba(21, 204, 163, 0.25);
-            }
+                }
         }
     }
 }
 
 .headerPlaceholder {
-    height: 100px;
+    height: clamp(4.4rem, 5.2vw, 6.3rem);
     width: 100%;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-
-/* 1. Màn hình Laptop lớn / 2K scale 125% (1400px - 1699px) */
-@media (max-width: 1699px) {
-    .header {
-        height: 84px;
-
-        .container {
-            padding: 0 24px;
-            gap: 20px;
-        }
-
-        .leftGroup {
-            gap: 24px;
-
-            .logo {
-                img {
-                    height: 38px;
-                }
-
-                .brandText span {
-                    font-size: 18px;
-                }
-            }
-
-            .searchBox {
-                width: 400px;
-                height: 50px;
-                padding: 0 16px;
-
-                .searchIcon {
-                    width: 20px;
-                    height: 20px;
-                }
-
-                input,
-                input::placeholder {
-                    font-size: 16px;
-                }
-            }
-        }
-
-        .rightGroup {
-            gap: 24px;
-
-            .navMenu {
-                gap: 24px;
-
-                .navLink {
-                    font-size: 16px;
-
-                    svg {
-                        width: 16px;
-                        height: 16px;
-                    }
-                }
-            }
-
-            .divider {
-                height: 20px;
-            }
-
-            .loginLink {
-                font-size: 16px;
-            }
-
-            .signBtn {
-                width: 120px;
-                height: 50px;
-                font-size: 16px;
-            }
-        }
-    }
-
-    .headerPlaceholder {
-        height: 84px;
-    }
-}
-
-/* 2. Màn hình Laptop chuẩn (1180px - 1399px, vd: 1366x768, 1280x800) */
-@media (max-width: 1399px) {
-    .header {
-        height: 76px;
-
-        .container {
-            padding: 0 20px;
-            gap: 16px;
-        }
-
-        .leftGroup {
-            gap: 18px;
-
-            .logo {
-                img {
-                    height: 36px;
-                }
-
-                .brandText span {
-                    font-size: 17px;
-                }
-            }
-
-            .searchBox {
-                width: 310px;
-                height: 44px;
-                padding: 0 14px;
-
-                .searchIcon {
-                    width: 18px;
-                    height: 18px;
-                }
-
-                input,
-                input::placeholder {
-                    font-size: 14.5px;
-                }
-            }
-        }
-
-        .rightGroup {
-            gap: 16px;
-
-            .navMenu {
-                gap: 16px;
-
-                .navLink {
-                    font-size: 14.5px;
-
-                    svg {
-                        width: 15px;
-                        height: 15px;
-                    }
-                }
-            }
-
-            .divider {
-                height: 18px;
-            }
-
-            .loginLink {
-                font-size: 14.5px;
-            }
-
-            .signBtn {
-                width: 102px;
-                height: 44px;
-                font-size: 14.5px;
-            }
-        }
-    }
-
-    .headerPlaceholder {
-        height: 76px;
-    }
-}
-
-/* 3. Màn hình nhỏ / iPad landscape / DevTools 1024px (900px - 1179px) */
-@media (max-width: 1179px) {
-    .header {
-        height: 70px;
-
-        .container {
-            padding: 0 14px;
-            gap: 10px;
-        }
-
-        .leftGroup {
-            gap: 12px;
-
-            .logo {
-                gap: 8px;
-
-                img {
-                    height: 32px;
-                }
-
-                .brandText span {
-                    font-size: 15px;
-                }
-            }
-
-            .searchBox {
-                width: 210px;
-                height: 38px;
-                padding: 0 10px;
-                gap: 8px;
-                border-radius: 8px;
-
-                .searchIcon {
-                    width: 16px;
-                    height: 16px;
-                }
-
-                input,
-                input::placeholder {
-                    font-size: 13px;
-                }
-            }
-        }
-
-        .rightGroup {
-            gap: 10px;
-
-            .navMenu {
-                gap: 10px;
-
-                .navLink {
-                    font-size: 13px;
-                    gap: 3px;
-
-                    svg {
-                        width: 13px;
-                        height: 13px;
-                    }
-                }
-            }
-
-            .divider {
-                height: 16px;
-            }
-
-            .loginLink {
-                font-size: 13px;
-            }
-
-            .signBtn {
-                width: 78px;
-                height: 38px;
-                font-size: 13px;
-                border-radius: 8px;
-            }
-        }
-    }
-
-    .headerPlaceholder {
-        height: 70px;
-    }
-}
-
-/* 4. Màn hình cực nhỏ trên desktop (dưới 900px) */
-@media (max-width: 899px) {
-    .header {
-        .container {
-            padding: 0 10px;
-            gap: 8px;
-        }
-
-        .leftGroup {
-            gap: 8px;
-
-            .searchBox {
-                width: 130px;
-                padding: 0 6px;
-
-                input::placeholder {
-                    font-size: 11px;
-                }
-            }
-        }
-
-        .rightGroup {
-            gap: 8px;
-
-            .navMenu {
-                gap: 8px;
-
-                .navLink {
-                    font-size: 12px;
-                }
-            }
-
-            .loginLink {
-                font-size: 12px;
-            }
-
-            .signBtn {
-                width: 66px;
-                height: 34px;
-                font-size: 12px;
-            }
-        }
-    }
 }

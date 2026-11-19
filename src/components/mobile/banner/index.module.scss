@@ -8,36 +8,39 @@
     width: 100%;
     background-color: #15cca3;
     border-radius: 14px;
-    padding: 26px 18px;
+    padding: clamp(22px, 6vw, 32px) clamp(18px, 5vw, 24px);
     text-align: center;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: clamp(10px, 2.8vw, 16px);
 
     .title {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: 21px;
+        // iPhone SE (375px): ~20.5px | iPhone 16 Pro Max (440px): ~25px
+        font-size: clamp(20px, calc(-5px + 6.8vw), 25px);
         font-weight: 700;
         color: #ffffff;
-        line-height: 1.4;
+        line-height: 1.35;
         margin: 0;
         text-align: center;
-        max-width: 320px;
+        max-width: 420px;
         word-break: keep-all;
         overflow-wrap: break-word;
     }
 
     .description {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: 15px;
-        font-weight: 400;
+        // iPhone SE (375px): ~16.8px (gọn gàng, thoáng) | iPhone 16 Pro Max (440px): ~20.5px (to rõ theo ý bạn)
+        font-size: clamp(16px, calc(-5px + 5.8vw), 21px);
+        font-weight: 300;
         color: rgba(255, 255, 255, 0.95);
-        line-height: 1.6;
+        line-height: 1.55;
         margin: 0;
         text-align: center;
-        max-width: 360px;
+        max-width: 420px;
         word-break: normal;
         overflow-wrap: break-word;
         display: -webkit-box;

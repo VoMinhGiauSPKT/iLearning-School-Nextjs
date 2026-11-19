@@ -68,15 +68,18 @@ export function scrollToSectionContent(
     duration: number = 650,
     callback?: () => void
 ) {
+    // Nếu target là thẻ con bên trong (như span id="tu-van"), tìm đến section cha
+    const rootEl = sectionEl.closest("section") || sectionEl;
+
     // Tìm phần tử tiêu đề/chữ đầu tiên bên trong section (SectionHeader, p, h2...)
     const titleEl =
-        sectionEl.querySelector<HTMLElement>(
+        rootEl.querySelector<HTMLElement>(
             "h2, p, [class*='header'], [class*='subtitle'], [class*='title']"
         ) ||
-        sectionEl.querySelector<HTMLElement>(
+        rootEl.querySelector<HTMLElement>(
             "[class*='videoWrapper'], [class*='bannerCard'], [class*='container']"
         ) ||
-        sectionEl;
+        rootEl;
 
     const titleTop = titleEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
     const targetY = Math.max(0, Math.round(titleTop - headerHeight - buffer));

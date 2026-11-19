@@ -11,6 +11,8 @@
 
     @media (max-width: 768px) {
         margin: 0 auto 36px;
+        max-width: 100%;
+        gap: 6px;
     }
 
     .subtitle {
@@ -24,6 +26,14 @@
         margin: 0 0 0.2rem 0;
         /* 4px -> 0.3rem */
         text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: 0%;
+            margin: 0;
+        }
     }
 
     .title {
@@ -36,5 +46,13 @@
         color: #ffffff;
         margin: 0;
         text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 23px;
+            font-weight: 700;
+            line-height: 120%;
+            letter-spacing: 0%;
+            margin: 0;
+        }
     }
 }

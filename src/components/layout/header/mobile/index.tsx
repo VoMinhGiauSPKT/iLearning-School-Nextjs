@@ -164,26 +164,6 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                 </Link>
                             ))}
                         </nav>
-
-                        {/* Nút Đăng nhập & Đăng ký đồng bộ với Desktop */}
-                        <div className={styles.authGroup}>
-                            <Link
-                                href={header.loginButton.href}
-                                className={styles.loginBtn}
-                                onClick={(e) => handleNavClick(e, header.loginButton.href)}
-                                scroll={false}
-                            >
-                                {header.loginButton.label}
-                            </Link>
-                            <Link
-                                href={header.signButton.href}
-                                className={styles.signBtn}
-                                onClick={(e) => handleNavClick(e, header.signButton.href)}
-                                scroll={false}
-                            >
-                                {header.signButton.label}
-                            </Link>
-                        </div>
                     </div>
                 )}
             </header>

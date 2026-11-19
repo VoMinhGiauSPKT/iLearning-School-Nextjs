@@ -54,6 +54,7 @@ function MobileCourseItem({
                             </li>
                         ))}
                     </ul>
+                    {/* Nút Xem thêm / Thu gọn danh sách nếu nhiều hơn 5 mục (giống Desktop 100%, không có mũi tên) */}
                     {hasManyFeatures && (
                         <button
                             type="button"
@@ -61,21 +62,6 @@ function MobileCourseItem({
                             className={styles.toggleFeaturesBtn}
                         >
                             <span>{isFeaturesExpanded ? "Thu gọn" : "Xem thêm"}</span>
-                            <svg
-                                className={`${styles.toggleFeaturesChevron} ${isFeaturesExpanded ? styles.isExpanded : ""}`}
-                                width="11"
-                                height="7"
-                                viewBox="0 0 11 7"
-                                fill="none"
-                            >
-                                <path
-                                    d="M1.5 1.5L5.5 5.5L9.5 1.5"
-                                    stroke="currentColor"
-                                    strokeWidth="1.6"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
                         </button>
                     )}
                     <button

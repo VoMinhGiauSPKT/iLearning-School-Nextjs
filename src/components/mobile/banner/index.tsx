@@ -9,7 +9,8 @@ export default function MobileBanner({ banner }: MobileBannerProps) {
     if (!banner) return null;
 
     return (
-        <section id="tu-van" className={styles.mobileBannerSection}>
+        <section id="gioi-thieu" className={styles.mobileBannerSection}>
+            <span id="tu-van" />
             <span id="banner" />
             <div className={styles.bannerCard}>
                 <h2 className={styles.title}>{banner.title}</h2>

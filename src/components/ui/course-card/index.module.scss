@@ -143,14 +143,6 @@
             opacity: 0.85;
             text-decoration: underline;
         }
-
-        .toggleFeaturesChevron {
-            transition: transform 0.2s ease;
-
-            &.isExpanded {
-                transform: rotate(180deg);
-            }
-        }
     }
 
     .moreBtn {

@@ -9,7 +9,7 @@ export default function MobileVideo({ video }: MobileVideoProps) {
     if (!video?.videoUrl) return null;
 
     return (
-        <section id="gioi-thieu" className={styles.mobileVideoSection}>
+        <section id="video" className={styles.mobileVideoSection}>
             <span id="trang-chu" />
             <div className={styles.videoWrapper}>
                 <iframe

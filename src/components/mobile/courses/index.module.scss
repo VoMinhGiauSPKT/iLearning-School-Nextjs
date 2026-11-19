@@ -99,28 +99,19 @@
             background: transparent;
             border: none;
             padding: 0;
-            margin: -12px 0 16px 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: #15CCA3;
+            margin: -14px 0 16px 0; // Kéo sát ngay sau danh sách 5 item và tạo khoảng cách trước nút xanh
+            display: flex; // Chiếm dòng riêng, không nằm chung hàng đè lên nút xanh
+            width: fit-content;
+            color: #AEAEAE; // Giống Desktop 100%: màu xám #AEAEAE
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 15px; // Cỡ chữ đồng bộ danh sách
+            font-weight: 300; // Nét thanh mảnh giống Desktop 100%
             cursor: pointer;
             transition: opacity 0.2s ease;
+            text-decoration: underline;
 
             &:hover {
                 opacity: 0.85;
-                text-decoration: underline;
-            }
-
-            .toggleFeaturesChevron {
-                transition: transform 0.2s ease;
-
-                &.isExpanded {
-                    transform: rotate(180deg);
-                }
             }
         }
 

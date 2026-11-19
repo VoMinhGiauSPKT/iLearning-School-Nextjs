@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import SearchIcon from "@/components/ui/search-icon";
 import { HeaderData } from "@/types/landing";
+import { smoothScrollTo, scrollToSectionContent } from "@/lib/scroll";
 import styles from "./index.module.scss";
 
 interface DesktopHeaderProps {
@@ -13,17 +14,24 @@ interface DesktopHeaderProps {
 
 export default function DesktopHeader({ header }: DesktopHeaderProps) {
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        e.stopPropagation();
+
         if (href === "/" || href === "#trang-chu") {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            window.history.pushState(null, "", "/");
+            smoothScrollTo(0, 650, () => {
+                window.history.pushState(null, "", "/");
+            });
         } else if (href.startsWith("#")) {
-            e.preventDefault();
             const targetId = href.replace("#", "");
             const element = document.getElementById(targetId);
             if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-                window.history.pushState(null, "", href);
+                const headerEl = document.querySelector("header");
+                const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 80;
+
+                // Cuộn mượt mà có gia tốc đưa chữ/tiêu đề section bám sát ngay dưới header
+                scrollToSectionContent(element, headerHeight, 14, 650, () => {
+                    window.history.pushState(null, "", href);
+                });
             }
         }
     };
@@ -34,7 +42,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                 <div className={styles.container}>
                     {/* Khối Trái: Logo & Search */}
                     <div className={styles.leftGroup}>
-                        <Link href="/" className={styles.logo} onClick={(e) => handleNavClick(e, "/")}>
+                        <Link href="/" className={styles.logo} onClick={(e) => handleNavClick(e, "/")} scroll={false}>
                             <Image
                                 src="/logo.svg"
                                 alt="ilearning School Logo"
@@ -66,6 +74,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                                     href={link.href}
                                     className={styles.navLink}
                                     onClick={(e) => handleNavClick(e, link.href)}
+                                    scroll={false}
                                 >
                                     <span>{link.label}</span>
                                     {link.hasDropdown && <ChevronDown size="1.1rem" />}
@@ -79,6 +88,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                             href={header.loginButton.href}
                             className={styles.loginLink}
                             onClick={(e) => handleNavClick(e, header.loginButton.href)}
+                            scroll={false}
                         >
                             {header.loginButton.label}
                         </Link>
@@ -87,6 +97,7 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                             href={header.signButton.href}
                             className={styles.signBtn}
                             onClick={(e) => handleNavClick(e, header.signButton.href)}
+                            scroll={false}
                         >
                             {header.signButton.label}
                         </Link>

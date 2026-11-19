@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { CourseItem } from "@/types/landing";
 import styles from "./index.module.scss";
@@ -9,6 +12,12 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({ course, onToggleMore, isExpanded }: CourseCardProps) {
+    const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
+    const hasManyFeatures = (course.features?.length || 0) > 5;
+    const displayedFeatures = hasManyFeatures && !isFeaturesExpanded
+        ? course.features.slice(0, 5)
+        : course.features;
+
     return (
         <div className={styles.card}>
             <div className={styles.cardContent}>
@@ -27,7 +36,7 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                     <div className={styles.price}>{course.price?.replace(/\./g, ",")}</div>
 
                     <ul className={styles.featureList}>
-                        {course.features.map((feature, idx) => (
+                        {displayedFeatures.map((feature, idx) => (
                             <li key={idx} className={styles.featureItem}>
                                 <span className={styles.bullet}>
                                     <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
@@ -41,6 +50,17 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                             </li>
                         ))}
                     </ul>
+
+                    {/* Nút Xem thêm / Thu gọn danh sách nếu nhiều hơn 5 mục */}
+                    {hasManyFeatures && (
+                        <button
+                            type="button"
+                            onClick={() => setIsFeaturesExpanded((prev) => !prev)}
+                            className={styles.toggleFeaturesBtn}
+                        >
+                            <span>{isFeaturesExpanded ? "Thu gọn" : "Xem thêm"}</span>
+                        </button>
+                    )}
 
                     {/* Nếu có hàm onToggleMore thì render button để đóng/mở, ngược lại là thẻ Link chuyển trang */}
                     {onToggleMore ? (

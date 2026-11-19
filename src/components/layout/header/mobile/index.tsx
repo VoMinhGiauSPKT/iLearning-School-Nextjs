@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import SearchIcon from "@/components/ui/search-icon";
 import { HeaderData } from "@/types/landing";
+import { smoothScrollTo, scrollToSectionContent } from "@/lib/scroll";
 import styles from "./index.module.scss";
 
 interface MobileHeaderProps {
@@ -25,20 +26,25 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         closeMenu();
+        e.preventDefault();
+        e.stopPropagation();
+
         if (href === "/" || href === "#trang-chu") {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            window.history.pushState(null, "", "/");
+            smoothScrollTo(0, 650, () => {
+                window.history.pushState(null, "", "/");
+            });
         } else if (href.startsWith("#")) {
-            e.preventDefault();
             const targetId = href.replace("#", "");
             setTimeout(() => {
                 const element = document.getElementById(targetId);
                 if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                    window.history.pushState(null, "", href);
+                    const containerEl = document.querySelector(`.${styles.container}`);
+                    const headerHeight = containerEl ? containerEl.getBoundingClientRect().height : 60;
+                    scrollToSectionContent(element, headerHeight, 14, 650, () => {
+                        window.history.pushState(null, "", href);
+                    });
                 }
-            }, 120);
+            }, 50);
         }
     };
 
@@ -57,6 +63,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                         href="/"
                         className={styles.logo}
                         onClick={(e) => handleNavClick(e, "/")}
+                        scroll={false}
                     >
                         <Image
                             src="/logo.svg"
@@ -78,6 +85,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                             href="#tu-van"
                             className={styles.consultBtn}
                             onClick={(e) => handleNavClick(e, "#tu-van")}
+                            scroll={false}
                         >
                             Liên hệ tư vấn
                         </Link>
@@ -149,6 +157,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                     href={link.href}
                                     className={styles.navLink}
                                     onClick={(e) => handleNavClick(e, link.href)}
+                                    scroll={false}
                                 >
                                     <span>{link.label}</span>
                                     {link.hasDropdown && <ChevronDown size={18} />}
@@ -162,6 +171,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                 href={header.loginButton.href}
                                 className={styles.loginBtn}
                                 onClick={(e) => handleNavClick(e, header.loginButton.href)}
+                                scroll={false}
                             >
                                 {header.loginButton.label}
                             </Link>
@@ -169,6 +179,7 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                                 href={header.signButton.href}
                                 className={styles.signBtn}
                                 onClick={(e) => handleNavClick(e, header.signButton.href)}
+                                scroll={false}
                             >
                                 {header.signButton.label}
                             </Link>

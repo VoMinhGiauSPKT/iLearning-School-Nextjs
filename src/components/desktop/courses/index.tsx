@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import SectionHeader from "@/components/ui/section-header";
 import CourseItem from "./course-item";
 import { CoursesSectionData } from "@/types/landing";
@@ -9,15 +11,20 @@ interface CoursesSectionProps {
 }
 
 /**
- * CoursesSection là SERVER COMPONENT:
- * - Server chịu trách nhiệm gom và phân phát danh sách 19 khóa học
- * - Mỗi khóa học là một hòn đảo tương tác độc lập (CourseItem)
+ * CoursesSection Desktop:
+ * - Mặc định hiển thị đúng 5 khóa học đầu tiên
+ * - Khi click vào nút "Tất cả khoá học", hiển thị full toàn bộ danh sách
+ * - Sau khi hiển thị full, ẩn hoàn toàn nút "Tất cả khoá học" đi
  */
 export default function CoursesSection({ data }: CoursesSectionProps) {
     if (!data) return null;
 
     // Gộp khóa học đầu tiên và 18 khóa học tiếp theo thành danh sách 19 khóa học
     const allCourses = [data.featuredCourse, ...(data.courseList || [])].filter(Boolean);
+    const [showAll, setShowAll] = useState(false);
+
+    const displayedCourses = showAll ? allCourses : allCourses.slice(0, 5);
+    const hasMore = allCourses.length > 5;
 
     return (
         <section id="khoahoc" className={styles.coursesSection}>
@@ -25,9 +32,9 @@ export default function CoursesSection({ data }: CoursesSectionProps) {
                 {/* Tiêu đề render bằng Server Component */}
                 <SectionHeader subtitle={data.subtitle} title={data.title} />
 
-                {/* Danh sách 19 khóa học đồng bộ */}
+                {/* Danh sách khóa học (mặc định 5, click Tất cả khóa học bung full) */}
                 <div className={styles.courseList}>
-                    {allCourses.map((course, index) => (
+                    {displayedCourses.map((course, index) => (
                         <CourseItem
                             key={course.id}
                             course={course}
@@ -37,12 +44,18 @@ export default function CoursesSection({ data }: CoursesSectionProps) {
                     ))}
                 </div>
 
-                {/* Nút Xem tất cả khóa học tĩnh */}
-                <div className={styles.allCoursesWrap}>
-                    <Link href={data.allCoursesButton.href} className={styles.allCoursesBtn}>
-                        {data.allCoursesButton.label}
-                    </Link>
-                </div>
+                {/* Nút Xem tất cả khóa học: Ẩn đi khi đã hiển thị full */}
+                {hasMore && !showAll && (
+                    <div className={styles.allCoursesWrap}>
+                        <button
+                            type="button"
+                            onClick={() => setShowAll(true)}
+                            className={styles.allCoursesBtn}
+                        >
+                            {data.allCoursesButton?.label || "Tất cả khoá học"}
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );

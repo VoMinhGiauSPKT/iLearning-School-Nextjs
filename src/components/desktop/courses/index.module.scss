@@ -211,7 +211,7 @@
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 1.6rem; // Chuẩn Figma: 25px (25 / 16 = 1.6rem)
         font-weight: 700;
-        border-radius: 1.3rem; // Đồng bộ 1.3rem chuẩn Figma giống nút thẻ khóa học
+        border-radius: 1.25rem; // Đồng bộ 1.3rem chuẩn Figma giống nút thẻ khóa học
         text-decoration: none;
         display: inline-flex;
         align-items: center;
@@ -252,7 +252,9 @@
         font-weight: 500; // Giảm từ 600 xuống 500 giúp nét chữ thon gọn, thanh mảnh đúng ảnh gốc
         line-height: 165%; // Chuẩn Figma: line-height 165%
         letter-spacing: 0.02em;
-        border-radius: 1.25rem; // Đồng bộ 1.3rem chuẩn Figma
+        border-radius: 1.25rem;
+        border: none;
+        cursor: pointer;
         text-decoration: none;
         display: inline-flex;
         align-items: center;

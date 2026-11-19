@@ -72,7 +72,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
 }
 
 /* Đồng bộ hóa tỷ lệ hiển thị trên mọi kích thước màn hình Desktop (từ Laptop 1024px đến màn chuẩn 1920px) */
@@ -97,7 +96,11 @@ body {
 section[id],
 div[id],
 span[id] {
-  scroll-margin-top: 110px;
+  scroll-margin-top: clamp(4.4rem, 5.2vw, 6.3rem);
+
+  @media (max-width: 1023px) {
+    scroll-margin-top: 60px;
+  }
 }
 
 a {

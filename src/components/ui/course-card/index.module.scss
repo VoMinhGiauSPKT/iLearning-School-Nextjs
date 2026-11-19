@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     border: 0.1rem solid rgba(255, 255, 255, 0.05);
-box-sizing: border-box;
+    box-sizing: border-box;
 
     @media (max-width: 960px) {
         padding: 1.5rem 1.3rem;
@@ -124,8 +124,37 @@ box-sizing: border-box;
         }
     }
 
+    .toggleFeaturesBtn {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: -0.5rem 0 0.8rem 0; // Kéo sát ngay sau danh sách 5 item
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #AEAEAE;
+        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 1.3rem;
+        font-weight: 300;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.85;
+            text-decoration: underline;
+        }
+
+        .toggleFeaturesChevron {
+            transition: transform 0.2s ease;
+
+            &.isExpanded {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
     .moreBtn {
-        margin-top: auto; // Nút luôn nằm ở dưới cùng của cột phải
+        margin-top: 1rem; // Bám sát theo item cuối cùng, không dùng margin-top: auto để nút không bị đứng chỏng chơ ở đáy
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -143,14 +172,15 @@ box-sizing: border-box;
         border: none;
         cursor: pointer;
         transition: all 0.2s ease;
-@media (max-width: 960px) {
+
+        @media (max-width: 960px) {
             margin-top: 1rem;
         }
 
         &:hover {
             opacity: 0.92;
             transform: translateY(-0.1rem);
-}
+        }
 
         &:active {
             transform: scale(0.98);

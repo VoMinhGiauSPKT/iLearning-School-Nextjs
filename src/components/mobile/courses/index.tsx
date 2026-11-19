@@ -26,6 +26,11 @@ function MobileCourseItem({
     defaultOpen = false,
 }: MobileCourseItemProps) {
     const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
+    const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
+    const hasManyFeatures = (course.features?.length || 0) > 5;
+    const displayedFeatures = hasManyFeatures && !isFeaturesExpanded
+        ? course.features.slice(0, 5)
+        : course.features;
 
     return (
         <div className={styles.courseItemWrap}>
@@ -42,13 +47,37 @@ function MobileCourseItem({
                     <h3 className={styles.courseTitle}>{course.title}</h3>
                     <div className={styles.price}>{course.price?.replace(/\./g, ",")}</div>
                     <ul className={styles.features}>
-                        {course.features.map((item, idx) => (
+                        {displayedFeatures.map((item, idx) => (
                             <li key={idx}>
                                 <span className={styles.bullet} />
                                 <span>{item}</span>
                             </li>
                         ))}
                     </ul>
+                    {hasManyFeatures && (
+                        <button
+                            type="button"
+                            onClick={() => setIsFeaturesExpanded((prev) => !prev)}
+                            className={styles.toggleFeaturesBtn}
+                        >
+                            <span>{isFeaturesExpanded ? "Thu gọn" : "Xem thêm"}</span>
+                            <svg
+                                className={`${styles.toggleFeaturesChevron} ${isFeaturesExpanded ? styles.isExpanded : ""}`}
+                                width="11"
+                                height="7"
+                                viewBox="0 0 11 7"
+                                fill="none"
+                            >
+                                <path
+                                    d="M1.5 1.5L5.5 5.5L9.5 1.5"
+                                    stroke="currentColor"
+                                    strokeWidth="1.6"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                        </button>
+                    )}
                     <button
                         type="button"
                         onClick={() => setIsOpen((prev) => !prev)}
@@ -89,6 +118,10 @@ function MobileCourseItem({
 export default function MobileCourses({ data }: MobileCoursesProps) {
     if (!data) return null;
     const allCourses = [data.featuredCourse, ...(data.courseList || [])].filter(Boolean);
+    const [showAll, setShowAll] = useState(false);
+
+    const displayedCourses = showAll ? allCourses : allCourses.slice(0, 5);
+    const hasMore = allCourses.length > 5;
 
     return (
         <section id="khoahoc" className={styles.mobileCoursesSection}>
@@ -99,7 +132,7 @@ export default function MobileCourses({ data }: MobileCoursesProps) {
             />
 
             <div className={styles.coursesList}>
-                {allCourses.map((course, index) => (
+                {displayedCourses.map((course, index) => (
                     <MobileCourseItem
                         key={course.id}
                         course={course}
@@ -108,6 +141,18 @@ export default function MobileCourses({ data }: MobileCoursesProps) {
                     />
                 ))}
             </div>
+
+            {hasMore && !showAll && (
+                <div className={styles.allCoursesWrap}>
+                    <button
+                        type="button"
+                        onClick={() => setShowAll(true)}
+                        className={styles.allCoursesBtn}
+                    >
+                        {data.allCoursesButton?.label || "Tất cả khoá học"}
+                    </button>
+                </div>
+            )}
         </section>
     );
 }

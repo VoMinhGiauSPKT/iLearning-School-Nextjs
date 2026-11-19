@@ -13,9 +13,8 @@ interface PartnerSliderProps {
  * Client Island cho Đối tác (Partners):
  * - Nhận dữ liệu đối tác trực tiếp từ Server Component (call từ API /v1/company/public/list)
  * - Cố định hiển thị 5 logo trên một khung nhìn (Frame 13399)
- * - Tự động scroll (auto-play) mỗi 3.5s lặp lại vô tận giống slide
- * - Tạm dừng khi rê chuột vào (pause on hover)
- * - Vẫn giữ nguyên 2 nút mũi tên để người dùng chủ động bấm chuyển slide
+ * - Tự động scroll (auto-play) mỗi 3.5s lặp lại vô tận giống Slider ở đầu trang
+ * - Khi bấm mũi tên, timer tự reset lại đủ 3.5s rồi tiếp tục tự cuộn (không bị dừng)
  * - Track trượt mượt mà với CSS transform
  */
 export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
@@ -31,7 +30,6 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
 
     const totalPages = pages.length;
     const [pageIndex, setPageIndex] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
 
     const handlePrev = () => {
         setPageIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
@@ -41,27 +39,24 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
         setPageIndex((prev) => (prev + 1) % totalPages);
     };
 
-    // Tự động chuyển slide đối tác sau mỗi 3.5 giây, tạm dừng khi rê chuột vào
+    // Tự động chuyển slide đối tác sau mỗi 3.5s.
+    // Khi người dùng bấm nút mũi tên, pageIndex đổi -> timer tự reset lại đủ 3.5s rồi tự động cuộn tiếp liên tục!
     useEffect(() => {
-        if (totalPages <= 1 || isHovered) return;
+        if (totalPages <= 1) return;
 
         const interval = setInterval(() => {
             setPageIndex((prev) => (prev + 1) % totalPages);
         }, 3500);
 
         return () => clearInterval(interval);
-    }, [totalPages, isHovered]);
+    }, [totalPages, pageIndex]);
 
     // Chiều rộng mỗi trang tính theo phần trăm của track
     const pagePercentOfTrack = 100 / totalPages;
     const showNavigation = totalPages > 1;
 
     return (
-        <div
-            className={styles.partnersBox}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className={styles.partnersBox}>
             {/* Nút lùi bên trái: thon gọn, icon thanh mảnh */}
             {showNavigation && (
                 <button

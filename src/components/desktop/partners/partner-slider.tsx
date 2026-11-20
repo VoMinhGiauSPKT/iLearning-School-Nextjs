@@ -65,7 +65,7 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
                     className={`${styles.navBtn} ${pageIndex > 0 ? styles.active : ""}`}
                     aria-label="Trang đối tác trước"
                 >
-                    <ArrowLeft size={18} strokeWidth={1.8} />
+                    <ArrowLeft size={16} strokeWidth={2.5} />
                 </button>
             )}
 
@@ -116,7 +116,7 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
                     className={`${styles.navBtn} ${pageIndex === 0 ? styles.active : ""}`}
                     aria-label="Trang đối tác tiếp theo"
                 >
-                    <ArrowRight size={18} strokeWidth={1.8} />
+                    <ArrowRight size={16} strokeWidth={2.5} />
                 </button>
             )}
         </div>

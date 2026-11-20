@@ -46,8 +46,8 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                             <Image
                                 src="/logo.svg"
                                 alt="ilearning School Logo"
-                                width={48}
-                                height={43}
+                                width={55}
+                                height={40}
                                 priority
                             />
                             <div className={styles.brandText}>

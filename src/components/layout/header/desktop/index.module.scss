@@ -47,8 +47,7 @@
 
             img {
                 width: auto;
-                height: clamp(2rem, 2.2vw, 2.7rem);
-                /* 32px ở 1024px -> 43px ở 1920px */
+                height: 3.2rem; // Đồng bộ theo rem (tương đương 40px ở màn chuẩn 1920px)
             }
 
             .brandText {
@@ -57,10 +56,9 @@
                 line-height: 1.1;
 
                 span {
-                    font-size: clamp(0.9rem, 1.1vw, 1.3rem);
-                    font-weight: 700;
+                    font-size: 1.5rem; // Đồng bộ theo rem giữ tỷ lệ chuẩn với logo
+                    font-weight: 600;
                     color: #ffffff;
-                    letter-spacing: -0.03em;
                 }
             }
         }
@@ -87,7 +85,7 @@
 
             &:focus-within {
                 outline: 0.1rem solid rgba(255, 255, 255, 0.15);
-}
+            }
 
             .searchIcon {
                 color: #959595;
@@ -226,7 +224,7 @@
             &:hover {
                 border-color: #15CCA3;
                 color: #15CCA3;
-                }
+            }
         }
     }
 }

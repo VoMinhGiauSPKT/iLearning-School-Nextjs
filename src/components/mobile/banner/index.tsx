@@ -10,8 +10,6 @@ export default function MobileBanner({ banner }: MobileBannerProps) {
 
     return (
         <section id="gioi-thieu" className={styles.mobileBannerSection}>
-            <span id="tu-van" />
-            <span id="banner" />
             <div className={styles.bannerCard}>
                 <h2 className={styles.title}>{banner.title}</h2>
                 <p className={styles.description}>{banner.description}</p>

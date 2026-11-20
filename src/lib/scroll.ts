@@ -71,13 +71,20 @@ export function scrollToSectionContent(
     // Nếu target là thẻ con bên trong (như span id="tu-van"), tìm đến section cha
     const rootEl = sectionEl.closest("section") || sectionEl;
 
-    // Tìm phần tử tiêu đề/chữ đầu tiên bên trong section (SectionHeader, p, h2...)
+    // Đối với các section có khung thẻ đặc thù (như Banner Card, Video Player),
+    // cuộn thẳng đến đỉnh của khung Card để đỉnh thẻ và các góc bo tròn không bị header che
+    const cardEl = rootEl.querySelector<HTMLElement>(
+        "[class*='bannerCard'], [class*='videoWrapper']"
+    );
+
+    // Đối với các section thông thường, tìm phần tử tiêu đề/chữ đầu tiên (SectionHeader, p, h2...)
     const titleEl =
+        cardEl ||
         rootEl.querySelector<HTMLElement>(
             "h2, p, [class*='header'], [class*='subtitle'], [class*='title']"
         ) ||
         rootEl.querySelector<HTMLElement>(
-            "[class*='videoWrapper'], [class*='bannerCard'], [class*='container']"
+            "[class*='container']"
         ) ||
         rootEl;
 

@@ -11,10 +11,6 @@ interface DesktopHomeProps {
     data: LandingPageData;
 }
 
-/**
- * Desktop View:
- * Sử dụng bộ Component riêng cho Desktop
- */
 export default function DesktopHome({ data }: DesktopHomeProps) {
     return (
         <main>

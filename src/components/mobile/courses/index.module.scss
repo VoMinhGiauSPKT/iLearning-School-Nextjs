@@ -20,19 +20,18 @@
     flex-direction: column;
 }
 
-/* Thẻ khóa học xếp dọc chuẩn mobile */
 .courseCard {
     width: 100%;
-    background-color: #090C0F; // Chuẩn Figma Rectangle 107
-    border-radius: 10px; // Chuẩn Figma: 10px
-    padding: 14px 14px 22px; // Chuẩn Figma: đệm ảnh 14px (390 - 362.92) / 2
+    background-color: #090C0F;
+    border-radius: 10px;
+    padding: 14px 14px 22px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
 
     .thumbnailWrap {
         width: 100%;
-        aspect-ratio: 363 / 203; // Chuẩn Figma Rectangle 4958: 362.92px / 203.12px
-        border-radius: 10px; // Chuẩn Figma: 9.48px
+        aspect-ratio: 363 / 203;
+        border-radius: 10px;
         overflow: hidden;
         background-color: #111721;
 
@@ -49,19 +48,19 @@
 
         .courseTitle {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 20px; // Chuẩn Figma: 20px
-            font-weight: 500; // Chuẩn Figma: 500
-            line-height: 24px; // Chuẩn Figma: 24px
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 24px;
             color: #FFFFFF;
             margin: 0 0 14px 0;
         }
 
         .price {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 25px; // Chuẩn Figma: 25px
-            font-weight: 600; // Chuẩn Figma: 600
-            line-height: 30px; // Chuẩn Figma: 30px
-            color: #15CCA3; // Chuẩn Figma: #15CCA3
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 30px;
+            color: #15CCA3;
             margin-bottom: 22px;
         }
 
@@ -78,16 +77,16 @@
                 align-items: flex-start;
                 gap: 10px;
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                font-size: 16px; // Chuẩn Figma: 16px
-                font-weight: 400; // Chuẩn Figma: 400
-                line-height: 28px; // Chuẩn Figma: 28px (175%)
-                color: #AEAEAE; // Chuẩn Figma: #AEAEAE
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 28px;
+                color: #AEAEAE;
 
                 .bullet {
                     display: inline-block;
                     width: 4px;
                     height: 4px;
-                    background-color: #AEAEAE; // Dấu chấm tròn xám đồng màu
+                    background-color: #AEAEAE;
                     border-radius: 50%;
                     margin-top: 12px;
                     flex-shrink: 0;
@@ -99,13 +98,13 @@
             background: transparent;
             border: none;
             padding: 0;
-            margin: -14px 0 16px 0; // Kéo sát ngay sau danh sách 5 item và tạo khoảng cách trước nút xanh
-            display: flex; // Chiếm dòng riêng, không nằm chung hàng đè lên nút xanh
+            margin: -14px 0 16px 0;
+            display: flex;
             width: fit-content;
-            color: #AEAEAE; // Giống Desktop 100%: màu xám #AEAEAE
+            color: #AEAEAE;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 15px; // Cỡ chữ đồng bộ danh sách
-            font-weight: 300; // Nét thanh mảnh giống Desktop 100%
+            font-size: 15px;
+            font-weight: 300;
             cursor: pointer;
             transition: opacity 0.2s ease;
             text-decoration: underline;
@@ -120,15 +119,15 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 150px; // Chuẩn Figma: width 150px
-            height: 50px; // Chuẩn Figma: height 50px
+            width: 150px;
+            height: 50px;
             background-color: #15cca3;
             color: #ffffff;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 18px; // Chuẩn Figma: 16px
-            font-weight: 500; // Chuẩn Figma: Semibold 600
+            font-size: 18px;
+            font-weight: 500;
             letter-spacing: 0.02em;
-            border-radius: 10px; // Chuẩn Figma: border-radius 10px
+            border-radius: 10px;
             text-decoration: none;
             border: none;
             cursor: pointer;
@@ -146,7 +145,7 @@
             .btnText {
                 display: inline-block;
                 line-height: 1.15;
-                border-bottom: 1.5px solid #ffffff; // Đường gạch dưới thanh mảnh kéo sát chân chữ
+                border-bottom: 1.5px solid #ffffff;
                 padding-bottom: 0;
             }
 

@@ -7,12 +7,6 @@ interface InstructorsSectionProps {
     data: InstructorsSectionData;
 }
 
-/**
- * InstructorsSection bây giờ là SERVER COMPONENT:
- * - Không có "use client"
- * - SectionHeader và khung bao bọc được render ở Server
- * - Phần slider động được bọc trong Client Island InstructorSlider
- */
 export default function InstructorsSection({ data }: InstructorsSectionProps) {
     if (!data?.instructors?.length) return null;
 

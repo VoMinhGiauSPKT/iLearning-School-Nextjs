@@ -3,12 +3,12 @@
     display: flex;
     justify-content: center;
     padding: 4.4rem 0 5rem;
-    /* Canh khoảng cách trên dưới đều nhau chuẩn 70px (4.4rem) */
+
     box-sizing: border-box;
 }
 
 .container {
-    /* Chuẩn tỷ lệ Figma: width 1700px (1700 / 16 = 106.3rem) rộng hơn các thẻ phía trên */
+
     width: 106.3rem;
     max-width: 100%;
     margin: 0 auto;
@@ -17,15 +17,14 @@
     align-items: center;
 }
 
-/* & Partners / v1-m2: Khung chứa đối tác chuẩn Figma */
 .partnersBox {
     width: 100%;
-    min-height: 16rem; // Chuẩn Figma: height 255.8px (255.8 / 16 = 16rem)
+    min-height: 16rem;
     height: 16rem;
-    background-color: #090c0f; // Chuẩn Figma: background #090C0F
-    border-radius: 0.6rem; // Chuẩn Figma: border-radius 10px (10 / 16 = 0.6rem)
-    padding: 4.7rem 2.4rem; // Chuẩn Figma: padding trên/dưới 75.56px (4.7rem), trái/phải 37.78px (2.4rem)
-    gap: 0.7rem; // Chuẩn Figma: gap 11.81px (11.81 / 16 = 0.7rem)
+    background-color: #090c0f;
+    border-radius: 0.6rem;
+    padding: 4.7rem 2.4rem;
+    gap: 0.7rem;
     border: 0.1rem solid rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
@@ -33,9 +32,8 @@
     box-sizing: border-box;
 }
 
-/* Nút điều hướng mũi tên thon gọn, thanh mảnh */
 .navBtn {
-    width: 3.5rem; // Chuẩn Figma: 42px (42 / 16 = 2.6rem)
+    width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
     display: flex;
@@ -67,11 +65,10 @@
     }
 }
 
-/* Viewport bao bọc và che phần tràn khi trượt: chuẩn Figma 1364.66px x 104.69px */
 .sliderViewport {
-    width: 85.3rem; // Chuẩn Figma: width 1364.66px (1364.66 / 16 = 85.3rem)
+    width: 85.3rem;
     max-width: 85.3rem;
-    height: 6.5rem; // Chuẩn Figma: height 104.69px (104.69 / 16 = 6.5rem)
+    height: 6.5rem;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -79,7 +76,6 @@
     flex-shrink: 0;
 }
 
-/* Track trượt ngang chứa tất cả các trang, di chuyển mượt mà bằng CSS transform */
 .sliderTrack {
     display: flex;
     height: 100%;
@@ -90,10 +86,9 @@
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Từng trang chứa đúng 5 logo (Frame 13399) */
 .logosPage {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); // Cố định hiển thị đúng 5 logo trên 1 trang
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
     justify-items: center;
     height: 100%;
@@ -118,8 +113,8 @@
     }
 
     .logoImg {
-        max-width: clamp(100px, 9vw, 201px); // Chuẩn Figma: width ~201px
-        max-height: clamp(38px, 3.8vw, 75px); // Chuẩn Figma: height ~46px - 80px
+        max-width: clamp(100px, 9vw, 201px);
+        max-height: clamp(38px, 3.8vw, 75px);
         width: auto;
         height: auto;
         object-fit: contain;

@@ -1,22 +1,41 @@
 import { BannerData, SliderData, VideoData } from "@/types/landing";
 import { apiFetch, getFileUrl, formatYouTubeEmbed } from "@/lib/api-client";
 
+interface ApiSettingItem {
+    keyName?: string;
+    valueData?: string;
+}
+
+interface ParsedPageConfig {
+    slider?: Array<{
+        title?: string;
+        description?: string;
+        image?: string;
+        url?: string;
+    }>;
+    video?: string;
+    description?: {
+        title?: string;
+        description?: string;
+    };
+}
+
 export async function getPublicSetting(): Promise<{
     slider: SliderData;
     video: VideoData;
     banner: BannerData;
 } | null> {
-    const data = await apiFetch<any[]>("/v1/setting/public");
+    const data = await apiFetch<ApiSettingItem[]>("/v1/setting/public");
     if (!data) return null;
 
-    const pageConfig = data.find((item: any) => item.keyName === "page_config");
+    const pageConfig = data.find((item) => item.keyName === "page_config");
     if (!pageConfig?.valueData) return null;
 
-    const parsed = JSON.parse(pageConfig.valueData);
+    const parsed: ParsedPageConfig = JSON.parse(pageConfig.valueData);
 
     return {
         slider: {
-            slides: (parsed.slider || []).map((item: any, index: number) => ({
+            slides: (parsed.slider || []).map((item, index) => ({
                 id: `slide-${index + 1}`,
                 title: item.title || "",
                 description: item.description || "",

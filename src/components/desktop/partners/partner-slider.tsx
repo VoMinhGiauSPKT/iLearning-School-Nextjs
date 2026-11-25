@@ -9,23 +9,14 @@ interface PartnerSliderProps {
     partners?: PartnerItem[];
 }
 
-/**
- * Client Island cho Đối tác (Partners):
- * - Nhận dữ liệu đối tác trực tiếp từ Server Component (call từ API /v1/company/public/list)
- * - Cố định hiển thị 5 logo trên một khung nhìn (Frame 13399)
- * - Tự động scroll (auto-play) mỗi 3.5s lặp lại vô tận giống Slider ở đầu trang
- * - Khi bấm mũi tên, timer tự reset lại đủ 3.5s rồi tiếp tục tự cuộn (không bị dừng)
- * - Track trượt mượt mà với CSS transform
- */
 export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
-    if (!partners || partners.length === 0) return null;
-
     const pageSize = 5;
 
-    // Chia danh sách đối tác thành các trang, mỗi trang tối đa 5 logo
     const pages: PartnerItem[][] = [];
-    for (let i = 0; i < partners.length; i += pageSize) {
-        pages.push(partners.slice(i, i + pageSize));
+    if (partners && partners.length > 0) {
+        for (let i = 0; i < partners.length; i += pageSize) {
+            pages.push(partners.slice(i, i + pageSize));
+        }
     }
 
     const totalPages = pages.length;
@@ -39,8 +30,6 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
         setPageIndex((prev) => (prev + 1) % totalPages);
     };
 
-    // Tự động chuyển slide đối tác sau mỗi 3.5s.
-    // Khi người dùng bấm nút mũi tên, pageIndex đổi -> timer tự reset lại đủ 3.5s rồi tự động cuộn tiếp liên tục!
     useEffect(() => {
         if (totalPages <= 1) return;
 
@@ -51,25 +40,26 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
         return () => clearInterval(interval);
     }, [totalPages, pageIndex]);
 
-    // Chiều rộng mỗi trang tính theo phần trăm của track
+    if (!partners || partners.length === 0) return null;
+
     const pagePercentOfTrack = 100 / totalPages;
     const showNavigation = totalPages > 1;
 
     return (
         <div className={styles.partnersBox}>
-            {/* Nút lùi bên trái: thon gọn, icon thanh mảnh */}
-            {showNavigation && (
+            {showNavigation ? (
                 <button
                     type="button"
                     onClick={handlePrev}
-                    className={`${styles.navBtn} ${pageIndex > 0 ? styles.active : ""}`}
-                    aria-label="Trang đối tác trước"
+                    className={styles.navBtn}
+                    aria-label="Previous partners"
                 >
-                    <ArrowLeft size={16} strokeWidth={2.5} />
+                    <ArrowLeft size={16} strokeWidth={2} />
                 </button>
+            ) : (
+                <div style={{ width: "3.5rem" }} />
             )}
 
-            {/* Khung nhìn che phần tràn (Viewport) */}
             <div className={styles.sliderViewport}>
                 <div
                     className={styles.sliderTrack}
@@ -80,21 +70,16 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
                 >
                     {pages.map((page, pIdx) => (
                         <div
-                            key={`page-${pIdx}`}
+                            key={pIdx}
                             className={styles.logosPage}
-                            style={{
-                                width: `${pagePercentOfTrack}%`,
-                                flex: `0 0 ${pagePercentOfTrack}%`,
-                                maxWidth: `${pagePercentOfTrack}%`,
-                            }}
+                            style={{ width: `${pagePercentOfTrack}%` }}
                         >
-                            {page.map((partner, itemIdx) => (
+                            {page.map((partner) => (
                                 <a
-                                    key={partner.id || `partner-${pIdx}-${itemIdx}`}
+                                    key={partner.id}
                                     href={partner.href || "#"}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
                                     className={styles.partnerItem}
+                                    title={partner.name}
                                 >
                                     <img
                                         src={partner.logo}
@@ -108,16 +93,17 @@ export default function PartnerSlider({ partners = [] }: PartnerSliderProps) {
                 </div>
             </div>
 
-            {/* Nút tiến bên phải: thon gọn, icon thanh mảnh */}
-            {showNavigation && (
+            {showNavigation ? (
                 <button
                     type="button"
                     onClick={handleNext}
-                    className={`${styles.navBtn} ${pageIndex === 0 ? styles.active : ""}`}
-                    aria-label="Trang đối tác tiếp theo"
+                    className={styles.navBtn}
+                    aria-label="Next partners"
                 >
-                    <ArrowRight size={16} strokeWidth={2.5} />
+                    <ArrowRight size={16} strokeWidth={2} />
                 </button>
+            ) : (
+                <div style={{ width: "3.5rem" }} />
             )}
         </div>
     );

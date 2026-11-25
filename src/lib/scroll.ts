@@ -11,9 +11,6 @@ if (typeof window !== "undefined") {
     window.addEventListener("touchmove", cancelOnUserInteraction, { passive: true });
 }
 
-/**
- * Cuộn trang mượt mà với gia tốc ease-in-out cho cả chiều cuộn lên và cuộn xuống
- */
 export function smoothScrollTo(targetY: number, duration: number = 650, callback?: () => void) {
     if (typeof window === "undefined") return;
 
@@ -33,7 +30,6 @@ export function smoothScrollTo(targetY: number, duration: number = 650, callback
 
     let startTime: number | null = null;
 
-    // Cubic easeInOut: chuyển động êm ái, tăng tốc mượt mà và giảm tốc êm đềm khi đến nơi
     const easeInOutCubic = (t: number): number => {
         return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     };
@@ -58,9 +54,6 @@ export function smoothScrollTo(targetY: number, duration: number = 650, callback
     activeAnimationId = requestAnimationFrame(step);
 }
 
-/**
- * Cuộn thẳng đến nội dung tiêu đề/chữ trong section sao cho nằm gần sát mép header (không chừa khoảng trống)
- */
 export function scrollToSectionContent(
     sectionEl: HTMLElement,
     headerHeight: number,
@@ -68,16 +61,12 @@ export function scrollToSectionContent(
     duration: number = 650,
     callback?: () => void
 ) {
-    // Nếu target là thẻ con bên trong (như span id="tu-van"), tìm đến section cha
     const rootEl = sectionEl.closest("section") || sectionEl;
 
-    // Đối với các section có khung thẻ đặc thù (như Banner Card, Video Player),
-    // cuộn thẳng đến đỉnh của khung Card để đỉnh thẻ và các góc bo tròn không bị header che
     const cardEl = rootEl.querySelector<HTMLElement>(
         "[class*='bannerCard'], [class*='videoWrapper']"
     );
 
-    // Đối với các section thông thường, tìm phần tử tiêu đề/chữ đầu tiên (SectionHeader, p, h2...)
     const titleEl =
         cardEl ||
         rootEl.querySelector<HTMLElement>(

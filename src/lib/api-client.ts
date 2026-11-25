@@ -1,9 +1,6 @@
 export const API_BASE_URL =
     process.env.NEXT_PUBLIC_API_URL || "https://ai-project-api.moviehub.io.vn";
 
-/**
- * Helper: Tạo đường link tải file ảnh / video đầy đủ từ API
- */
 export function getFileUrl(path?: string): string {
     if (!path) return "";
     if (path.startsWith("http://") || path.startsWith("https://")) return path;
@@ -11,9 +8,6 @@ export function getFileUrl(path?: string): string {
     return `${API_BASE_URL}/v1/file/download${cleanPath}`;
 }
 
-/**
- * Helper: Chuyển đổi link YouTube bất kỳ sang link Embed cho iframe
- */
 export function formatYouTubeEmbed(url?: string): string {
     if (!url) return "";
     if (url.includes("embed/")) return url;
@@ -23,10 +17,6 @@ export function formatYouTubeEmbed(url?: string): string {
     return match ? `https://www.youtube.com/embed/${match[1]}` : url;
 }
 
-/**
- * HTTP Client bọc ngoài hàm fetch chuẩn của Next.js:
- * Tự động gắn Base URL, bắt lỗi mạng và parse dữ liệu JSON
- */
 export async function apiFetch<T>(
     endpoint: string,
     options?: RequestInit
@@ -38,7 +28,7 @@ export async function apiFetch<T>(
 
         const res = await fetch(url, {
             ...options,
-            next: { revalidate: 60, ...options?.next }, // Cache 60s trên server
+            next: { revalidate: 60, ...options?.next },
         });
 
         if (!res.ok) {

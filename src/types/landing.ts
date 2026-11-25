@@ -61,7 +61,7 @@ export interface CourseItem {
 export interface CurriculumStage {
     id: string;
     title: string;
-    duration: string; // "9 buổi", "5 buổi"
+    duration: string;
     lessons?: string[];
 }
 

@@ -17,7 +17,6 @@ interface CurriculumAccordionProps {
 }
 
 export default function CurriculumAccordion({ data }: CurriculumAccordionProps) {
-    // Mở sẵn giai đoạn 2 như thiết kế Figma
     const [openStageId, setOpenStageId] = useState<string | null>("stage-2");
 
     const toggleStage = (id: string) => {
@@ -34,7 +33,6 @@ export default function CurriculumAccordion({ data }: CurriculumAccordionProps) 
 
                     return (
                         <div key={stage.id} className={styles.stageItem}>
-                            {/* Thanh tiêu đề giai đoạn */}
                             <button
                                 type="button"
                                 className={styles.stageHeader}
@@ -54,7 +52,6 @@ export default function CurriculumAccordion({ data }: CurriculumAccordionProps) 
                                 </div>
                             </button>
 
-                            {/* Danh sách bài học mở ra */}
                             {isOpen && stage.lessons && (
                                 <div className={styles.stageContent}>
                                     {stage.lessons.map((lesson, idx) => (
@@ -69,7 +66,6 @@ export default function CurriculumAccordion({ data }: CurriculumAccordionProps) 
                 })}
             </div>
 
-            {/* Nút Đăng ký ngay */}
             <div className={styles.btnCenter}>
                 <Link href={data.registerButton.href} className={styles.registerBtn}>
                     {data.registerButton.label}

@@ -9,24 +9,18 @@ interface SliderProps {
     data: SliderData;
 }
 
-/**
- * Hero Banner Slider (Desktop):
- * - Dải track trượt ngang mượt mà (smooth sliding track) với CSS transform
- * - Tự động chuyển slide sau mỗi 5s hoặc chuyển khi click thanh trackStep
- * - Đồng bộ chỉ báo activeThumb ở đáy
- */
 export default function Slider({ data }: SliderProps) {
-    const slides = data.slides;
+    const slides = data?.slides || [];
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        if (!slides || slides.length === 0) return;
+        if (!data?.slides?.length) return;
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % data.slides.length);
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [slides.length]);
+    }, [data?.slides]);
 
     if (!slides || slides.length === 0) return null;
 
@@ -36,7 +30,6 @@ export default function Slider({ data }: SliderProps) {
     return (
         <section id="trang-chu" className={styles.sliderWrapper}>
             <div className={styles.sliderContainer}>
-                {/* Dải track trượt ngang chứa tất cả các slide */}
                 <div
                     className={styles.slidesTrack}
                     style={{
@@ -66,7 +59,6 @@ export default function Slider({ data }: SliderProps) {
                     ))}
                 </div>
 
-                {/* Thanh rãnh chỉ báo trượt ở đáy */}
                 <div className={styles.sliderTrack}>
                     <div
                         className={styles.activeThumb}

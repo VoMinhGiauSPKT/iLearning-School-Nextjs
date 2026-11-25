@@ -16,10 +16,6 @@ interface MobileCourseItemProps {
     defaultOpen?: boolean;
 }
 
-/**
- * Từng khoá học trên Mobile:
- * Mỗi khoá đều có nút "Xem thêm ▾" / "Thu gọn ▴" để mở/đóng giáo trình riêng
- */
 function MobileCourseItem({
     course,
     curriculum,
@@ -34,7 +30,6 @@ function MobileCourseItem({
 
     return (
         <div className={styles.courseItemWrap}>
-            {/* Thẻ khoá học */}
             <div className={styles.courseCard}>
                 <div className={styles.thumbnailWrap}>
                     <img
@@ -54,7 +49,6 @@ function MobileCourseItem({
                             </li>
                         ))}
                     </ul>
-                    {/* Nút Xem thêm / Thu gọn danh sách nếu nhiều hơn 5 mục (giống Desktop 100%, không có mũi tên) */}
                     {hasManyFeatures && (
                         <button
                             type="button"
@@ -102,9 +96,10 @@ function MobileCourseItem({
 }
 
 export default function MobileCourses({ data }: MobileCoursesProps) {
+    const [showAll, setShowAll] = useState(false);
+
     if (!data) return null;
     const allCourses = [data.featuredCourse, ...(data.courseList || [])].filter(Boolean);
-    const [showAll, setShowAll] = useState(false);
 
     const displayedCourses = showAll ? allCourses : allCourses.slice(0, 5);
     const hasMore = allCourses.length > 5;

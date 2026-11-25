@@ -5,12 +5,6 @@ interface SearchIconProps extends React.SVGProps<SVGSVGElement> {
     strokeWidth?: number | string;
 }
 
-/**
- * Biểu tượng tìm kiếm chuẩn Vuesax Linear (vuesax/linear/search-normal) theo Figma
- * - ViewBox: 24 x 24
- * - Stroke: currentColor (kế thừa màu từ class / inline style)
- * - StrokeWidth mặc định: 1.5
- */
 export default function SearchIcon({
     size = 24,
     strokeWidth = 1.5,

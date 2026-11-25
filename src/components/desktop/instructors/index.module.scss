@@ -2,12 +2,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 4.4rem 0 0; /* Canh khoảng cách trên dưới đều nhau chuẩn 70px (4.4rem) */
+    padding: 4.4rem 0 0;
     box-sizing: border-box;
 }
 
 .container {
-    /* Chuẩn tỷ lệ Figma: 1479px / 1920px = 77% (1479 / 16 = 92.4rem) */
+
     width: 92.4rem;
     max-width: 100%;
     margin: 0 auto;
@@ -18,16 +18,16 @@
 
 .instructorCard {
     width: 100%;
-    background-color: #090c0f; // Chuẩn Figma Rectangle 29: background #090C0F
-    border-radius: 10px; // Chuẩn Figma: border-radius 10px
+    background-color: #090c0f;
+    border-radius: 10px;
     padding: clamp(36px, 4vw, 68px) clamp(16px, 3.2vw, 60px) clamp(24px, 2.5vw, 36px);
-    min-height: clamp(500px, 39vw, 748px); // Chuẩn Figma: height 748px
+    min-height: clamp(500px, 39vw, 748px);
     border: 1px solid rgba(255, 255, 255, 0.05);
 display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    position: relative; // Để neo cặp nút điều hướng cố định
+    position: relative;
     overflow: hidden;
 
     @media (max-width: 960px) {
@@ -35,7 +35,6 @@ display: flex;
     }
 }
 
-/* Viewport che phần tràn chính xác */
 .sliderViewport {
     width: 100%;
     overflow: hidden;
@@ -44,7 +43,6 @@ display: flex;
     contain: paint;
 }
 
-/* Track trượt ngang chứa tất cả giảng viên */
 .sliderTrack {
     display: flex;
     will-change: transform;
@@ -52,19 +50,18 @@ display: flex;
     box-sizing: border-box;
 }
 
-/* Từng slide giảng viên: kích thước cố định bằng 100% viewport, có vùng đệm 2 bên triệt tiêu hoàn toàn hiện tượng lộ ảnh kế tiếp */
 .instructorSlide {
     flex-shrink: 0;
     box-sizing: border-box;
     overflow: hidden;
-    padding: 0 clamp(12px, 1.2vw, 20px); // Vùng đệm an toàn giúp ảnh avatar slide sau luôn cách xa mép viewport ít nhất 20px
+    padding: 0 clamp(12px, 1.2vw, 20px);
 }
 
 .contentWrap {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: clamp(32px, 4.3vw, 83px); // Chuẩn Figma khoảng cách ảnh sang text: 909 - 826 = 83px
+    gap: clamp(32px, 4.3vw, 83px);
 
     @media (max-width: 960px) {
         flex-direction: column;
@@ -74,13 +71,13 @@ display: flex;
 }
 
 .imageCol {
-    /* Chuẩn Figma Rectangle 33: 500px x 500px */
+
     width: clamp(260px, 26vw, 500px);
     height: clamp(260px, 26vw, 500px);
     aspect-ratio: 1 / 1;
-    border-radius: 10px; // Chuẩn Figma: border-radius 10px
+    border-radius: 10px;
     overflow: hidden;
-    background-color: #202428; // Chuẩn Figma: background #202428
+    background-color: #202428;
     flex-shrink: 0;
 
     @media (max-width: 960px) {
@@ -101,7 +98,7 @@ display: flex;
 .infoCol {
     flex: 1;
     min-width: 0;
-    max-width: 726px; // Chuẩn Figma Group 62: width 726px
+    max-width: 726px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -125,8 +122,8 @@ display: flex;
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: clamp(14px, 1.05vw, 20px);
             font-weight: 400;
-            color: #AEAEAE; // Chuẩn Figma: #AEAEAE
-            line-height: 170%; // Chuẩn Figma: line-height 170%
+            color: #AEAEAE;
+            line-height: 170%;
             margin: 0 0 clamp(14px, 1.4vw, 24px) 0;
 
             &:last-child {
@@ -141,7 +138,7 @@ display: flex;
         align-items: flex-end;
         padding-top: clamp(14px, 1.2vw, 20px);
         margin-top: auto;
-        padding-right: clamp(100px, 8vw, 130px); // Chừa khoảng trống bên phải cho cặp nút cố định nhỏ gọn
+        padding-right: clamp(100px, 8vw, 130px);
         box-sizing: border-box;
 
         .authorDetails {
@@ -151,9 +148,9 @@ display: flex;
 
             .authorName {
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                font-size: clamp(20px, 1.56vw, 30px); // Chuẩn Figma: 30px
-                font-weight: 700; // Chuẩn Figma: font-weight 700
-                color: #AEAEAE; // Chuẩn Figma: #AEAEAE
+                font-size: clamp(20px, 1.56vw, 30px);
+                font-weight: 700;
+                color: #AEAEAE;
                 line-height: 120%;
                 margin: 0;
             }
@@ -161,8 +158,8 @@ display: flex;
             .authorRole {
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 font-size: clamp(15px, 1.15vw, 22px);
-                font-weight: 400; // Chuẩn Figma: font-weight 400
-                color: #AEAEAE; // Chuẩn Figma: #AEAEAE
+                font-weight: 400;
+                color: #AEAEAE;
                 line-height: 140%;
                 margin: 0;
             }
@@ -170,20 +167,19 @@ display: flex;
     }
 }
 
-/* Group 66: Cặp nút điều hướng CỐ ĐỊNH ở góc dưới bên phải thẻ, nhỏ gọn thanh mảnh */
 .fixedNavButtons {
     position: absolute;
     right: clamp(28px, 4.4vw, 80px);
-    bottom: clamp(62px, 5.8vw, 88px); // Canh ngang bằng hàng tên/vai trò tác giả
+    bottom: clamp(62px, 5.8vw, 88px);
     display: flex;
     align-items: center;
-    gap: clamp(10px, 0.9vw, 16px); // Thu nhỏ khoảng cách giữa 2 nút cho gọn gàng
+    gap: clamp(10px, 0.9vw, 16px);
     z-index: 10;
 
     button {
-        width: clamp(34px, 2.4vw, 42px); // Thu nhỏ kích thước nút từ 56px xuống 42px
+        width: clamp(34px, 2.4vw, 42px);
         height: clamp(34px, 2.4vw, 42px);
-        border-radius: 10px; // Bo góc thanh mảnh chuẩn 10px
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -229,7 +225,6 @@ display: flex;
     }
 }
 
-/* Group 67: 3 chấm tròn phân trang nằm BÊN TRONG thẻ ở đáy (thu nhỏ gọn gàng) */
 .dots {
     display: flex;
     justify-content: center;
@@ -239,7 +234,7 @@ display: flex;
     margin-top: clamp(16px, 1.8vw, 28px);
 
     .dot {
-        width: 8px; // Thu nhỏ lại thanh mảnh từ 12px xuống 8px
+        width: 8px;
         height: 8px;
         border-radius: 50%;
         background-color: #AEAEAE;

@@ -5,19 +5,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./index.module.scss";
 
 interface ScrollCarouselProps {
-    children: ReactNode;         // Nội dung render từ Server Component truyền vào
-    className?: string;          // Class tuỳ biến cho khung bọc ngoài
-    trackClassName?: string;     // Class tuỳ biến cho dải trượt bên trong
-    scrollStep?: number;         // Khoảng cách cuộn cố định (tuỳ chọn)
+    children: ReactNode;
+    className?: string;
+    trackClassName?: string;
+    scrollStep?: number;
     prevAriaLabel?: string;
     nextAriaLabel?: string;
 }
 
-/**
- * Reusable Client Island:
- * Điều khiển trượt ngang cho mọi danh sách (Logo Đối tác, Đánh giá học viên,...)
- * Nội dung con (children) được Server Component render trước thành HTML!
- */
 export default function ScrollCarousel({
     children,
     className = "",
@@ -31,7 +26,6 @@ export default function ScrollCarousel({
     const handleScroll = (direction: "left" | "right") => {
         if (!trackRef.current) return;
 
-        // Tự động đo chiều rộng của phần tử con đầu tiên + gap 24px (hoặc dùng scrollStep nếu có)
         let step = scrollStep;
         if (!step) {
             const firstItem = trackRef.current.firstElementChild as HTMLElement;
@@ -46,7 +40,6 @@ export default function ScrollCarousel({
 
     return (
         <div className={`${styles.carouselWrapper} ${className}`.trim()}>
-            {/* Nút lùi lại bên trái */}
             <button
                 type="button"
                 onClick={() => handleScroll("left")}
@@ -56,7 +49,6 @@ export default function ScrollCarousel({
                 <ChevronLeft size={20} />
             </button>
 
-            {/* Dải nội dung trượt ngang */}
             <div
                 ref={trackRef}
                 className={`${styles.track} ${trackClassName}`.trim()}
@@ -64,7 +56,6 @@ export default function ScrollCarousel({
                 {children}
             </div>
 
-            {/* Nút tiến tới bên phải */}
             <button
                 type="button"
                 onClick={() => handleScroll("right")}

@@ -7,14 +7,9 @@ interface TestimonialsSectionProps {
     data: TestimonialsSectionData;
 }
 
-/**
- * TestimonialsSection Desktop:
- * Hiển thị chính xác 3 thẻ đánh giá theo chuẩn thiết kế Figma (không còn mũi tên trượt 2 bên)
- */
 export default function TestimonialsSection({ data }: TestimonialsSectionProps) {
     if (!data?.testimonials?.length) return null;
 
-    // Chỉ hiển thị tối đa 3 đánh giá theo yêu cầu Figma
     const displayTestimonials = data.testimonials.slice(0, 3);
 
     return (
@@ -25,15 +20,12 @@ export default function TestimonialsSection({ data }: TestimonialsSectionProps) 
                 <div className={styles.grid}>
                     {displayTestimonials.map((item) => (
                         <div key={item.id} className={styles.card}>
-                            {/* Biểu tượng dấu trích dẫn chuẩn Figma (hai thanh chéo song song #AEAEAE) */}
                             <div className={styles.quoteIconWrap}>
                                 <QuoteIcon className={styles.quoteSvg} />
                             </div>
 
-                            {/* Nội dung đánh giá */}
                             <p className={styles.content}>{item.content}</p>
 
-                            {/* Thông tin học viên */}
                             <div className={styles.authorRow}>
                                 <div className={styles.avatar}>
                                     {item.author.avatar ? (

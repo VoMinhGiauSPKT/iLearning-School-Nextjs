@@ -7,8 +7,8 @@ import styles from "./index.module.scss";
 
 interface CourseCardProps {
     course: CourseItem;
-    onToggleMore?: () => void; // Hàm xử lý đóng/mở giáo trình
-    isExpanded?: boolean;      // Trạng thái đang mở hay đóng
+    onToggleMore?: () => void;
+    isExpanded?: boolean;
 }
 
 export default function CourseCard({ course, onToggleMore, isExpanded }: CourseCardProps) {
@@ -21,7 +21,6 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
     return (
         <div className={styles.card}>
             <div className={styles.cardContent}>
-                {/* Cột trái: Ảnh khóa học */}
                 <div className={styles.imageCol}>
                     <img
                         src={course.thumbnail}
@@ -30,7 +29,6 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                     />
                 </div>
 
-                {/* Cột phải: Thông tin chi tiết */}
                 <div className={styles.infoCol}>
                     <h3 className={styles.title}>{course.title}</h3>
                     <div className={styles.price}>{course.price?.replace(/\./g, ",")}</div>
@@ -51,7 +49,6 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                         ))}
                     </ul>
 
-                    {/* Nút Xem thêm / Thu gọn danh sách nếu nhiều hơn 5 mục */}
                     {hasManyFeatures && (
                         <button
                             type="button"
@@ -62,7 +59,6 @@ export default function CourseCard({ course, onToggleMore, isExpanded }: CourseC
                         </button>
                     )}
 
-                    {/* Nếu có hàm onToggleMore thì render button để đóng/mở, ngược lại là thẻ Link chuyển trang */}
                     {onToggleMore ? (
                         <button
                             type="button"

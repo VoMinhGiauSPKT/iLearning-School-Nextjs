@@ -1,11 +1,25 @@
 import { TestimonialItem } from "@/types/landing";
 import { apiFetch, getFileUrl } from "@/lib/api-client";
 
+interface ApiRatingItem {
+    id?: string | number;
+    message?: string;
+    student?: {
+        account?: {
+            fullName?: string;
+            avatarPath?: string;
+        };
+    };
+    course?: {
+        name?: string;
+    };
+}
+
 export async function getRatingList(): Promise<TestimonialItem[]> {
-    const data = await apiFetch<{ content: any[] }>("/v1/rating/public/list");
+    const data = await apiFetch<{ content: ApiRatingItem[] }>("/v1/rating/public/list");
     const content = data?.content || [];
 
-    return content.map((item: any) => {
+    return content.map((item) => {
         const rawParagraphs = (item.message || "")
             .split("\n")
             .map((s: string) => s.trim())

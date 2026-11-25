@@ -8,19 +8,10 @@ interface CurriculumAccordionProps {
     curriculum: {
         title: string;
         stages: CurriculumStage[];
-        registerButton?: {
-            label: string;
-            href: string;
-        };
     };
     defaultOpenStageId?: string | null;
 }
 
-/**
- * Mobile Curriculum Accordion (Group 427321696):
- * - Tách thành component độc lập, tái sử dụng cho từng khoá học
- * - Biểu tượng "+" và "-" 1px Line 45 & Line 46 chuẩn vector Figma
- */
 export default function CurriculumAccordion({
     curriculum,
     defaultOpenStageId = "stage-2",

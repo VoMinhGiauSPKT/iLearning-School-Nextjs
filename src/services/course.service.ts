@@ -14,11 +14,23 @@ function formatPrice(price?: number | string): string {
     return new Intl.NumberFormat("en-US").format(price) + " đ";
 }
 
+interface ApiClassroomItem {
+    id?: string | number;
+    price?: number | string;
+    course?: {
+        id?: string | number;
+        name?: string;
+        price?: number | string;
+        avatar?: string;
+        shortDescription?: string;
+    };
+}
+
 export async function getClassroomList(): Promise<CourseItem[]> {
-    const data = await apiFetch<{ content: any[] }>("/v1/class-room/public/list");
+    const data = await apiFetch<{ content: ApiClassroomItem[] }>("/v1/class-room/public/list");
     const content = data?.content || [];
 
-    return content.map((item: any) => {
+    return content.map((item) => {
         const course = item.course || {};
         const rawFeatures = (course.shortDescription || "")
             .split("\n")

@@ -1,4 +1,3 @@
-/* Apple SF Pro Display Fonts (WOFF2 với đầy đủ độ mảnh từ Ultralight 100, Thin 200, Light 300 đến Bold 700) */
 @font-face {
   font-family: 'SF Pro Display';
   font-style: normal;
@@ -63,7 +62,6 @@
   font-display: swap;
 }
 
-/* Reset CSS và màu nền tối toàn trang */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -74,7 +72,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Đồng bộ hóa tỷ lệ hiển thị trên mọi kích thước màn hình Desktop (từ Laptop 1024px đến màn chuẩn 1920px) */
 @media (min-width: 1024px) {
   html {
     font-size: clamp(8.5px, calc(100vw / 120), 18px);
@@ -83,12 +80,11 @@ html {
 
 html,
 body {
-  background-color: #182029; // Chuẩn màu nền toàn trang Figma (#182029)
+  background-color: #182029;
   color: #ffffff;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 
-  /* Ẩn thanh cuộn trên Firefox và IE/Edge cũ */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -108,7 +104,6 @@ a {
   text-decoration: none;
 }
 
-/* Ẩn hoàn toàn thanh cuộn trên Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   display: none;
   width: 0px;

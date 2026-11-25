@@ -28,7 +28,6 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                 const headerEl = document.querySelector("header");
                 const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 80;
 
-                // Cuộn mượt mà có gia tốc đưa chữ/tiêu đề section bám sát ngay dưới header
                 scrollToSectionContent(element, headerHeight, 14, 650, () => {
                     window.history.pushState(null, "", href);
                 });
@@ -40,7 +39,6 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
         <>
             <header className={styles.header}>
                 <div className={styles.container}>
-                    {/* Khối Trái: Logo & Search */}
                     <div className={styles.leftGroup}>
                         <Link href="/" className={styles.logo} onClick={(e) => handleNavClick(e, "/")} scroll={false}>
                             <Image
@@ -65,7 +63,6 @@ export default function DesktopHeader({ header }: DesktopHeaderProps) {
                         </div>
                     </div>
 
-                    {/* Khối Phải: Menu Links + Divider + Log In + SIGN */}
                     <div className={styles.rightGroup}>
                         <nav className={styles.navMenu}>
                             {header.navLinks.map((link) => (

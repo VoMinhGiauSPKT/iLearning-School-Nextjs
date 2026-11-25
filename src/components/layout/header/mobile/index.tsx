@@ -48,7 +48,6 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
         }
     };
 
-    // Chỉ giữ đúng 3 mục tương ứng với giao diện mobile, chữ đồng bộ 100% với Desktop
     const mobileAllowedLabels = ["Trang chủ", "Khoá học", "Giới thiệu"];
     const mobileNavLinks = header.navLinks.filter((link) =>
         mobileAllowedLabels.includes(link.label)
@@ -58,7 +57,6 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
         <>
             <header className={styles.mobileHeader}>
                 <div className={styles.container}>
-                    {/* Logo thương hiệu */}
                     <Link
                         href="/"
                         className={styles.logo}
@@ -79,7 +77,6 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                         </div>
                     </Link>
 
-                    {/* Nhóm nút bên phải: Nút Tư vấn + Nút Menu Hamburger xanh ngọc */}
                     <div className={styles.rightActions}>
                         <Link
                             href="#tu-van"
@@ -137,10 +134,8 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                     </div>
                 </div>
 
-                {/* Menu Drawer trượt xuống khi bấm nút hamburger */}
                 {isMenuOpen && (
                     <div className={styles.menuDrawer}>
-                        {/* Ô tìm kiếm nhanh */}
                         <div className={styles.searchBox}>
                             <SearchIcon className={styles.searchIcon} size={18} strokeWidth={1.5} />
                             <input
@@ -149,7 +144,6 @@ export default function MobileHeader({ header }: MobileHeaderProps) {
                             />
                         </div>
 
-                        {/* Danh sách Menu điều hướng: đúng 3 mục đồng bộ chữ 100% với Desktop */}
                         <nav className={styles.navMenu}>
                             {mobileNavLinks.map((link) => (
                                 <Link

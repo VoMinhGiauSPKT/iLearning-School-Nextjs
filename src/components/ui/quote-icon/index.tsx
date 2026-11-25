@@ -5,10 +5,6 @@ interface QuoteIconProps extends React.SVGProps<SVGSVGElement> {
     color?: string;
 }
 
-/**
- * Biểu tượng trích dẫn 2 thanh chéo song song chuẩn xác 100% theo vector Figma
- * ViewBox: 32 x 22 (tỷ lệ 16:11), góc nghiêng ~11.5 độ
- */
 export default function QuoteIcon({
     className,
     color = "#AEAEAE",

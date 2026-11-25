@@ -5,12 +5,8 @@ import { getMentorList } from "./mentor.service";
 import { getCompanyList } from "./company.service";
 import { getRatingList } from "./rating.service";
 
-// Xuất lại mockLandingData để layout.tsx hoặc component khác có thể dùng nếu cần
 export { mockLandingData };
 
-/**
- * Gom toàn bộ dữ liệu cần thiết cho Landing Page
- */
 export async function getLandingPageData() {
     const [setting, classrooms, mentors, companies, ratings] = await Promise.all([
         getPublicSetting(),
@@ -20,7 +16,6 @@ export async function getLandingPageData() {
         getRatingList(),
     ]);
 
-    // Ghép dữ liệu khóa học
     const coursesData = {
         ...mockLandingData.courses,
         ...(classrooms?.length ? {
@@ -29,19 +24,16 @@ export async function getLandingPageData() {
         } : {}),
     };
 
-    // Ghép dữ liệu giảng viên
     const instructorsData = {
         ...mockLandingData.instructors,
         ...(mentors?.length ? { instructors: mentors } : {}),
     };
 
-    // Ghép dữ liệu đối tác
     const partnersData = {
         ...mockLandingData.partners,
         ...(companies?.length ? { partners: companies } : {}),
     };
 
-    // Ghép dữ liệu đánh giá học viên
     const testimonialsData = {
         ...mockLandingData.testimonials,
         ...(ratings?.length ? { testimonials: ratings } : {}),

@@ -1,11 +1,11 @@
 .sliderWrapper {
     width: 100%;
     max-width: 120rem;
-    /* 1920px */
+
     margin: 1.6rem auto 0;
-    /* Chuẩn Figma: 26px (kết hợp header 100px -> top: 126px) */
+
     padding: 0 1.6rem;
-    /* Chuẩn Figma: left 26px, right 26px */
+
     display: flex;
     justify-content: center;
     box-sizing: border-box;
@@ -14,16 +14,15 @@
 .sliderContainer {
     width: 100%;
     max-width: 116.8rem;
-    /* Chuẩn Figma: width 1868px */
+
     aspect-ratio: 1868 / 724;
-    /* Giữ chuẩn tỷ lệ vàng 1868x724 trên mọi kích thước màn hình */
+
     border-radius: clamp(0.8rem, 1vw, 1.3rem);
-    /* 20px trên màn 1920 */
+
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
 
-    /* Dải track trượt ngang mượt mà */
     .slidesTrack {
         display: flex;
         height: 100%;
@@ -31,7 +30,6 @@
         transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    /* Từng slide độc lập hiển thị hình nền và nội dung */
     .slideItem {
         height: 100%;
         position: relative;
@@ -41,13 +39,12 @@
         display: flex;
         align-items: flex-start;
         padding-top: clamp(3.5rem, 7.9vw, 9.5rem);
-        /* Tối đa 152px (top 278px) trên 1920, co giãn trên laptop */
+
         padding-left: clamp(3.5rem, 8.3vw, 10rem);
-        /* Tối đa 160px (left 186px) trên 1920, co giãn trên laptop */
+
         box-sizing: border-box;
         flex-shrink: 0;
 
-        /* Lớp phủ gradient kép đúng chuẩn Figma */
         .overlay {
             position: absolute;
             inset: 0;
@@ -57,16 +54,15 @@
             z-index: 1;
         }
 
-        /* Khung nội dung text bên trái chuẩn Figma */
         .content {
             position: relative;
             z-index: 2;
             width: clamp(28rem, 54vw, 64.8rem);
-            /* Chuẩn Figma: width 1037px */
+
             max-width: 90%;
             height: auto;
             min-height: clamp(14rem, 22.3vw, 26.8rem);
-            /* Chuẩn Figma: height 429px */
+
             max-height: 90%;
             border-radius: clamp(0.8rem, 1vw, 1.3rem);
             display: flex;
@@ -80,9 +76,9 @@
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 font-weight: 600;
                 font-style: normal;
-                /* Semibold */
+
                 font-size: clamp(1.4rem, 2.8vw, 3.4rem);
-                /* Chuẩn Figma: 54.48px trên màn 1920 */
+
                 line-height: 1.15;
                 letter-spacing: 0%;
                 color: #ffffff;
@@ -100,25 +96,25 @@
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 font-weight: 600;
                 font-style: normal;
-                /* Semibold chuẩn Figma */
+
                 font-size: clamp(1.2rem, 1.7vw, 2rem);
-                /* Chuẩn Figma: 32.69px -> 2rem */
+
                 line-height: clamp(1.8rem, 2.5vw, 3rem);
-                /* Chuẩn Figma: 47.22px -> 3rem */
+
                 letter-spacing: 0%;
                 color: #ffffff;
                 opacity: 0.8;
-                /* Chuẩn Figma: opacity 0.8 */
+
                 width: 100%;
                 max-width: 64.8rem;
-                /* Chuẩn Figma: width 1037px -> 64.8rem */
+
                 min-height: clamp(4.5rem, 7.4vw, 8.9rem);
-                /* Chuẩn Figma: height 141.66px -> 8.9rem */
+
                 margin: 0;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
-                /* Tối đa 3 dòng */
+
                 line-clamp: 3;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -127,19 +123,19 @@
 
             .ctaBtn {
                 width: clamp(8rem, 12vw, 14.4rem);
-                /* Chuẩn Figma: width 230px trên màn 1920 */
+
                 height: clamp(2.6rem, 4.2vw, 5rem);
-                /* Chuẩn Figma: height 80px trên màn 1920 */
+
                 border-radius: clamp(0.6rem, 1vw, 1.3rem);
-                /* Chuẩn Figma: 20px trên màn 1920 */
+
                 background-color: #15CCA3;
                 color: #ffffff;
                 font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 font-style: normal;
                 font-weight: 800;
-                /* Chuẩn Heavy Figma */
+
                 font-size: clamp(1rem, 1.3vw, 1.6rem);
-                /* Chuẩn Figma: 25px -> 1.6rem */
+
                 line-height: 100%;
                 letter-spacing: 0%;
                 display: inline-flex;
@@ -161,23 +157,22 @@
         }
     }
 
-    /* Thanh rãnh trượt chuẩn Figma */
     .sliderTrack {
         position: absolute;
         bottom: clamp(1rem, 1.4vw, 1.7rem);
-        /* Chuẩn Figma: cách đáy 27px (850px - 823px = 27px -> 1.7rem) */
+
         left: 50%;
         transform: translateX(-50%);
-        /* Chuẩn Figma: left 906px (căn giữa hoàn hảo) */
+
         width: clamp(4.5rem, 5.7vw, 6.8rem);
-        /* Chuẩn Figma: width 109px (109 / 16 = 6.8rem) */
+
         height: clamp(0.5rem, 0.7vw, 0.8rem);
-        /* Chuẩn Figma: height 13px (13 / 16 = 0.8rem) */
+
         opacity: 0.8;
-        /* Chuẩn Figma: opacity 0.8 */
+
         background-color: rgb(255, 255, 255);
         border-radius: 6.3rem;
-        /* Chuẩn Figma: border-radius 100px (100 / 16 = 6.3rem) */
+
         overflow: hidden;
         display: flex;
         cursor: pointer;

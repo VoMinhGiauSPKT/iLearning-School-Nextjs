@@ -10,12 +10,6 @@ interface InstructorSliderProps {
     instructors: InstructorItem[];
 }
 
-/**
- * Client Island cho Giảng viên (Instructors):
- * - Cặp nút điều hướng Prev/Next được CỐ ĐỊNH vị trí tại thẻ, không bị trượt theo nội dung
- * - Dải track trượt ngang mượt mà (smooth sliding track) với overflow: hidden chuẩn xác
- * - Không bị lộ viền ảnh tiếp theo ở mép phải
- */
 export default function InstructorSlider({ instructors }: InstructorSliderProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -33,9 +27,7 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
     };
 
     return (
-        /* Thẻ Giảng viên lớn chuẩn Figma (Rectangle 29) */
         <div className={styles.instructorCard}>
-            {/* Viewport che phần tràn chỉ chứa nội dung trượt của giảng viên */}
             <div className={styles.sliderViewport}>
                 <div
                     className={styles.sliderTrack}
@@ -55,7 +47,6 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                             }}
                         >
                             <div className={styles.contentWrap}>
-                                {/* Cột trái: Khung ảnh 500x500 (Rectangle 33) */}
                                 <div className={styles.imageCol}>
                                     {instructor.avatar ? (
                                         <img
@@ -66,9 +57,7 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                                     ) : null}
                                 </div>
 
-                                {/* Cột phải: Thông điệp trích dẫn & Thông tin (Group 62) */}
                                 <div className={styles.infoCol}>
-                                    {/* Dấu trích dẫn 2 thanh chéo song song chuẩn Figma */}
                                     <div className={styles.quoteWrap}>
                                         <QuoteIcon className={styles.quoteSvg} />
                                     </div>
@@ -79,7 +68,6 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                                         ))}
                                     </div>
 
-                                    {/* Hàng tác giả (phần bên phải chừa chỗ cho cặp nút cố định) */}
                                     <div className={styles.authorRow}>
                                         <div className={styles.authorDetails}>
                                             <h3 className={styles.authorName}>{instructor.name}</h3>
@@ -93,7 +81,6 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                 </div>
             </div>
 
-            {/* Cặp nút điều hướng Prev/Next CỐ ĐỊNH ở góc dưới bên phải, nhỏ gọn thanh mảnh */}
             <div className={styles.fixedNavButtons}>
                 <button
                     type="button"
@@ -113,7 +100,6 @@ export default function InstructorSlider({ instructors }: InstructorSliderProps)
                 </button>
             </div>
 
-            {/* Các chấm tròn phân trang nằm BÊN TRONG thẻ ở đáy chuẩn Figma (Group 67) */}
             <div className={styles.dots}>
                 {instructors.map((_, idx) => (
                     <button

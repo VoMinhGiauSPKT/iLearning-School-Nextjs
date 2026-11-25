@@ -27,7 +27,6 @@ export default async function RootLayout({
   return (
     <html lang="vi" translate="no" className="notranslate">
       <body suppressHydrationWarning className="notranslate">
-        {/* Header tự động nhận diện hiển thị Desktop hay Mobile */}
         <Header header={data.header} isMobile={isMobile} />
         {children}
       </body>

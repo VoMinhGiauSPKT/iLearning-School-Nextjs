@@ -3,12 +3,12 @@
     display: flex;
     justify-content: center;
     padding: 6.3rem 0 0;
-    /* Chuẩn Figma: gap 100px (100 / 16 = 6.3rem) */
+
     box-sizing: border-box;
 }
 
 .container {
-    /* Chuẩn tỷ lệ Figma: 1170px / 1920px = 61% (1170 / 16 = 73.1rem) */
+
     width: 73.1rem;
     max-width: 100%;
     margin: 0 auto;
@@ -20,7 +20,7 @@
 .videoWrapper {
     width: 100%;
     aspect-ratio: 1170 / 658.06;
-    /* Chuẩn tỷ lệ Figma 1170x658.06 trên mọi màn hình, không bị méo */
+
     background-color: #090c0f;
     overflow: hidden;
     border: 0.1rem solid rgba(255, 255, 255, 0.08);

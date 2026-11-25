@@ -9,13 +9,9 @@ import styles from "./index.module.scss";
 interface CourseItemProps {
     course: CourseItemType;
     curriculum: CoursesSectionData["curriculum"];
-    defaultOpen?: boolean; // Cho phép mở sẵn (áp dụng cho khóa đầu tiên)
+    defaultOpen?: boolean;
 }
 
-/**
- * Đảo tương tác (Client Island) cho từng khóa học:
- * Mỗi khóa học tự quản lý trạng thái đóng/mở giáo trình của chính nó
- */
 export default function CourseItem({
     course,
     curriculum,
@@ -23,7 +19,6 @@ export default function CourseItem({
 }: CourseItemProps) {
     const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
 
-    // Tiêu đề giáo trình "Giáo trình" theo đúng chuẩn thiết kế Figma
     const courseCurriculum = {
         ...curriculum,
         title: "Giáo trình",
@@ -31,14 +26,12 @@ export default function CourseItem({
 
     return (
         <div className={styles.courseItemWrap}>
-            {/* Thẻ thông tin khóa học */}
             <CourseCard
                 course={course}
                 onToggleMore={() => setIsOpen((prev) => !prev)}
                 isExpanded={isOpen}
             />
 
-            {/* Giáo trình accordion xổ ra ngay dưới thẻ khi bấm Xem thêm */}
             {isOpen && (
                 <div className={styles.curriculumWrap}>
                     <CurriculumAccordion data={courseCurriculum} />

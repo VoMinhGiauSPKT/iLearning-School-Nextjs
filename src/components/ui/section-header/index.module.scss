@@ -1,12 +1,12 @@
 .header {
     text-align: center;
     margin: 0 auto 4.4rem;
-    /* Canh khoảng cách dưới bằng đúng khoảng cách trên 70px (4.4rem) trên Desktop */
+
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 25rem;
-    /* 400px -> 25rem */
+
     box-sizing: border-box;
 
     @media (max-width: 768px) {
@@ -18,17 +18,17 @@
     .subtitle {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-style: normal;
-        font-weight: 400; // Mảnh hơn dòng dưới
+        font-weight: 400;
         font-size: 1.4rem;
-        /* 23px (23 / 16 = 1.4rem) */
+
         line-height: 120%;
         color: #ffffff;
         margin: 0 0 0.2rem 0;
-        /* 4px -> 0.3rem */
+
         text-align: center;
 
         @media (max-width: 768px) {
-            // iPhone SE (375px): ~15.5px | iPhone 16 Pro Max (440px): ~18.5px
+
             font-size: clamp(15px, calc(-2px + 4.6vw), 19px);
             font-weight: 400;
             line-height: 120%;
@@ -40,16 +40,16 @@
     .title {
         font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-style: normal;
-        font-weight: 600; // Dày hơn dòng ở trên
+        font-weight: 600;
         font-size: 1.5rem;
-        /* 23px (23 / 16 = 1.4rem) */
+
         line-height: 120%;
         color: #ffffff;
         margin: 0;
         text-align: center;
 
         @media (max-width: 768px) {
-            // iPhone SE (375px): ~19.5px | iPhone 16 Pro Max (440px): ~23.5px
+
             font-size: clamp(19px, calc(-3.5px + 6.15vw), 24px);
             font-weight: 700;
             line-height: 120%;

@@ -1,6 +1,6 @@
 import { InstructorsSectionData } from "@/types/landing";
 import SectionHeader from "@/components/ui/section-header";
-import InstructorSlider from "./instructor-slider";
+import InstructorSlider from "./instructor-slider/index";
 import styles from "./index.module.scss";
 
 interface InstructorsSectionProps {

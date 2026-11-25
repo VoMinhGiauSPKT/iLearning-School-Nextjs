@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CurriculumStage } from "@/types/landing";
-import styles from "./curriculum-accordion.module.scss";
+import styles from "./index.module.scss";
 
 interface CurriculumAccordionProps {
     curriculum: {

@@ -1,0 +1,28 @@
+.coursesList {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.allCoursesWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 26px;
+
+    .allCoursesBtn {
+        background-color: #15cca3;
+        color: #ffffff;
+        font-size: 16.5px;
+        font-weight: 700;
+        padding: 15px 44px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+
+        &:active {
+            opacity: 0.85;
+        }
+    }
+}

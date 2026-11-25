@@ -1,6 +1,6 @@
 import { PartnersSectionData } from "@/types/landing";
 import SectionHeader from "@/components/ui/section-header";
-import PartnerSlider from "./partner-slider";
+import PartnerSlider from "./partner-slider/index";
 import styles from "./index.module.scss";
 
 interface PartnersSectionProps {
